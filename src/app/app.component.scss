@@ -1,0 +1,5 @@
+@import 'src/styles.scss';
+
+.test {
+  color: map-get($custom, basic);
+}
