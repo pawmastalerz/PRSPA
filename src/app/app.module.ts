@@ -1,3 +1,4 @@
+import { HomeModule } from './home/home.module';
 import { LandingModule } from './landing/landing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -8,7 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, LandingModule],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, LandingModule, HomeModule],
   providers: [],
   bootstrap: [AppComponent]
 })
