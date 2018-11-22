@@ -1,5 +1,40 @@
 @import 'src/styles.scss';
 
-.test {
-  color: map-get($custom, basic);
+.entry {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../assets/entry.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.logo-circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+  transition: all .4s ease-in-out;
+}
+
+.logo-circle:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.logo-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.logob {
+  margin-top: 50px;
 }

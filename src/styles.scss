@@ -1,8 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+}
+
 $custom: (
-    basic: #28D8CC,
-    light: #D4FAF8,
-    darker: #2D8785,
-    dark: #282E3C,
-    white: #FFFFFF
-)
+  basic: #28d8cc,
+  light: #d4faf8,
+  darker: #2d8785,
+  dark: #282e3c,
+  white: #ffffff
+);
