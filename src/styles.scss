@@ -18,7 +18,7 @@ $custom: (
   cursor: pointer;
   color: white !important;
   text-decoration: none;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
 }
 
 input,
@@ -26,3 +26,9 @@ select {
   background-color: map-get($map: $custom, $key: light) !important;
 }
 
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus {
+  outline: none;
+  box-shadow: none;
+}
