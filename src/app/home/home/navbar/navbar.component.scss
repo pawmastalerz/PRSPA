@@ -2,17 +2,18 @@
 
 .navbar {
   background-image: linear-gradient(90deg, #10e3d5, #18c5b9);
-}
-
-.navbar li,
-.navbar a {
-  width: 185px;
-  font-family: 'Oswald';
-  font-size: 28px;
-  color: map-get($custom, dark);
-}
-
-.navbar {
   min-height: 70px;
   margin: 0;
+
+  li,
+  a {
+    width: 185px;
+    font-family: 'Oswald';
+    font-size: 28px;
+    color: map-get($custom, dark);
+  }
+  
+  .logo:hover {
+    cursor: pointer;
+  }
 }

@@ -1,40 +1,20 @@
-<div
-  class="navbar navbar-expand-md sticky-top d-flex flex-column flex-md-row justify-content-center justify-content-md-start"
->
-  <img src="../../../../assets/logoName.png" class="logo ml-md-3" width="200px" />
-  <div class="links d-flex flex-column flex-md-row ml-md-auto">
-    <a class="nav-link text-center" [routerLink]="['/cennik']">cennik</a>
-    <a class="nav-link text-center" [routerLink]="['/kontakt']">kontakt</a>
-    <a class="nav-link text-center" [routerLink]="['/login']">zaloguj się</a>
-  </div>
-</div>
-
-<!--
-  <nav class="navbar navbar-expand-md sticky-top m-0 p-0 d-flex flex-column align-items-center">
-    <div class="navbar-toggler" (click)="isCollapsed = !isCollapsed">
-      <img src="../../../../assets/logoName.png" width="200px">
-    </div>
-    <div class="collapse navbar-collapse" [ngClass]="isCollapsed ? 'd-flex' : 'd-none'" >
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-3">
-            test
-          </div>
-          <div class="col-md-9">
-            <ul class="navbar-nav">
-              <li class="nav-item mx-1">
-                <a class="nav-link" [routerLink]="['/cennik']">cennik</a>
-              </li>
-              <li class="nav-item mx-1">
-                <a class="nav-link" [routerLink]="['/kontakt']">kontakt</a>
-              </li>
-              <li class="nav-item mx-1">
-                <a class="nav-link" [routerLink]="['/login']">zaloguj się</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="../../../../assets/logoName.png" class="logo ml-md-3" width="200px" routerLink="/home" />
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">cennik</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">kontakt</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">zaloguj się</a>
+        </li>
+      </ul>
     </div>
   </nav>
--->
