@@ -1,20 +1,33 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <img src="../../../../assets/logoName.png" class="logo ml-md-3" width="200px" routerLink="/home" />
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">cennik</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">kontakt</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">zaloguj się</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <img
+    src="../../../../assets/logoName.png"
+    class="logo ml-md-3"
+    width="200px"
+    [routerLink]="['/home/main']"
+  />
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/home/cennik']">cennik</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/home/kontakt']">kontakt</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/home/login']">zaloguj się</a>
+      </li>
+    </ul>
+  </div>
+</nav>

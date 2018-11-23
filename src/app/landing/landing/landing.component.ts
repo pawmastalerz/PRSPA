@@ -14,7 +14,7 @@ export class LandingComponent implements OnInit {
   }
 
   onEnter() {
-    this.router.navigate(['home']);
+    this.router.navigate(['home/main']);
   }
 
 }
