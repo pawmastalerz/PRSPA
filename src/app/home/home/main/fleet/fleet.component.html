@@ -2,4 +2,13 @@
   <div class="fleet-container">
     <p class="p-0 m-0 text-center">NASZA FLOTA</p>
   </div>
+  <owl-carousel
+    [options]="mySlideOptions"
+    [items]="images"
+    [carouselClasses]="['owl-theme', 'sliding']"
+  >
+    <div class="item" *ngFor="let image of mySlideImages; let i = index">
+      <div><img src="{{image}}" /></div>
+    </div>
+  </owl-carousel>
 </div>

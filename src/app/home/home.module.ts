@@ -10,12 +10,20 @@ import { LoginComponent } from './home/login/login.component';
 import { ContactComponent } from './home/contact/contact.component';
 import { SearchComponent } from './home/main/search/search.component';
 import { FleetComponent } from './home/main/fleet/fleet.component';
+import { OwlModule } from 'ngx-owl-carousel';
 
 @NgModule({
-  declarations: [HomeComponent, NavbarComponent, FooterComponent, MainComponent, PricesComponent, LoginComponent, ContactComponent, SearchComponent, FleetComponent],
-  imports: [
-    CommonModule,
-    RouterModule
-  ]
+  declarations: [
+    HomeComponent,
+    NavbarComponent,
+    FooterComponent,
+    MainComponent,
+    PricesComponent,
+    LoginComponent,
+    ContactComponent,
+    SearchComponent,
+    FleetComponent
+  ],
+  imports: [CommonModule, RouterModule, OwlModule]
 })
-export class HomeModule { }
+export class HomeModule {}
