@@ -13,9 +13,6 @@
     .col-lg-9 {
       min-height: 215px;
     }
-    .logo:hover {
-      cursor: pointer;
-    }
     .table td {
       border: none;
       padding: 10px;
@@ -25,8 +22,8 @@
   .footer-bottom {
     min-height: 62px;
     background-color: map-get($map: $custom, $key: darker);
-    color: map-get($map: $custom, $key: dark);
-    p {
+    a {
+      color: map-get($map: $custom, $key: dark);
       font-family: 'Oswald';
       font-size: 18px;
     }

@@ -14,8 +14,8 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'main', component: MainComponent, pathMatch: 'full' },
-      { path: 'cennik', component: PricesComponent, pathMatch: 'full' },
-      { path: 'kontakt', component: ContactComponent, pathMatch: 'full' },
+      { path: 'pricing', component: PricesComponent, pathMatch: 'full' },
+      { path: 'contact', component: ContactComponent, pathMatch: 'full' },
       { path: 'login', component: LoginComponent, pathMatch: 'full' }
     ]
   },

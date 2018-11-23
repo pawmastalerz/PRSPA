@@ -13,3 +13,9 @@ $custom: (
   dark: #282e3c,
   white: #ffffff
 );
+
+.hoverable-white:hover {
+  cursor: pointer;
+  color: white !important;
+  text-decoration: none;
+}
