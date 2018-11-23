@@ -19,3 +19,7 @@ $custom: (
   color: white !important;
   text-decoration: none;
 }
+
+input, select {
+  background-color: map-get($map: $custom, $key: light) !important;
+}
