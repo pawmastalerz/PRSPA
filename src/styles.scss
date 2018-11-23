@@ -18,8 +18,11 @@ $custom: (
   cursor: pointer;
   color: white !important;
   text-decoration: none;
+  transition: all .4s ease;
 }
 
-input, select {
+input,
+select {
   background-color: map-get($map: $custom, $key: light) !important;
 }
+
