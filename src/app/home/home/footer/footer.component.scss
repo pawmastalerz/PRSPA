@@ -1,0 +1,34 @@
+@import 'src/styles.scss';
+
+.footer {
+  background-image: linear-gradient(90deg, #10e3d5, #18c5b9);
+  color: map-get($map: $custom, $key: dark);
+
+  .footer-top {
+    min-height: 215px;
+    p {
+      font-family: 'Oswald';
+      font-size: 20px;
+    }
+    .col-lg-6 {
+      min-height: 215px;
+    }
+    .logo:hover {
+      cursor: pointer;
+    }
+    .table td {
+      border: none;
+      padding: 10px;
+    }
+  }
+
+  .footer-bottom {
+    min-height: 62px;
+    background-color: map-get($map: $custom, $key: darker);
+    color: map-get($map: $custom, $key: dark);
+    p {
+      font-family: 'Oswald';
+      font-size: 18px;
+    }
+  }
+}
