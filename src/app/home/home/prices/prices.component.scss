@@ -69,7 +69,7 @@
         height: 55px;
         border-top-left-radius: 30px;
         border-top-right-radius: 30px;
-        background-image: linear-gradient(90deg, #10e3d5, #18c5b9);
+        background-image: map-get($map: $custom, $key: basic-gradient);
         p {
           color: map-get($map: $custom, $key: dark);
           margin-right: 30px;
