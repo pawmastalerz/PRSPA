@@ -23,8 +23,12 @@ $custom: (
 }
 
 input,
-select {
+select,
+textarea {
   background-color: map-get($map: $custom, $key: light) !important;
+  color: map-get($map: $custom, $key: dark) !important;
+  resize: none;
+  border-radius: 7px;
 }
 
 .btn:focus,
