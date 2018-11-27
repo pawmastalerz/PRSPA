@@ -6,13 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fleet.component.scss']
 })
 export class FleetComponent implements OnInit {
-  // mySlideImages = [1, 2, 3, 4, 5, 6, 7].map(
-  //   i => `https://picsum.photos/640/480?image=${i}`
-  // );
 
-  mySlideImages = [1, 2, 3, 4, 5, 6, 7].map(
-    i => `https://picsum.photos/640/480?image=${i}`
-  );
+  wholeFleet = [1, 2, 3, 4, 5, 6, 7];
 
   mySlideOptions = {
     items: 1,

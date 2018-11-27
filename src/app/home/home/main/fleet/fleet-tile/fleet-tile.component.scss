@@ -1,0 +1,33 @@
+@import 'src/styles.scss';
+
+.fleet-tile {
+  box-shadow: 5px 5px 10px map-get($map: $custom, $key: dark);
+  .car-image {
+    min-height: 360px;
+    background-size: cover;
+    background-position: center;
+  }
+  .car-description {
+    background-color: map-get($map: $custom, $key: light);
+    min-height: 260px;
+    border-bottom-left-radius: 70px;
+    color: map-get($map: $custom, $key: dark);
+    h1 {
+      font-size: 30px;
+      padding-top: 40px;
+      font-weight: 400;
+    }
+    h2 {
+      font-size: 18px;
+      padding-top: 20px;
+      font-weight: 400;
+    }
+    button {
+      font-size: 18px;
+      background-color: map-get($map: $custom, $key: basic);
+      color: map-get($map: $custom, $key: dark);
+      width: 150px;
+      margin-top: 50px;
+    }
+  }
+}

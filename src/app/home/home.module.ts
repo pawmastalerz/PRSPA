@@ -11,6 +11,7 @@ import { ContactComponent } from './home/contact/contact.component';
 import { SearchComponent } from './home/main/search/search.component';
 import { FleetComponent } from './home/main/fleet/fleet.component';
 import { OwlModule } from 'ngx-owl-carousel';
+import { FleetTileComponent } from './home/main/fleet/fleet-tile/fleet-tile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { OwlModule } from 'ngx-owl-carousel';
     LoginComponent,
     ContactComponent,
     SearchComponent,
-    FleetComponent
+    FleetComponent,
+    FleetTileComponent
   ],
   imports: [CommonModule, RouterModule, OwlModule]
 })

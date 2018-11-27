@@ -4,11 +4,10 @@
   </div>
   <owl-carousel
     [options]="mySlideOptions"
-    [items]="images"
     [carouselClasses]="['owl-theme', 'sliding']"
   >
-    <div class="item" *ngFor="let image of mySlideImages; let i = index">
-      <div><img src="{{image}}" /></div>
+    <div class="item" *ngFor="let image of wholeFleet; let i = index">
+      <app-fleet-tile></app-fleet-tile>
     </div>
   </owl-carousel>
 </div>
