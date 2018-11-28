@@ -2,17 +2,18 @@
   <div
     class="car-image"
     [ngStyle]="{
-      'background-image':
-        'url(' + carDetails.photoUrl + ')'
+      'background-image': 'url(' + carDetails.photoUrl + ')'
     }"
   ></div>
   <div class="car-description text-center">
     <h1>{{ carDetails.brand + ' ' + carDetails.model }}</h1>
     <h2>{{ carDetails.description }}</h2>
     <div class="d-flex align-items-center">
-      <button type="button" class="btn mx-auto hoverable-white mb-5">
-        szczegóły
-      </button>
+      <a class="mx-auto" [routerLink]="['../details/' + carDetails.id]">
+        <button type="button" class="btn hoverable-white mb-5">
+          szczegóły
+        </button>
+      </a>
     </div>
   </div>
 </div>
