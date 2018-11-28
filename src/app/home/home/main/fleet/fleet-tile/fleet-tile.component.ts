@@ -8,11 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FleetTileComponent implements OnInit {
   @Input()
-  carDetails: any;
+  carDetails: CarForUser;
 
-  constructor() {
+  constructor() {}
+
+  ngOnInit() {
     console.log(this.carDetails);
   }
-
-  ngOnInit() {}
 }

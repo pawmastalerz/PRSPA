@@ -3,15 +3,12 @@
     class="car-image"
     [ngStyle]="{
       'background-image':
-        'url(https://res.cloudinary.com/daqr6afij/image/upload/v1543330477/vectra.jpg)'
+        'url(' + carDetails.photoUrl + ')'
     }"
   ></div>
   <div class="car-description text-center">
-    <h1>Opel Vectra B</h1>
-    <h2>
-      Komfortowy sedan dla całej rodziny. <br />
-      Podaruj sobie odrobinę luksusu.
-    </h2>
+    <h1>{{ carDetails.brand + ' ' + carDetails.model }}</h1>
+    <h2>{{ carDetails.description }}</h2>
     <div class="d-flex align-items-center">
       <button type="button" class="btn mx-auto hoverable-white mb-5">
         szczegóły

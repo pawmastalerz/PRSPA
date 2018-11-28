@@ -8,7 +8,7 @@
     [carouselClasses]="['owl-theme', 'row', 'sliding']"
   >
     <div class="item" *ngFor="let carDetails of wholeFleet">
-      <app-fleet-tile [carDetails]=carDetails></app-fleet-tile>
+      <app-fleet-tile [carDetails]="carDetails"></app-fleet-tile>
     </div>
   </owl-carousel>
 </div>
