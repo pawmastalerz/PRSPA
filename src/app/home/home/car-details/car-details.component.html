@@ -1,3 +1,26 @@
-<p>
-  car-details works!
-</p>
+<div class="container-details">
+  <div class="details-container d-flex flex-column align-items-center">
+    <p class="p-0 m-0 text-center mb-5">SZCZEGÓŁY POJAZDU</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-5 description text-center">
+          <p>Marka: {{ carDetails.brand }}</p>
+          <p>Model: {{ carDetails.model }}</p>
+          <p>Rocznik: {{ carDetails.year }}</p>
+          <p>Nadwozie: {{ carDetails.body }}</p>
+          <p>Skrzynia biegów: {{ carDetails.transmission }}</p>
+          <p>Liczba drzwi: {{ carDetails.doors }}</p>
+          <p>Paliwo: {{ carDetails.fuel }}</p>
+          <p>Spalanie: {{ carDetails.lP100Km }}</p>
+          <p>Klimatyzacja: {{ carDetails.airConditioned }}</p>
+        </div>
+        <div
+          class="col-sm-7 px-0"
+          [ngStyle]="{
+            'background-image': 'url(' + carDetails.photoUrl + ')'
+          }"
+        ></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,9 +8,11 @@ body {
 }
 
 $custom: (
-  basic-gradient: linear-gradient(90deg, #10e3d5, #18c5b9),
   basic: #28d8cc,
+  basic-gradient: linear-gradient(90deg, #10e3d5, #18c5b9),
+  basic-opacity: rgba(#28d8cc, 0.7),
   light: #d4faf8,
+  light-opacity: rgba(#d4faf8, 0.7),
   darker: #2d8785,
   dark: #282e3c,
   white: #ffffff

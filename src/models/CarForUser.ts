@@ -12,4 +12,6 @@ export class CarForUser {
   photoUrl: string;
   reservedFrom: Date;
   reservedTo: Date;
+  airConditioned: string;
+  fuel: string;
 }
