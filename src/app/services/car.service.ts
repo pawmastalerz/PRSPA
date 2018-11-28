@@ -15,4 +15,10 @@ export class CarService {
       observe: 'response'
     });
   }
+
+  getCarDetailsForUser(id: string) {
+    return this.http.get(this.baseUrl + 'cars/user/' + id, {
+      observe: 'response'
+    });
+  }
 }
