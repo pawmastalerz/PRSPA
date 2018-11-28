@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { CarForUser } from 'src/models/carForUser';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-fleet-tile',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fleet-tile.component.scss']
 })
 export class FleetTileComponent implements OnInit {
+  @Input()
+  carDetails: any;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    console.log(this.carDetails);
   }
 
+  ngOnInit() {}
 }

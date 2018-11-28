@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CarService } from 'src/app/services/car.service';
+import { CarForUser } from 'src/models/carForUser';
 
 @Component({
   selector: 'app-fleet',
@@ -6,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fleet.component.scss']
 })
 export class FleetComponent implements OnInit {
-
-  wholeFleet = [1, 2, 3, 4, 5, 6, 7];
+  wholeFleet: Array<CarForUser> = [];
 
   mySlideOptions = {
     items: 1,
@@ -28,7 +29,24 @@ export class FleetComponent implements OnInit {
     }
   };
 
-  constructor() {}
+  constructor(private carService: CarService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.carService.getWholeFleetForUser().subscribe(
+      (res: any) => {
+        if (+res.status === 200) {
+          this.wholeFleet = res.body;
+        } else {
+          console.log('Błąd podczas ładowania całej floty dla użytkownika');
+        }
+      },
+      error => {
+        console.log(error);
+        console.log('Błąd podczas ładowania całej floty dla użytkownika');
+        setTimeout(() => {
+          this.ngOnInit();
+        }, 300);
+      }
+    );
+  }
 }
