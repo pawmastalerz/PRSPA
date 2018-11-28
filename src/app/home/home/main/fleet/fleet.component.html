@@ -5,7 +5,7 @@
   <owl-carousel
     [options]="mySlideOptions"
     [items]="wholeFleet"
-    [carouselClasses]="['owl-theme', 'row', 'sliding']"
+    [carouselClasses]="['owl-theme', 'sliding']"
   >
     <div class="item" *ngFor="let carDetails of wholeFleet">
       <app-fleet-tile [carDetails]="carDetails"></app-fleet-tile>
