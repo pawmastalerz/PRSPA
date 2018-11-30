@@ -29,6 +29,12 @@ import { CarDetailsComponent } from './home/car-details/car-details.component';
     FleetTileComponent,
     CarDetailsComponent
   ],
-  imports: [CommonModule, RouterModule, OwlModule, FormsModule, ReactiveFormsModule]
+  imports: [
+    CommonModule,
+    RouterModule,
+    OwlModule,
+    FormsModule,
+    ReactiveFormsModule
+  ]
 })
 export class HomeModule {}

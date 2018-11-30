@@ -1,3 +1,4 @@
+import { CpanelModule } from './cpanel/cpanel.module';
 import { HomeModule } from './home/home.module';
 import { LandingModule } from './landing/landing.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     LandingModule,
     HomeModule,
+    CpanelModule,
     HttpClientModule,
     ReactiveFormsModule
   ],

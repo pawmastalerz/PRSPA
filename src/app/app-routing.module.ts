@@ -7,6 +7,7 @@ import { MainComponent } from './home/home/main/main.component';
 import { PricesComponent } from './home/home/prices/prices.component';
 import { ContactComponent } from './home/home/contact/contact.component';
 import { LoginComponent } from './home/home/login/login.component';
+import { CpanelComponent } from './cpanel/cpanel/cpanel.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -18,7 +19,8 @@ const routes: Routes = [
       { path: 'details/:id', component: CarDetailsComponent, pathMatch: 'full' },
       { path: 'pricing', component: PricesComponent, pathMatch: 'full' },
       { path: 'contact', component: ContactComponent, pathMatch: 'full' },
-      { path: 'login', component: LoginComponent, pathMatch: 'full' }
+      { path: 'login', component: LoginComponent, pathMatch: 'full' },
+      { path: 'cpanel', component: CpanelComponent, pathMatch: 'full' }
     ]
   },
   {

@@ -46,6 +46,12 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('accessToken');
+    this.isAuth.next(false);
+  }
+
+  setIsAuth(isAuth: boolean) {
+    this.isAuth.next(isAuth);
+    console.log('Obecna wartosc isAuth: ' + this.isAuth.value);
   }
 
   public isAuthenticated(): boolean {

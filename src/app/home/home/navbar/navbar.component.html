@@ -19,14 +19,20 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
+      <li class="nav-item text-center" *ngIf="isAuth">
+        <a class="nav-link hoverable-white" [routerLink]="['/home/cpanel']">panel klienta</a>
+      </li>
       <li class="nav-item text-center">
         <a class="nav-link hoverable-white" [routerLink]="['/home/pricing']">cennik</a>
       </li>
       <li class="nav-item text-center">
         <a class="nav-link hoverable-white" [routerLink]="['/home/contact']">kontakt</a>
       </li>
-      <li class="nav-item text-center">
+      <li class="nav-item text-center" *ngIf="!isAuth">
         <a class="nav-link hoverable-white" [routerLink]="['/home/login']">zaloguj się</a>
+      </li>
+      <li class="nav-item text-center" *ngIf="isAuth">
+        <a class="nav-link hoverable-white" (click)="logout()" [routerLink]="['/home/main']">wyloguj się</a>
       </li>
     </ul>
   </div>
