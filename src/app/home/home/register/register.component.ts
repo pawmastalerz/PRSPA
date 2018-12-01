@@ -30,7 +30,12 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.authService.register(
       this.registerForm.value.username,
-      this.registerForm.value.password
+      this.registerForm.value.email,
+      this.registerForm.value.password,
+      this.registerForm.value.city,
+      this.registerForm.value.street,
+      this.registerForm.value.streetNumber,
+      this.registerForm.value.postalCode,
     );
   }
 

@@ -49,8 +49,30 @@ export class AuthService {
     this.isAuth.next(false);
   }
 
-  register(username: string, password: string) {
-    console.log(username, password);
+  register(
+    username: string,
+    email: string,
+    password: string,
+    city: string,
+    street: string,
+    streetNumber: string,
+    postalCode: string
+  ) {
+    return this.http
+      .post(
+        this.baseUrl + 'users/register',
+        { username, email, password, city, street, streetNumber, postalCode },
+        {
+          observe: 'response'
+        }
+      )
+      .subscribe((res: any) => {
+        if (+res.status === 200) {
+          this.router.navigateByUrl('/home/login');
+        } else {
+          console.log('Nieudana rejestracja');
+        }
+      });
   }
 
   setIsAuth(isAuth: boolean) {
