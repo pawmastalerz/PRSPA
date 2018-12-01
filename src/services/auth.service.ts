@@ -49,6 +49,10 @@ export class AuthService {
     this.isAuth.next(false);
   }
 
+  register(username: string, password: string) {
+    console.log(username, password);
+  }
+
   setIsAuth(isAuth: boolean) {
     this.isAuth.next(isAuth);
     console.log('Obecna wartosc isAuth: ' + this.isAuth.value);

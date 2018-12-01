@@ -14,6 +14,7 @@ import { FleetComponent } from './home/main/fleet/fleet.component';
 import { OwlModule } from 'ngx-owl-carousel';
 import { FleetTileComponent } from './home/main/fleet/fleet-tile/fleet-tile.component';
 import { CarDetailsComponent } from './home/car-details/car-details.component';
+import { RegisterComponent } from './home/register/register.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CarDetailsComponent } from './home/car-details/car-details.component';
     SearchComponent,
     FleetComponent,
     FleetTileComponent,
-    CarDetailsComponent
+    CarDetailsComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,

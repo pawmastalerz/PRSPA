@@ -1,3 +1,4 @@
+import { RegisterComponent } from './home/home/register/register.component';
 import { CarDetailsComponent } from './home/home/car-details/car-details.component';
 import { HomeComponent } from './home/home/home.component';
 import { LandingComponent } from './landing/landing/landing.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'pricing', component: PricesComponent, pathMatch: 'full' },
       { path: 'contact', component: ContactComponent, pathMatch: 'full' },
       { path: 'login', component: LoginComponent, pathMatch: 'full' },
+      { path: 'register', component: RegisterComponent, pathMatch: 'full' },
       { path: 'cpanel', component: CpanelComponent, pathMatch: 'full' }
     ]
   },
