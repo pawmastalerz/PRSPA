@@ -75,7 +75,7 @@
             <button
               type="button"
               class="btn mx-auto hoverable-white my-5"
-              [routerLink]="['/home/login']"
+              [disabled]="!registerForm.valid"
               (click)="onSubmit()"
             >
               zarejestruj się

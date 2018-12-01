@@ -61,3 +61,18 @@ button {
 a {
   text-decoration: none;
 }
+
+// alertify
+.alertify-notifier .ajs-message{
+  background-color: map-get($map: $custom, $key: basic) !important;
+  color: map-get($map: $custom, $key: dark) !important;
+  font-family: 'Oswald' !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+  border: 1px solid map-get($map: $custom, $key: dark) !important;
+  border-radius: 7px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,3 +1,4 @@
+import { AlertifyService } from './alertify.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -16,7 +17,11 @@ export class AuthService {
   jwtHelper = new JwtHelperService();
   decodedToken: any;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private alertify: AlertifyService
+  ) {}
 
   login(username: string, password: string) {
     return this.http
@@ -27,26 +32,32 @@ export class AuthService {
           observe: 'response'
         }
       )
-      .subscribe((res: any) => {
-        if (+res.status === 200) {
-          localStorage.setItem('accessToken', res.body.token);
-          this.decodedToken = this.jwtHelper.decodeToken(res.body.token);
-          if (this.isAuthenticated) {
-            this.isAuth.next(true);
-            this.router.navigateByUrl('/home/main');
-          } else {
-            this.logout();
+      .subscribe(
+        (res: any) => {
+          console.log(+res.status);
+          if (+res.status === 200) {
+            localStorage.setItem('accessToken', res.body.token);
+            this.decodedToken = this.jwtHelper.decodeToken(res.body.token);
+            if (this.isAuthenticated) {
+              this.isAuth.next(true);
+              this.router.navigateByUrl('/home/main');
+              this.alertify.message('zalogowano jako ' + username);
+            }
           }
-        } else {
-          this.logout();
-          console.log('Nieprawidłowe hasło');
+        },
+        error => {
+          console.log(+error.status);
+          if (+error.status === 401) {
+            this.alertify.message('nieprawidłowe dane logowania');
+          }
         }
-      });
+      );
   }
 
   logout() {
     localStorage.removeItem('accessToken');
     this.isAuth.next(false);
+    this.alertify.message('wylogowano');
   }
 
   register(
@@ -66,13 +77,18 @@ export class AuthService {
           observe: 'response'
         }
       )
-      .subscribe((res: any) => {
-        if (+res.status === 200) {
-          this.router.navigateByUrl('/home/login');
-        } else {
-          console.log('Nieudana rejestracja');
+      .subscribe(
+        (res: any) => {
+          if (+res.status === 200) {
+            this.router.navigateByUrl('/home/login');
+            this.alertify.message('zarejestrowano użytkownika ' + username);
+          }
+        },
+        error => {
+          console.log(error);
+          this.alertify.message('nieprawidłowe dane rejestracyjne');
         }
-      });
+      );
   }
 
   setIsAuth(isAuth: boolean) {
@@ -85,7 +101,6 @@ export class AuthService {
       this.isAuth.next(true);
       return true;
     }
-    this.logout();
     return false;
   }
 }
