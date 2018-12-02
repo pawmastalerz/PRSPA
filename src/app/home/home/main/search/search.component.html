@@ -2,34 +2,34 @@
   <div class="search-container d-flex flex-column align-items-center">
     <p class="p-0 m-0 text-center">WYSZUKAJ SAMOCHÓD</p>
     <div class="container">
-      <form>
+      <form [formGroup]="searchForm" (keydown)="keyDownFunction($event)">
         <div class="row">
           <div class="col-12 col-sm-6 col-lg-3">
             <div class="form-group">
-              <label for="exampleFormControlInput1">data wypożyczenia:</label>
+              <label for="reservedFrom">data wypożyczenia:</label>
               <input
                 type="date"
                 class="form-control"
-                id="exampleFormControlInput1"
+                formControlName="reservedFrom"
                 placeholder="name@example.com"
               />
             </div>
           </div>
           <div class="col-12 col-sm-6 col-lg-3">
             <div class="form-group">
-              <label for="exampleFormControlInput1">data zwrotu:</label>
+              <label for="reservedTo">data zwrotu:</label>
               <input
                 type="date"
                 class="form-control"
-                id="exampleFormControlInput1"
+                formControlName="reservedTo"
                 placeholder="name@example.com"
               />
             </div>
           </div>
           <div class="col-12 col-sm-8 col-lg-4">
             <div class="form-group">
-              <label for="exampleFormControlInput1">model:</label>
-              <select class="form-control" id="exampleFormControlSelect1">
+              <label for="model">model:</label>
+              <select class="form-control" formControlName="model">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -40,7 +40,13 @@
           </div>
           <div class="col-12 col-sm-4 col-lg-2">
             <div class="d-flex align-items-center">
-              <button type="button" class="btn mx-auto hoverable-white mb-5 mb-sm-0">wyszukaj</button>
+              <button
+                type="button"
+                class="btn mx-auto hoverable-white mb-5 mb-sm-0"
+                (click)="onSearch()"
+              >
+                wyszukaj
+              </button>
             </div>
           </div>
         </div>
