@@ -22,6 +22,12 @@ export class CarService {
     });
   }
 
+  getUniqueModels() {
+    return this.http.get(this.baseUrl + 'cars/user/all', {
+      observe: 'response'
+    });
+  }
+
   getCarDetailsForUser(id: string) {
     return this.http.get(this.baseUrl + 'cars/user/' + id, {
       observe: 'response'
@@ -29,23 +35,24 @@ export class CarService {
   }
 
   searchForAvaliableCars(model: string, reservedFrom: Date, reservedTo: Date) {
-    return this.http.post(
-      this.baseUrl + 'cars/user/search',
-      { model, reservedFrom, reservedTo },
-      {
-        observe: 'response'
-      }
-    )
-    .subscribe(
-      (res: any) => {
-        if (+res.status === 200) {
-          console.log('siema');
+    return this.http
+      .post(
+        this.baseUrl + 'cars/user/search',
+        { model, reservedFrom, reservedTo },
+        {
+          observe: 'response'
         }
-      },
-      error => {
-        console.log(error);
-        this.alertify.message('nieprawidłowe dane wyszukiwania');
-      }
-    );
+      )
+      .subscribe(
+        (res: any) => {
+          if (+res.status === 200) {
+            console.log(res.body.length);
+          }
+        },
+        error => {
+          console.log(error);
+          this.alertify.message('nieprawidłowe dane wyszukiwania');
+        }
+      );
   }
 }

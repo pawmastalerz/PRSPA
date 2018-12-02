@@ -30,11 +30,8 @@
             <div class="form-group">
               <label for="model">model:</label>
               <select class="form-control" formControlName="model">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
+                <option></option>
+                <option *ngFor="let car of wholeFleet">{{car.model}}</option>
               </select>
             </div>
           </div>
@@ -44,6 +41,7 @@
                 type="button"
                 class="btn mx-auto hoverable-white mb-5 mb-sm-0"
                 (click)="onSearch()"
+                [disabled]="!searchForm.valid"
               >
                 wyszukaj
               </button>
