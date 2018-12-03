@@ -1,0 +1,7 @@
+@import 'src/styles.scss';
+
+.sidebar {
+  background-image: map-get($map: $custom, $key: basic-gradient);
+  min-height: 70px;
+  margin: 0;
+}
