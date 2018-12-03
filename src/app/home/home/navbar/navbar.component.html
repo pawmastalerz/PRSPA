@@ -14,34 +14,34 @@
     aria-expanded="false"
     aria-label="Toggle navigation"
   >
-    <span class="navbar-toggler-icon"></span>
+  <i class="fa fa-bars"></i>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item text-center" *ngIf="isAuth">
+    <ul class="navbar-nav ml-lg-auto">
+      <li class="nav-item text-center mx-auto" *ngIf="isAuth">
         <a
           class="nav-link hoverable-white"
           [routerLink]="['/home/cpanel/current']"
           >panel klienta</a
         >
       </li>
-      <li class="nav-item text-center">
+      <li class="nav-item text-center mx-auto">
         <a class="nav-link hoverable-white" [routerLink]="['/home/pricing']"
           >cennik</a
         >
       </li>
-      <li class="nav-item text-center">
+      <li class="nav-item text-center mx-auto">
         <a class="nav-link hoverable-white" [routerLink]="['/home/contact']"
           >kontakt</a
         >
       </li>
-      <li class="nav-item text-center" *ngIf="!isAuth">
+      <li class="nav-item text-center mx-auto" *ngIf="!isAuth">
         <a class="nav-link hoverable-white" [routerLink]="['/home/login']"
           >zaloguj się</a
         >
       </li>
-      <li class="nav-item text-center" *ngIf="isAuth">
+      <li class="nav-item text-center mx-auto" *ngIf="isAuth">
         <a
           class="nav-link hoverable-white"
           (click)="logout()"
