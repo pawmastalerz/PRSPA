@@ -1,3 +1,4 @@
+import { HistoryComponent } from './cpanel/cpanel/history/history.component';
 import { RegisterComponent } from './home/home/register/register.component';
 import { CarDetailsComponent } from './home/home/car-details/car-details.component';
 import { HomeComponent } from './home/home/home.component';
@@ -9,6 +10,9 @@ import { PricesComponent } from './home/home/prices/prices.component';
 import { ContactComponent } from './home/home/contact/contact.component';
 import { LoginComponent } from './home/home/login/login.component';
 import { CpanelComponent } from './cpanel/cpanel/cpanel.component';
+import { CurrentComponent } from './cpanel/cpanel/current/current.component';
+import { PersonalComponent } from './cpanel/cpanel/personal/personal.component';
+import { PasswordComponent } from './cpanel/cpanel/password/password.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -22,7 +26,12 @@ const routes: Routes = [
       { path: 'contact', component: ContactComponent, pathMatch: 'full' },
       { path: 'login', component: LoginComponent, pathMatch: 'full' },
       { path: 'register', component: RegisterComponent, pathMatch: 'full' },
-      { path: 'cpanel', component: CpanelComponent, pathMatch: 'full' }
+      { path: 'cpanel', component: CpanelComponent, children: [
+        { path: 'history', component: HistoryComponent, pathMatch: 'full' },
+        { path: 'current', component: CurrentComponent, pathMatch: 'full' },
+        { path: 'personal', component: PersonalComponent, pathMatch: 'full' },
+        { path: 'password', component: PasswordComponent, pathMatch: 'full' },
+      ] }
     ]
   },
   {
