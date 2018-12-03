@@ -63,14 +63,15 @@ a {
 }
 
 // alertify
-.alertify-notifier .ajs-message{
+.alertify-notifier .ajs-message {
   background-color: map-get($map: $custom, $key: basic) !important;
   color: map-get($map: $custom, $key: dark) !important;
   font-family: 'Oswald' !important;
   text-decoration: none !important;
   text-shadow: none !important;
-  border: 1px solid map-get($map: $custom, $key: dark) !important;
+  border: none !important;
   border-radius: 7px;
+  box-shadow: 2px 2px 5px map-get($map: $custom, $key: dark);
   min-height: 50px;
   display: flex;
   align-items: center;
