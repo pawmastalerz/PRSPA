@@ -31,7 +31,7 @@
               <label for="model">model:</label>
               <select class="form-control" formControlName="model">
                 <option></option>
-                <option *ngFor="let car of wholeFleet">{{car.model}}</option>
+                <option *ngFor="let car of fleetWithDistinctModels">{{car.model}}</option>
               </select>
             </div>
           </div>

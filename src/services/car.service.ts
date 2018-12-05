@@ -34,6 +34,13 @@ export class CarService {
     });
   }
 
+  getAllCarModels() {
+    return this.http
+      .get(this.baseUrl + 'cars/models', {
+        observe: 'response'
+      });
+  }
+
   searchForAvaliableCars(model: string, reservedFrom: Date, reservedTo: Date) {
     return this.http
       .post(
@@ -46,7 +53,14 @@ export class CarService {
       .subscribe(
         (res: any) => {
           if (+res.status === 200) {
-            console.log(res.body.length);
+            if (res.body.length === 0) {
+              this.alertify.message(
+                'Model ' + model + ' nie jest dostępny w tym terminie'
+              );
+            } else if (res.body.length > 0) {
+              this.alertify.message('Dokończyć - znaleziono rekordy');
+            }
+            console.log(res.body);
           }
         },
         error => {

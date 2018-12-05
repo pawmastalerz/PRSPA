@@ -11,6 +11,7 @@ import { AlertifyService } from 'src/services/alertify.service';
 })
 export class SearchComponent implements OnInit {
   wholeFleet: Array<CarForUser> = [];
+  fleetWithDistinctModels: Array<CarForUser> = [];
 
   searchForm = new FormGroup({
     model: new FormControl('', Validators.required),
@@ -28,8 +29,6 @@ export class SearchComponent implements OnInit {
       (res: any) => {
         if (+res.status === 200) {
           this.wholeFleet = res.body;
-        } else {
-          console.log('Błąd podczas ładowania całej floty dla użytkownika');
         }
       },
       error => {
@@ -38,6 +37,18 @@ export class SearchComponent implements OnInit {
         setTimeout(() => {
           this.ngOnInit();
         }, 300);
+      }
+    );
+
+    this.carService.getAllCarModels().subscribe(
+      (res: any) => {
+        if (+res.status === 200) {
+          this.fleetWithDistinctModels = res.body;
+        }
+      },
+      error => {
+        console.log(error);
+        this.alertify.message('Błąd podczas pobierania modeli z bazy danych');
       }
     );
   }
