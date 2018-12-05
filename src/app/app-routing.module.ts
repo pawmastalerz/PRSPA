@@ -1,3 +1,4 @@
+import { SettingsComponent } from './cpanel/cpanel/settings/settings.component';
 import { HistoryComponent } from './cpanel/cpanel/history/history.component';
 import { RegisterComponent } from './home/home/register/register.component';
 import { CarDetailsComponent } from './home/home/car-details/car-details.component';
@@ -12,7 +13,6 @@ import { LoginComponent } from './home/home/login/login.component';
 import { CpanelComponent } from './cpanel/cpanel/cpanel.component';
 import { CurrentComponent } from './cpanel/cpanel/current/current.component';
 import { PersonalComponent } from './cpanel/cpanel/personal/personal.component';
-import { PasswordComponent } from './cpanel/cpanel/password/password.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -30,7 +30,7 @@ const routes: Routes = [
         { path: 'history', component: HistoryComponent, pathMatch: 'full' },
         { path: 'current', component: CurrentComponent, pathMatch: 'full' },
         { path: 'personal', component: PersonalComponent, pathMatch: 'full' },
-        { path: 'password', component: PasswordComponent, pathMatch: 'full' },
+        { path: 'settings', component: SettingsComponent, pathMatch: 'full' },
       ] }
     ]
   },

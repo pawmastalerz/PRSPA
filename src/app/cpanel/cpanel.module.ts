@@ -6,7 +6,7 @@ import { SidebarComponent } from './cpanel/sidebar/sidebar.component';
 import { HistoryComponent } from './cpanel/history/history.component';
 import { CurrentComponent } from './cpanel/current/current.component';
 import { PersonalComponent } from './cpanel/personal/personal.component';
-import { PasswordComponent } from './cpanel/password/password.component';
+import { SettingsComponent } from './cpanel/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { PasswordComponent } from './cpanel/password/password.component';
     HistoryComponent,
     CurrentComponent,
     PersonalComponent,
-    PasswordComponent
+    SettingsComponent
   ],
   imports: [CommonModule, RouterModule]
 })
