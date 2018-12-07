@@ -1,7 +1,7 @@
 <div class="row mx-0 main">
   <div class="col">
-    <h1 class="p-3">Twoje dane osobowe:</h1>
     <div class="dimmed-container">
+      <h1 class="p-3">Twoje dane osobowe:</h1>
       <form [formGroup]="personalForm" (keydown)="keyDownFunction($event)">
         <div class="row p-3">
           <div class="col-lg-6">
@@ -11,17 +11,13 @@
                 type="text"
                 formControlName="username"
                 class="form-control"
-                readonly
               />
+              <!-- readonly -->
             </div>
             <div class="form-group">
               <label for="email">e-mail:</label>
-              <input
-                type="email"
-                formControlName="email"
-                class="form-control"
-                readonly
-              />
+              <input type="text" formControlName="email" class="form-control" />
+              <!-- readonly -->
             </div>
             <div class="form-group">
               <label for="city">miasto:</label>
@@ -62,7 +58,7 @@
           <div class="col">
             <button
               type="button"
-              class="btn mx-auto hoverable-white mt-5"
+              class="btn mx-auto hoverable-white my-3"
               (click)="onSubmit()"
             >
               aktualizuj dane osobowe

@@ -91,6 +91,16 @@ export class AuthService {
       );
   }
 
+  getPersonalData() {
+    this.decodedToken = this.jwtHelper.decodeToken(
+      localStorage.getItem('accessToken')
+    );
+    const decodedTokenId = this.decodedToken['unique_name'];
+    return this.http.get(this.baseUrl + 'users/' + decodedTokenId, {
+      observe: 'response'
+    });
+  }
+
   updatePersonal(
     username: string,
     email: string,
@@ -103,28 +113,13 @@ export class AuthService {
       localStorage.getItem('accessToken')
     );
     const decodedTokenId = this.decodedToken['unique_name'];
-    console.log(decodedTokenId);
-    return this.http
-      .put(
-        this.baseUrl + 'users/' + decodedTokenId,
-        { username, email, city, street, streetNumber, postalCode },
-        {
-          observe: 'response'
-        }
-      )
-      .subscribe(
-        (res: any) => {
-          if (+res.status === 200) {
-            this.alertify.message('Zaktualizowano dane osobowe');
-          }
-        },
-        error => {
-          console.log(error);
-          this.alertify.message(
-            'Problem podczas aktualizacji danych osobowych'
-          );
-        }
-      );
+    return this.http.put(
+      this.baseUrl + 'users/' + decodedTokenId,
+      { username, email, city, street, streetNumber, postalCode },
+      {
+        observe: 'response'
+      }
+    );
   }
 
   setIsAuth(isAuth: boolean) {
