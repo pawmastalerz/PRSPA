@@ -25,7 +25,7 @@ export class PersonalComponent implements OnInit {
     private authService: AuthService,
     private alertify: AlertifyService
   ) {
-    this.alertify.message('Pobieram dane osobowe...');
+    this.alertify.message('pobieram dane osobowe...');
     this.getPersonalData();
   }
 
@@ -44,13 +44,13 @@ export class PersonalComponent implements OnInit {
       .subscribe(
         (res: any) => {
           if (+res.status === 200) {
-            this.alertify.message('Zaktualizowano dane osobowe');
+            this.alertify.message('zaktualizowano dane osobowe');
           }
         },
         error => {
           console.log(error);
           this.alertify.message(
-            'Problem podczas aktualizacji danych osobowych'
+            'problem podczas aktualizacji danych osobowych'
           );
         }
       );
@@ -75,13 +75,17 @@ export class PersonalComponent implements OnInit {
             streetNumber: this.userData.streetNumber,
             postalCode: this.userData.postalCode
           });
-          this.alertify.message('Pobrano pomyślnie');
+          this.alertify.message('pobrano pomyślnie');
         }
       },
       error => {
         console.log(error);
-        this.alertify.message('Problem podczas pobierania danych osobowych');
+        this.alertify.message('problem podczas pobierania danych osobowych');
       }
     );
+  }
+
+  notAllowed() {
+    this.alertify.message('nie można edytować tego pola');
   }
 }

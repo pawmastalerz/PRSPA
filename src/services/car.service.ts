@@ -12,7 +12,6 @@ export class CarService {
 
   constructor(
     private http: HttpClient,
-    private router: Router,
     private alertify: AlertifyService
   ) {}
 
@@ -55,7 +54,7 @@ export class CarService {
           if (+res.status === 200) {
             if (res.body.length === 0) {
               this.alertify.message(
-                'Model ' + model + ' nie jest dostępny w tym terminie'
+                'model ' + model + ' nie jest dostępny w tym terminie'
               );
             } else if (res.body.length > 0) {
               this.alertify.message('Dokończyć - znaleziono rekordy');

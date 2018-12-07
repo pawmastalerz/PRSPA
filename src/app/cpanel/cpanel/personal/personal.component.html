@@ -4,20 +4,26 @@
       <h1 class="p-3">Twoje dane osobowe:</h1>
       <form [formGroup]="personalForm" (keydown)="keyDownFunction($event)">
         <div class="row p-3">
-          <div class="col-lg-6">
+          <div class="col">
             <div class="form-group mx-auto">
               <label for="username">login:</label>
               <input
                 type="text"
                 formControlName="username"
                 class="form-control"
+                readonly
+                (click)="notAllowed()"
               />
-              <!-- readonly -->
             </div>
             <div class="form-group">
               <label for="email">e-mail:</label>
-              <input type="text" formControlName="email" class="form-control" />
-              <!-- readonly -->
+              <input
+                type="text"
+                formControlName="email"
+                class="form-control"
+                readonly
+                (click)="notAllowed()"
+              />
             </div>
             <div class="form-group">
               <label for="city">miasto:</label>
@@ -28,42 +34,34 @@
                 autofocus
               />
             </div>
-          </div>
-          <div class="col-lg-6">
             <div class="form-group">
-              <label for="street">ulica:</label>
-              <input
-                type="text"
-                formControlName="street"
-                class="form-control"
-              />
-            </div>
-            <div class="form-group">
-              <label for="streetNumber">numer posesji:</label>
-              <input
-                type="text"
-                formControlName="streetNumber"
-                class="form-control"
-              />
-            </div>
-            <div class="form-group">
-              <label for="postalCode">kod pocztowy:</label>
-              <input
-                type="text"
-                formControlName="postalCode"
-                class="form-control"
-              />
-            </div>
-          </div>
-          <div class="col">
-            <button
-              type="button"
-              class="btn mx-auto hoverable-white my-3"
-              (click)="onSubmit()"
-            >
-              aktualizuj dane osobowe
-              <!-- [disabled]="!personalForm.valid" -->
-            </button>
+                <label for="street">ulica:</label>
+                <input type="text" formControlName="street" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="streetNumber">numer posesji:</label>
+                <input
+                  type="text"
+                  formControlName="streetNumber"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="postalCode">kod pocztowy:</label>
+                <input
+                  type="text"
+                  formControlName="postalCode"
+                  class="form-control"
+                />
+              </div>
+              <button
+                type="button"
+                class="btn mx-auto hoverable-white my-3"
+                (click)="onSubmit()"
+                [disabled]="!personalForm.valid || personalForm.pristine"
+              >
+                aktualizuj dane osobowe
+              </button>
           </div>
         </div>
       </form>

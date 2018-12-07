@@ -33,7 +33,6 @@ export class SearchComponent implements OnInit {
       },
       error => {
         console.log(error);
-        console.log('Błąd podczas ładowania całej floty dla użytkownika');
         setTimeout(() => {
           this.ngOnInit();
         }, 300);
@@ -48,7 +47,7 @@ export class SearchComponent implements OnInit {
       },
       error => {
         console.log(error);
-        this.alertify.message('Błąd podczas pobierania modeli z bazy danych');
+        this.alertify.message('błąd podczas pobierania modeli z bazy danych');
       }
     );
   }
@@ -56,7 +55,7 @@ export class SearchComponent implements OnInit {
   onSearch() {
     if (this.searchForm.value.reservedFrom > this.searchForm.value.reservedTo) {
       this.alertify.message(
-        'Data wypożyczenia nie może być większa, niż data zwrotu'
+        'data wypożyczenia nie może być większa, niż data zwrotu'
       );
     } else {
       this.carService.searchForAvaliableCars(
