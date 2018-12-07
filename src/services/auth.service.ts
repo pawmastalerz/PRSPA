@@ -91,9 +91,45 @@ export class AuthService {
       );
   }
 
+  updatePersonal(
+    username: string,
+    email: string,
+    city: string,
+    street: string,
+    streetNumber: string,
+    postalCode: string
+  ) {
+    this.decodedToken = this.jwtHelper.decodeToken(
+      localStorage.getItem('accessToken')
+    );
+    const decodedTokenId = this.decodedToken['unique_name'];
+    console.log(decodedTokenId);
+    return this.http
+      .put(
+        this.baseUrl + 'users/' + decodedTokenId,
+        { username, email, city, street, streetNumber, postalCode },
+        {
+          observe: 'response'
+        }
+      )
+      .subscribe(
+        (res: any) => {
+          if (+res.status === 200) {
+            this.alertify.message('Zaktualizowano dane osobowe');
+          }
+        },
+        error => {
+          console.log(error);
+          this.alertify.message(
+            'Problem podczas aktualizacji danych osobowych'
+          );
+        }
+      );
+  }
+
   setIsAuth(isAuth: boolean) {
     this.isAuth.next(isAuth);
-    console.log('Obecna wartosc isAuth: ' + this.isAuth.value);
+    // console.log('Obecna wartosc isAuth: ' + this.isAuth.value);
   }
 
   public isAuthenticated(): boolean {

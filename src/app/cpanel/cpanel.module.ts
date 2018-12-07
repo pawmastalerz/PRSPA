@@ -7,6 +7,7 @@ import { HistoryComponent } from './cpanel/history/history.component';
 import { CurrentComponent } from './cpanel/current/current.component';
 import { PersonalComponent } from './cpanel/personal/personal.component';
 import { SettingsComponent } from './cpanel/settings/settings.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,6 @@ import { SettingsComponent } from './cpanel/settings/settings.component';
     PersonalComponent,
     SettingsComponent
   ],
-  imports: [CommonModule, RouterModule]
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule]
 })
 export class CpanelModule {}
