@@ -11,8 +11,16 @@ export class LoginComponent implements OnInit {
   isAuth: boolean;
 
   loginForm = new FormGroup({
-    username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required)
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(30)
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(30)
+    ])
   });
 
   constructor(private authService: AuthService) {}

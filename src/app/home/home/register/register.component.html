@@ -12,6 +12,8 @@
                 formControlName="username"
                 class="form-control"
                 autofocus
+                placeholder="(3-30 znaków)"
+                maxlength="30"
               />
             </div>
             <div class="form-group">
@@ -20,6 +22,8 @@
                 type="email"
                 formControlName="email"
                 class="form-control"
+                placeholder="(prawidłowy e-mail)"
+                maxlength="30"
               />
             </div>
             <div class="form-group">
@@ -28,6 +32,8 @@
                 type="password"
                 formControlName="password"
                 class="form-control"
+                placeholder="(3-30 znaków, min. 1 cyfra)"
+                maxlength="30"
               />
             </div>
             <div class="form-group">
@@ -36,13 +42,20 @@
                 type="password"
                 formControlName="repeatPassword"
                 class="form-control"
+                placeholder="(powtórz hasło)"
+                maxlength="30"
               />
             </div>
           </div>
           <div class="col-md-6 pt-0 px-2 px-md-5 ">
             <div class="form-group">
               <label for="city">miasto:</label>
-              <input type="text" formControlName="city" class="form-control" />
+              <input
+                type="text"
+                formControlName="city"
+                class="form-control"
+                placeholder="(3-30 znaków)"
+              />
             </div>
             <div class="form-group">
               <label for="street">ulica:</label>
@@ -50,6 +63,7 @@
                 type="text"
                 formControlName="street"
                 class="form-control"
+                placeholder="(3-30 znaków)"
               />
             </div>
             <div class="form-group">
@@ -58,6 +72,7 @@
                 type="text"
                 formControlName="streetNumber"
                 class="form-control"
+                placeholder="(1-7 znaków)"
               />
             </div>
             <div class="form-group">
@@ -66,6 +81,7 @@
                 type="text"
                 formControlName="postalCode"
                 class="form-control"
+                placeholder="XX-XXX"
               />
             </div>
           </div>
@@ -75,9 +91,9 @@
             <button
               type="button"
               class="btn mx-auto hoverable-white my-5"
-              [disabled]="!registerForm.valid"
               (click)="onSubmit()"
             >
+              <!-- [disabled]="!registerForm.valid" -->
               zarejestruj się
             </button>
           </div>

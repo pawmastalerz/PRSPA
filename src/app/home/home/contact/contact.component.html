@@ -4,13 +4,16 @@
     <div class="container details text-left">
       <div class="row">
         <div class="col-lg-4 px-5">
-          <form>
+          <form [formGroup]="contactForm" (keydown)="keyDownFunction($event)">
             <div class="form-group">
               <label for="name">imię:</label>
               <input
                 type="text"
                 class="form-control"
+                formControlName="name"
                 id="name"
+                autofocus
+                placeholder="(3-30 znaków)"
               />
             </div>
             <div class="form-group">
@@ -18,7 +21,9 @@
               <input
                 type="email"
                 class="form-control"
+                formControlName="email"
                 id="email"
+                placeholder="(e-mail)"
               />
             </div>
             <div class="form-group">
@@ -27,9 +32,11 @@
                 class="form-control"
                 id="exampleTextarea"
                 rows="7"
+                formControlName="body"
+                placeholder="(3-300 znaków)"
               ></textarea>
             </div>
-            <button type="button" class="btn mx-auto hoverable-white mb-5">
+            <button (click)="onSubmit()" type="button" class="btn mx-auto hoverable-white mb-5" [disabled]="!contactForm.valid">
               wyślij
             </button>
           </form>
