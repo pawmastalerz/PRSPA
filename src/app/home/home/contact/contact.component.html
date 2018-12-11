@@ -14,6 +14,7 @@
                 id="name"
                 autofocus
                 placeholder="(3-30 znaków)"
+                maxlength="30"
               />
             </div>
             <div class="form-group">
@@ -24,6 +25,7 @@
                 formControlName="email"
                 id="email"
                 placeholder="(e-mail)"
+                maxlength="30"
               />
             </div>
             <div class="form-group">
@@ -34,6 +36,7 @@
                 rows="7"
                 formControlName="body"
                 placeholder="(3-300 znaków)"
+                maxlength="300"
               ></textarea>
             </div>
             <button (click)="onSubmit()" type="button" class="btn mx-auto hoverable-white mb-5" [disabled]="!contactForm.valid">
