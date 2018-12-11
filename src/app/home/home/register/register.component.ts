@@ -67,6 +67,12 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.authService.isAuth$.subscribe(isAuth => (this.isAuth = isAuth));
+    alert(
+      'Wszelkie dane osobowe, które podasz za moment, będą przechowywane w bazie danych do końca dnia. O północy zostaną automatycznie usunięte z bazy przez serwer.\n\n' +
+        'Będą wykorzystane wyłącznie do prezentacji zastosowania technologii Angular 7, .NET Core 2.1 i MySQL.\n\n' +
+        'Serwis celowo nie pyta o imię i nazwisko, ale NIE PODAWAJ PRAWDZIWEGO ADRESU!\n\n' +
+        'Przysługują Ci wszelkie prawa wynikające z GDPR(RODO), ale na miłość Boską, weź poczekaj po prostu, uspokój się, o północy i tak wszystko zniknie, ok? Jestem jeszcze młody i nie chcę iść do więzienia, bo nie zatrudniłem prawnika do klepnięcia pracy inżynierskiej. Pisze jak byk, żebyś nie podawał adresu, to nie podawaj i nie płacz potem, że w sumie to nie chcesz. Daj mi spokój!\n\n'
+    );
   }
 
   onSubmit() {
@@ -96,9 +102,7 @@ export class RegisterComponent implements OnInit {
         this.registerForm.value.password !==
         this.registerForm.value.repeatPassword
       ) {
-        this.alertify.message(
-          'podane hasła muszą się zgadzać'
-        );
+        this.alertify.message('podane hasła muszą się zgadzać');
         return null;
       } else if (this.registerForm.controls.city.status === 'INVALID') {
         this.alertify.message('miasto musi zawierać od 3 do 30 znaków');
