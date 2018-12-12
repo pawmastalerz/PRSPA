@@ -122,6 +122,23 @@ export class AuthService {
     );
   }
 
+  updatePassword (
+    currentPassword: string,
+    password: string
+  ) {
+    this.decodedToken = this.jwtHelper.decodeToken(
+      localStorage.getItem('accessToken')
+    );
+    const decodedTokenId = this.decodedToken['unique_name'];
+    return this.http.put(
+      this.baseUrl + 'users/' + decodedTokenId,
+      { currentPassword, password },
+      {
+        observe: 'response'
+      }
+    );
+  }
+
   setIsAuth(isAuth: boolean) {
     this.isAuth.next(isAuth);
     // console.log('Obecna wartosc isAuth: ' + this.isAuth.value);

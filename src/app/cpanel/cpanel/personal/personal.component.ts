@@ -25,7 +25,6 @@ export class PersonalComponent implements OnInit {
     private authService: AuthService,
     private alertify: AlertifyService
   ) {
-    this.alertify.message('pobieram dane osobowe...');
     this.getPersonalData();
   }
 
@@ -75,7 +74,6 @@ export class PersonalComponent implements OnInit {
             streetNumber: this.userData.streetNumber,
             postalCode: this.userData.postalCode
           });
-          this.alertify.message('pobrano pomyślnie');
         }
       },
       error => {

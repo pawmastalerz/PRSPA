@@ -1,3 +1,48 @@
-<p>
-  settings works!
-</p>
+<div class="row mx-0 main">
+  <div class="col">
+    <div class="dimmed-container">
+      <h1 class="p-3">Ustawienia:</h1>
+      <form [formGroup]="passwordForm" (keydown)="keyDownFunction($event)">
+        <div class="row p-3">
+          <div class="col">
+            <div class="form-group mx-auto">
+              <label for="current">aktualne hasło:</label>
+              <input
+                type="password"
+                formControlName="current"
+                class="form-control"
+                autofocus
+                maxlength="30"
+              />
+            </div>
+            <div class="form-group">
+              <label for="newPassword">nowe hasło:</label>
+              <input
+                type="password"
+                formControlName="newPassword"
+                class="form-control"
+                maxlength="30"
+              />
+            </div>
+            <div class="form-group">
+              <label for="newPasswordConfirm">powtórz nowe hasło:</label>
+              <input
+                type="password"
+                formControlName="newPasswordConfirm"
+                class="form-control"
+                maxlength="30"
+              />
+            </div>
+            <button
+              type="button"
+              class="btn mx-auto hoverable-white my-3"
+              (click)="onSubmit()"
+            >
+              zmiana hasła
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -55,6 +55,7 @@
                 formControlName="city"
                 class="form-control"
                 placeholder="(3-30 znaków)"
+                maxlength="30"
               />
             </div>
             <div class="form-group">
@@ -64,6 +65,7 @@
                 formControlName="street"
                 class="form-control"
                 placeholder="(3-30 znaków)"
+                maxlength="30"
               />
             </div>
             <div class="form-group">
@@ -73,6 +75,7 @@
                 formControlName="streetNumber"
                 class="form-control"
                 placeholder="(1-7 znaków)"
+                maxlength="7"
               />
             </div>
             <div class="form-group">
@@ -82,6 +85,7 @@
                 formControlName="postalCode"
                 class="form-control"
                 placeholder="XX-XXX"
+                maxlength="6"
               />
             </div>
           </div>
@@ -93,7 +97,6 @@
               class="btn mx-auto hoverable-white my-5"
               (click)="onSubmit()"
             >
-              <!-- [disabled]="!registerForm.valid" -->
               zarejestruj się
             </button>
           </div>

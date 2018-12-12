@@ -11,4 +11,14 @@ export class PasswordMatch {
       return null;
     }
   }
+
+  static MatchPasswordForUpdate(abstract: AbstractControl) {
+    const newPassword = abstract.get('newPassword').value;
+    const newPasswordConfirm = abstract.get('newPasswordConfirm').value;
+    if (newPassword !== newPasswordConfirm) {
+      abstract.get('newPasswordConfirm').setErrors({ MatchPassword: true });
+    } else {
+      return null;
+    }
+  }
 }

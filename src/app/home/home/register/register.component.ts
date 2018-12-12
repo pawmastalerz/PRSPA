@@ -89,33 +89,33 @@ export class RegisterComponent implements OnInit {
     } else {
       if (this.registerForm.controls.username.status === 'INVALID') {
         this.alertify.message('login musi zawierać od 3 do 30 znaków');
-        return null;
+        return;
       } else if (this.registerForm.controls.email.status === 'INVALID') {
         this.alertify.message('podaj prawidlowy e-mail');
-        return null;
+        return;
       } else if (this.registerForm.controls.password.status === 'INVALID') {
         this.alertify.message(
           'hasło musi zawierać 3-30 znaków oraz co najmniej 1 cyfrę'
         );
-        return null;
+        return;
       } else if (
         this.registerForm.value.password !==
         this.registerForm.value.repeatPassword
       ) {
         this.alertify.message('podane hasła muszą się zgadzać');
-        return null;
+        return;
       } else if (this.registerForm.controls.city.status === 'INVALID') {
         this.alertify.message('miasto musi zawierać od 3 do 30 znaków');
-        return null;
+        return;
       } else if (this.registerForm.controls.street.status === 'INVALID') {
         this.alertify.message('ulica musi zawierać od 3 do 30 znaków');
-        return null;
+        return;
       } else if (this.registerForm.controls.streetNumber.status === 'INVALID') {
         this.alertify.message('numer posesji musi zawierać od 1 do 7 znaków');
-        return null;
+        return;
       } else if (this.registerForm.controls.postalCode.status === 'INVALID') {
         this.alertify.message('kod pocztowy musi mieć format XX-XXX');
-        return null;
+        return;
       }
     }
   }
