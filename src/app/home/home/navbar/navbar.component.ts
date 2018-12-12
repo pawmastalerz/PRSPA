@@ -1,3 +1,4 @@
+import { AlertifyService } from 'src/services/alertify.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/services/auth.service';
 
@@ -11,7 +12,10 @@ export class NavbarComponent implements OnInit {
 
   isCollapsed = true;
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private alertify: AlertifyService
+  ) {}
 
   ngOnInit() {
     this.authService.isAuth$.subscribe(isAuth => (this.isAuth = isAuth));
@@ -19,5 +23,6 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+    this.alertify.message('wylogowano');
   }
 }

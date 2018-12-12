@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AlertifyService } from 'src/services/alertify.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -35,7 +36,8 @@ export class SettingsComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private alertify: AlertifyService
+    private alertify: AlertifyService,
+    private router: Router
   ) {}
 
   ngOnInit() {}
@@ -86,5 +88,21 @@ export class SettingsComponent implements OnInit {
     if (event.keyCode === 13) {
       this.onSubmit();
     }
+  }
+
+  onDelete() {
+    this.authService.deleteAccount().subscribe(
+      (res: any) => {
+        if (+res.status === 200) {
+          this.authService.logout();
+          this.router.navigate(['home/main']);
+          this.alertify.message('całkowicie usunięto konto, wraz z wszelkimi danymi osobowymi');
+        }
+      },
+      error => {
+        console.log(error);
+        this.alertify.message('problem podczas usuwania konta');
+      }
+    );
   }
 }

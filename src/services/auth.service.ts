@@ -57,7 +57,6 @@ export class AuthService {
   logout() {
     localStorage.removeItem('accessToken');
     this.isAuth.next(false);
-    this.alertify.message('wylogowano');
   }
 
   register(
@@ -133,6 +132,19 @@ export class AuthService {
     return this.http.put(
       this.baseUrl + 'users/' + decodedTokenId,
       { currentPassword, password },
+      {
+        observe: 'response'
+      }
+    );
+  }
+
+  deleteAccount() {
+    this.decodedToken = this.jwtHelper.decodeToken(
+      localStorage.getItem('accessToken')
+    );
+    const decodedTokenId = this.decodedToken['unique_name'];
+    return this.http.delete(
+      this.baseUrl + 'users/' + decodedTokenId,
       {
         observe: 'response'
       }
