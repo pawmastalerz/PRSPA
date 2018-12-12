@@ -96,7 +96,9 @@ export class SettingsComponent implements OnInit {
         if (+res.status === 200) {
           this.authService.logout();
           this.router.navigate(['home/main']);
-          this.alertify.message('całkowicie usunięto konto, wraz z wszelkimi danymi osobowymi');
+          this.alertify.message(
+            'całkowicie usunięto konto, wraz z wszelkimi danymi osobowymi i złożonymi zamówieniami'
+          );
         }
       },
       error => {
