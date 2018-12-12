@@ -21,6 +21,7 @@
                 type="password"
                 formControlName="newPassword"
                 class="form-control"
+                placeholder="(3-30 znaków, min. 1 cyfra)"
                 maxlength="30"
               />
             </div>
@@ -37,6 +38,7 @@
               type="button"
               class="btn mx-auto hoverable-white my-3"
               (click)="onSubmit()"
+              [disabled]="passwordForm.pristine"
             >
               zmiana hasła
             </button>

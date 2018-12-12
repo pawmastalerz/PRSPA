@@ -32,36 +32,48 @@
                 formControlName="city"
                 class="form-control"
                 autofocus
+                placeholder="(3-30 znaków)"
+                maxlength="30"
               />
             </div>
             <div class="form-group">
-                <label for="street">ulica:</label>
-                <input type="text" formControlName="street" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label for="streetNumber">numer posesji:</label>
-                <input
-                  type="text"
-                  formControlName="streetNumber"
-                  class="form-control"
-                />
-              </div>
-              <div class="form-group">
-                <label for="postalCode">kod pocztowy:</label>
-                <input
-                  type="text"
-                  formControlName="postalCode"
-                  class="form-control"
-                />
-              </div>
-              <button
-                type="button"
-                class="btn mx-auto hoverable-white my-3"
-                (click)="onSubmit()"
-                [disabled]="!personalForm.valid || personalForm.pristine"
-              >
-                aktualizuj dane osobowe
-              </button>
+              <label for="street">ulica:</label>
+              <input
+                type="text"
+                formControlName="street"
+                class="form-control"
+                placeholder="(3-30 znaków)"
+                maxlength="30"
+              />
+            </div>
+            <div class="form-group">
+              <label for="streetNumber">numer posesji:</label>
+              <input
+                type="text"
+                formControlName="streetNumber"
+                class="form-control"
+                placeholder="(1-7 znaków)"
+                maxlength="7"
+              />
+            </div>
+            <div class="form-group">
+              <label for="postalCode">kod pocztowy:</label>
+              <input
+                type="text"
+                formControlName="postalCode"
+                class="form-control"
+                placeholder="XX-XXX"
+                maxlength="6"
+              />
+            </div>
+            <button
+              type="button"
+              class="btn mx-auto hoverable-white my-3"
+              (click)="onSubmit()"
+              [disabled]="personalForm.pristine"
+            >
+              aktualizuj dane osobowe
+            </button>
           </div>
         </div>
       </form>
