@@ -121,10 +121,7 @@ export class AuthService {
     );
   }
 
-  updatePassword (
-    currentPassword: string,
-    password: string
-  ) {
+  updatePassword(currentPassword: string, password: string) {
     this.decodedToken = this.jwtHelper.decodeToken(
       localStorage.getItem('accessToken')
     );
@@ -143,12 +140,9 @@ export class AuthService {
       localStorage.getItem('accessToken')
     );
     const decodedTokenId = this.decodedToken['unique_name'];
-    return this.http.delete(
-      this.baseUrl + 'users/' + decodedTokenId,
-      {
-        observe: 'response'
-      }
-    );
+    return this.http.delete(this.baseUrl + 'users/' + decodedTokenId, {
+      observe: 'response'
+    });
   }
 
   setIsAuth(isAuth: boolean) {
