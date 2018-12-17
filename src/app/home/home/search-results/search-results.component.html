@@ -1,0 +1,60 @@
+<div class="container-details">
+  <div class="details-container d-flex flex-column align-items-center">
+    <p class="p-0 m-0 text-center mb-5">
+      WYNIKI WYSZUKIWANIA: {{ this.searchResult?.length }}
+    </p>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4 form-column">
+          <form [formGroup]="searchForm" (keydown)="keyDownFunction($event)">
+            <div class="form-group">
+              <label for="reservedFrom">data wypożyczenia:</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="reservedFrom"
+                placeholder="name@example.com"
+                value="reservedFrom"
+              />
+            </div>
+            <div class="form-group">
+              <label for="reservedTo">data zwrotu:</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="reservedTo"
+                placeholder="name@example.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="model">model:</label>
+              <select class="form-control" formControlName="model">
+                <option selected="selected">{{ this.model }}</option>
+                <option *ngFor="let car of fleetWithDistinctModels">
+                  {{ car.model }}
+                </option>
+              </select>
+            </div>
+            <div class="d-flex align-items-center">
+              <button
+                type="button"
+                class="btn mx-auto hoverable-white my-5"
+                (click)="onUpdate()"
+                [disabled]="!searchForm.valid"
+              >
+                aktualizuj
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-8">
+          <div class="row" *ngIf="this.searchResult?.length === 1">
+            <div class="col-md-5">sam1</div>
+            <div class="col-md-7">sam2</div>
+          </div>
+          <div class="row" *ngIf="this.searchResult?.length > 1">karuzela</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

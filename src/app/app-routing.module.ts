@@ -13,6 +13,7 @@ import { LoginComponent } from './home/home/login/login.component';
 import { CpanelComponent } from './cpanel/cpanel/cpanel.component';
 import { CurrentComponent } from './cpanel/cpanel/current/current.component';
 import { PersonalComponent } from './cpanel/cpanel/personal/personal.component';
+import { SearchResultsComponent } from './home/home/search-results/search-results.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'contact', component: ContactComponent, pathMatch: 'full' },
       { path: 'login', component: LoginComponent, pathMatch: 'full' },
       { path: 'register', component: RegisterComponent, pathMatch: 'full' },
+      { path: 'search_results', component: SearchResultsComponent, pathMatch: 'full' },
       { path: 'cpanel', component: CpanelComponent, children: [
         { path: 'history', component: HistoryComponent, pathMatch: 'full' },
         { path: 'current', component: CurrentComponent, pathMatch: 'full' },
