@@ -5,7 +5,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CarService } from 'src/services/car.service';
 import { AlertifyService } from 'src/services/alertify.service';
 import { CarForUser } from 'src/models/carForUser';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
   selector: 'app-search-results',
@@ -18,7 +17,7 @@ export class SearchResultsComponent implements OnInit {
   reservedFrom: string;
   reservedTo: string;
   model: string;
-  searchResult: Array<any>;
+  searchResult: Array<any> = [1];
 
   searchForm = new FormGroup({
     reservedFrom: new FormControl(this.reservedFrom, Validators.required),
@@ -50,7 +49,7 @@ export class SearchResultsComponent implements OnInit {
     this.searchForm.patchValue({ model: this.model });
 
     if (this.searchResult === null) {
-      this.router.navigate(['home/main']);
+      // this.router.navigate(['home/main']);
     }
 
     this.getAllCarModels();
@@ -87,6 +86,8 @@ export class SearchResultsComponent implements OnInit {
                 this.newOrder.setSearchResult(res.body);
               }
             }
+            console.log(this.searchResult);
+            console.log(this.searchResult[0].brand);
           },
           error => {
             console.log(error);
