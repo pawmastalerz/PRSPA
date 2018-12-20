@@ -48,17 +48,14 @@
           </form>
         </div>
         <div class="col-lg-8">
-          <div *ngIf="this.searchResult?.length === 1">
-            <!-- pojedynczy -->
-            <app-search-results-item
-              [searchResult]="searchResult"
-              [reservedFrom]="reservedFrom"
-              [reservedTo]="reservedTo"
-            ></app-search-results-item>
-          </div>
-          <div *ngIf="this.searchResult?.length > 1">
-            <!-- wiele -->
-            <div class="row">karuzela</div>
+          <div *ngIf="this.searchResult?.length > 0">
+            <div *ngFor="let single of searchResult">
+              <app-search-results-item
+                [searchResult]="single"
+                [reservedFrom]="reservedFrom"
+                [reservedTo]="reservedTo"
+              ></app-search-results-item>
+            </div>
           </div>
         </div>
       </div>

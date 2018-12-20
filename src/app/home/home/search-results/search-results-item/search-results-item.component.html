@@ -1,20 +1,20 @@
 <div class="row single ml-lg-3">
   <div class="col-md-5 description text-center">
-    <p>Marka: {{ searchResult[0].brand }}</p>
-    <p>Model: {{ searchResult[0].model }}</p>
-    <p>Rocznik: {{ searchResult[0].year }}</p>
-    <p>Nadwozie: {{ searchResult[0].body }}</p>
-    <p>Skrzynia biegów: {{ searchResult[0].transmission }}</p>
-    <p>Liczba drzwi: {{ searchResult[0].doors }}</p>
-    <p>Paliwo: {{ searchResult[0].fuel }}</p>
-    <p>Spalanie: {{ searchResult[0].lP100Km }} l/100km</p>
-    <p>Klimatyzacja: {{ searchResult[0].airConditioned }}</p>
-    <p>Cena za 1 dzień: {{ searchResult[0].price }},- PLN</p>
+    <p>Marka: {{ searchResult.brand }}</p>
+    <p>Model: {{ searchResult.model }}</p>
+    <p>Rocznik: {{ searchResult.year }}</p>
+    <p>Nadwozie: {{ searchResult.body }}</p>
+    <p>Skrzynia biegów: {{ searchResult.transmission }}</p>
+    <p>Liczba drzwi: {{ searchResult.doors }}</p>
+    <p>Paliwo: {{ searchResult.fuel }}</p>
+    <p>Spalanie: {{ searchResult.lP100Km }} l/100km</p>
+    <p>Klimatyzacja: {{ searchResult.airConditioned }}</p>
+    <p>Cena za 1 dzień: {{ searchResult.price }},- PLN</p>
   </div>
   <div
     class="col-md-7 photo px-0"
     [ngStyle]="{
-      'background-image': 'url(' + searchResult[0].photoUrl + ')'
+      'background-image': 'url(' + searchResult.photoUrl + ')'
     }"
   ></div>
 </div>
@@ -25,11 +25,12 @@
   <div *ngIf="this.isAuth">
     <button
       type="button"
-      class="btn ml-auto hoverable-white mt-4 mx-lg-3"
+      class="btn ml-auto hoverable-white mt-2 mx-lg-3"
       (click)="onOrder()"
     >
       zamów od {{ this.reservedFrom | date: 'dd/MM/yyyy' }} do
       {{ this.reservedTo | date: 'dd/MM/yyyy' }}
     </button>
+    <hr class="mt-2 mx-3 ml-lg-5">
   </div>
 </div>

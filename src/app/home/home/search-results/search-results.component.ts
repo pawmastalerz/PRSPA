@@ -95,7 +95,6 @@ export class SearchResultsComponent implements OnInit {
               }
             }
             console.log(this.searchResult);
-            console.log(this.searchResult[0].brand);
           },
           error => {
             console.log(error);

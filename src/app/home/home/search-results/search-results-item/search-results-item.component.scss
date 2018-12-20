@@ -1,6 +1,7 @@
 @import 'src/styles.scss';
 
 .single {
+    margin-top: 50px;
   min-height: 600px;
   background-color: map-get($map: $custom, $key: basic-opacity);
   border-bottom-left-radius: 70px;

@@ -20,6 +20,8 @@ export class SearchResultsItemComponent implements OnInit {
 
   ngOnInit() {
     this.authService.isAuth$.subscribe(isAuth => (this.isAuth = isAuth));
+    console.log('item');
+    console.log(this.searchResult);
   }
 
 }

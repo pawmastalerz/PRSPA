@@ -75,6 +75,13 @@ img {
   outline: none;
 }
 
+hr {
+  background-color: map-get($map: $custom, $key: basic);
+  border-color: map-get($map: $custom, $key: basic);
+  color: map-get($map: $custom, $key: basic);
+  height: 1px;
+}
+
 // alertify
 .alertify-notifier .ajs-message {
   background-color: map-get($map: $custom, $key: basic) !important;
