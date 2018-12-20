@@ -16,6 +16,7 @@ import { FleetTileComponent } from './home/main/fleet/fleet-tile/fleet-tile.comp
 import { CarDetailsComponent } from './home/car-details/car-details.component';
 import { RegisterComponent } from './home/register/register.component';
 import { SearchResultsComponent } from './home/search-results/search-results.component';
+import { SearchResultsItemComponent } from './home/search-results/search-results-item/search-results-item.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SearchResultsComponent } from './home/search-results/search-results.com
     FleetTileComponent,
     CarDetailsComponent,
     RegisterComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    SearchResultsItemComponent
   ],
   imports: [
     CommonModule,

@@ -14,10 +14,13 @@ import { CarForUser } from 'src/models/carForUser';
 export class SearchResultsComponent implements OnInit {
   fleetWithDistinctModels: Array<CarForUser> = [];
 
+  // Observables
   reservedFrom: string;
   reservedTo: string;
   model: string;
   searchResult: Array<any> = [1];
+
+  calculatedPrice: number;
 
   searchForm = new FormGroup({
     reservedFrom: new FormControl(this.reservedFrom, Validators.required),
@@ -84,6 +87,11 @@ export class SearchResultsComponent implements OnInit {
                 this.newOrder.setModel(this.searchForm.value.model);
                 this.getAllCarModels();
                 this.newOrder.setSearchResult(res.body);
+                this.newOrder.calculatePrice(
+                  this.reservedFrom,
+                  this.reservedTo,
+                  this.searchResult[0].price
+                );
               }
             }
             console.log(this.searchResult);
@@ -101,6 +109,30 @@ export class SearchResultsComponent implements OnInit {
     if (event.keyCode === 13) {
       this.onUpdate();
     }
+  }
+
+  calculatePrice() {
+    this.newOrder
+      .calculatePrice(
+        this.reservedFrom,
+        this.reservedTo,
+        this.searchResult[0].id
+      )
+      .subscribe(
+        (res: any) => {
+          if (+res.status === 200) {
+            this.calculatedPrice = res.body;
+          }
+        },
+        error => {
+          console.log(error);
+          this.alertify.message('błąd podczas pobierania modeli z bazy danych');
+        }
+      );
+  }
+
+  onOrder() {
+    this.alertify.message('siema');
   }
 
   getAllCarModels() {
