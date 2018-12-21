@@ -36,7 +36,7 @@ export class SearchResultsComponent implements OnInit {
     autoplaySpeed: 2000,
     dots: false,
     nav: false,
-    margin: 70,
+    margin: 30,
     height: 620
   };
 
