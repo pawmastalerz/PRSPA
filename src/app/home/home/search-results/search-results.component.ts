@@ -20,13 +20,25 @@ export class SearchResultsComponent implements OnInit {
   model: string;
   searchResult: Array<any> = [1];
 
-  calculatedPrice: number;
-
   searchForm = new FormGroup({
     reservedFrom: new FormControl(this.reservedFrom, Validators.required),
     reservedTo: new FormControl(this.reservedTo, Validators.required),
     model: new FormControl(this.model, Validators.required)
   });
+
+  mySlideOptions = {
+    items: 1,
+    loop: true,
+    rewind: false,
+    autoplay: true,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    autoplaySpeed: 2000,
+    dots: false,
+    nav: false,
+    margin: 70,
+    height: 620
+  };
 
   constructor(
     private carService: CarService,
@@ -87,14 +99,8 @@ export class SearchResultsComponent implements OnInit {
                 this.newOrder.setModel(this.searchForm.value.model);
                 this.getAllCarModels();
                 this.newOrder.setSearchResult(res.body);
-                this.newOrder.calculatePrice(
-                  this.reservedFrom,
-                  this.reservedTo,
-                  this.searchResult[0].price
-                );
               }
             }
-            console.log(this.searchResult);
           },
           error => {
             console.log(error);
@@ -108,26 +114,6 @@ export class SearchResultsComponent implements OnInit {
     if (event.keyCode === 13) {
       this.onUpdate();
     }
-  }
-
-  calculatePrice() {
-    this.newOrder
-      .calculatePrice(
-        this.reservedFrom,
-        this.reservedTo,
-        this.searchResult[0].id
-      )
-      .subscribe(
-        (res: any) => {
-          if (+res.status === 200) {
-            this.calculatedPrice = res.body;
-          }
-        },
-        error => {
-          console.log(error);
-          this.alertify.message('błąd podczas pobierania modeli z bazy danych');
-        }
-      );
   }
 
   onOrder() {

@@ -99,8 +99,6 @@ export class SearchComponent implements OnInit {
                 );
                 this.newOrder.setReservedTo(this.searchForm.value.reservedTo);
                 this.newOrder.setModel(this.searchForm.value.model);
-                console.log('main');
-                console.log(this.newOrder.model$.source);
                 this.newOrder.setSearchResult(res.body);
                 this.router.navigate(['home/search_results']);
               }

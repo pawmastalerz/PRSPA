@@ -48,15 +48,19 @@
           </form>
         </div>
         <div class="col-lg-8">
-          <div *ngIf="this.searchResult?.length > 0">
-            <div *ngFor="let single of searchResult">
+          <owl-carousel
+            [options]="mySlideOptions"
+            [items]="searchResult"
+            [carouselClasses]="['owl-theme', 'sliding']"
+          >
+            <div class="item" *ngFor="let single of searchResult">
               <app-search-results-item
                 [searchResult]="single"
                 [reservedFrom]="reservedFrom"
                 [reservedTo]="reservedTo"
               ></app-search-results-item>
             </div>
-          </div>
+          </owl-carousel>
         </div>
       </div>
     </div>

@@ -20,7 +20,10 @@
 </div>
 <div class="order">
   <div *ngIf="!this.isAuth">
-    <p class="text-right mt-4">wypożyczenie pojazdu możliwe po zalogowaniu</p>
+    <p class="text-right mt-4 mx-3">
+      wypożyczenie pojazdu możliwe po zalogowaniu
+    </p>
+    <hr class="mx-3 ml-lg-5" />
   </div>
   <div *ngIf="this.isAuth">
     <button
@@ -29,8 +32,9 @@
       (click)="onOrder()"
     >
       zamów od {{ this.reservedFrom | date: 'dd/MM/yyyy' }} do
-      {{ this.reservedTo | date: 'dd/MM/yyyy' }}
+      {{ this.reservedTo | date: 'dd/MM/yyyy' }} za
+      {{ this.calculatedPrice }} PLN
     </button>
-    <hr class="mt-2 mx-3 ml-lg-5">
+    <hr class="mt-2 mx-3 ml-lg-5" />
   </div>
 </div>
