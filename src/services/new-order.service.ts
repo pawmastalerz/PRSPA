@@ -42,7 +42,7 @@ export class NewOrderService {
   calculatePrice(reservedFrom: string, reservedTo: string, id: number) {
     console.log('elo');
     return this.http.post(
-      this.baseUrl + 'orders/calculatePrice',
+      this.baseUrl + 'orders/cprice',
       { reservedFrom, reservedTo, id },
       {
         observe: 'response'

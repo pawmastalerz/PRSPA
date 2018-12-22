@@ -1,3 +1,4 @@
+import { CarForUser } from 'src/models/carForUser';
 import { AlertifyService } from 'src/services/alertify.service';
 import { AuthService } from 'src/services/auth.service';
 import { Component, OnInit, Input } from '@angular/core';
@@ -14,7 +15,7 @@ export class SearchResultsItemComponent implements OnInit {
   @Input()
   reservedTo: string;
   @Input()
-  searchResult: Array<any>;
+  searchResult: Array<CarForUser>;
 
   isAuth: boolean;
   calculatedPrice: any;
@@ -31,21 +32,17 @@ export class SearchResultsItemComponent implements OnInit {
   }
 
   calculatePrice() {
-    console.log('item');
     console.log(this.searchResult);
-    // this.newOrder
-    //   .calculatePrice(this.reservedFrom, this.reservedTo, 3)
-    //   .subscribe(
-    //     (res: any) => {
-    //       if (+res.status === 200) {
-    //         this.calculatedPrice = res.body;
-    //         console.log(this.calculatedPrice);
-    //       }
-    //     },
-    //     error => {
-    //       console.log(error);
-    //       this.alertify.message('błąd podczas pobierania modeli z bazy danych');
-    //     }
-    //   );
+    this.newOrder.calculatePrice(this.reservedFrom, this.reservedTo, this.searchResult['id']).subscribe(
+      (res: any) => {
+        if (+res.status === 200) {
+          this.calculatedPrice = res.body;
+        }
+      },
+      error => {
+        console.log(error);
+        this.alertify.message('błąd podczas obliczania kwoty zamówienia');
+      }
+    );
   }
 }

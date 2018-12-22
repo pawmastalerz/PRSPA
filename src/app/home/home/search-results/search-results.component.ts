@@ -104,6 +104,13 @@ export class SearchResultsComponent implements OnInit {
           },
           error => {
             console.log(error);
+            if (
+              error.error === 'Reservation\'s date is lower than current time'
+            ) {
+              return this.alertify.message(
+                'nie można złożyć zamówienia z datą wsteczną'
+              );
+            }
             this.alertify.message('nieprawidłowe dane wyszukiwania');
           }
         );
