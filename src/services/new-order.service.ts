@@ -39,10 +39,10 @@ export class NewOrderService {
     this.searchResult.next(searchResult);
   }
 
-  calculatePrice(reservedFrom: string, reservedTo: string, id: number) {
+  calculatePrice(reservedFrom: string, reservedTo: string, carId: number) {
     return this.http.post(
       this.baseUrl + 'orders/cprice',
-      { reservedFrom, reservedTo, id },
+      { reservedFrom, reservedTo, carId },
       {
         observe: 'response'
       }
