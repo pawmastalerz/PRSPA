@@ -64,7 +64,7 @@ export class SearchResultsComponent implements OnInit {
     this.searchForm.patchValue({ model: this.model });
 
     if (this.searchResult === null) {
-      // this.router.navigate(['home/main']);
+      this.router.navigate(['home/main']);
     }
 
     this.getAllCarModels();

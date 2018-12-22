@@ -18,7 +18,7 @@ export class SearchResultsItemComponent implements OnInit {
   searchResult: Array<CarForUser>;
 
   isAuth: boolean;
-  calculatedPrice: any;
+  calculatedPrice: number;
 
   constructor(
     private authService: AuthService,
@@ -32,7 +32,6 @@ export class SearchResultsItemComponent implements OnInit {
   }
 
   calculatePrice() {
-    console.log(this.searchResult);
     this.newOrder.calculatePrice(this.reservedFrom, this.reservedTo, this.searchResult['id']).subscribe(
       (res: any) => {
         if (+res.status === 200) {

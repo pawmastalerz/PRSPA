@@ -33,7 +33,7 @@
     >
       zamów od {{ this.reservedFrom | date: 'dd/MM/yyyy' }} do
       {{ this.reservedTo | date: 'dd/MM/yyyy' }} za
-      {{ this.calculatedPrice }} PLN
+      {{ this.calculatedPrice | number: '.2' }} PLN
     </button>
   </div>
 </div>
