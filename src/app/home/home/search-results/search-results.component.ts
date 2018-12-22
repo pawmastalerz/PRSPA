@@ -110,6 +110,12 @@ export class SearchResultsComponent implements OnInit {
               return this.alertify.message(
                 'nie można złożyć zamówienia z datą wsteczną'
               );
+            } else if (
+              error.error === 'Reservation\'s date is bigger than 6 months'
+            ) {
+              return this.alertify.message(
+                'maksymalne wyprzedzenie zamówienia to pół roku'
+              );
             }
             this.alertify.message('nieprawidłowe dane wyszukiwania');
           }
