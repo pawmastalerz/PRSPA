@@ -18,4 +18,8 @@ export class AppComponent implements OnInit {
       this.authService.setIsAuth(true);
     }
   }
+
+  onActivate(event) {
+    window.scroll(0, 0);
+  }
 }
