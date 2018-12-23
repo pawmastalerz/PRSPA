@@ -48,4 +48,14 @@ export class NewOrderService {
       }
     );
   }
+
+  createOrder(reservedFrom: string, reservedTo: string, carId: number, userId: number) {
+    return this.http.put(
+      this.baseUrl + 'orders/create',
+      { reservedFrom, reservedTo, carId, userId },
+      {
+        observe: 'response'
+      }
+    );
+  }
 }

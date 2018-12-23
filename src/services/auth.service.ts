@@ -100,6 +100,15 @@ export class AuthService {
     });
   }
 
+  getUserId() {
+    this.decodedToken = this.jwtHelper.decodeToken(
+      localStorage.getItem('accessToken')
+    );
+    const decodedTokenId = +this.decodedToken['unique_name'];
+    console.log(decodedTokenId);
+    return decodedTokenId;
+  }
+
   updatePersonal(
     username: string,
     email: string,
