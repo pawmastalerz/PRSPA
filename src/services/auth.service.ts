@@ -104,8 +104,7 @@ export class AuthService {
     this.decodedToken = this.jwtHelper.decodeToken(
       localStorage.getItem('accessToken')
     );
-    const decodedTokenId = +this.decodedToken['unique_name'];
-    console.log(decodedTokenId);
+    const decodedTokenId = this.decodedToken['unique_name'];
     return decodedTokenId;
   }
 

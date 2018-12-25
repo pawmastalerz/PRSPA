@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { AlertifyService } from './alertify.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +8,7 @@ import { AlertifyService } from './alertify.service';
 export class CarService {
   baseUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient, private alertify: AlertifyService) {}
+  constructor(private http: HttpClient) {}
 
   getWholeFleetForUser() {
     return this.http.get(this.baseUrl + 'cars/user/all', {
@@ -36,13 +35,12 @@ export class CarService {
   }
 
   searchForAvaliableCars(model: string, reservedFrom: Date, reservedTo: Date) {
-    return this.http
-      .post(
-        this.baseUrl + 'cars/user/search',
-        { model, reservedFrom, reservedTo },
-        {
-          observe: 'response'
-        }
-      );
+    return this.http.post(
+      this.baseUrl + 'cars/user/search',
+      { model, reservedFrom, reservedTo },
+      {
+        observe: 'response'
+      }
+    );
   }
 }

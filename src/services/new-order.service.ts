@@ -58,4 +58,10 @@ export class NewOrderService {
       }
     );
   }
+
+  getCurrentlyOrderedCars() {
+    return this.http.get(this.baseUrl + 'orders/current', {
+      observe: 'response'
+    });
+  }
 }

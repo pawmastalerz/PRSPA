@@ -43,9 +43,6 @@ export class FleetComponent implements OnInit {
       error => {
         console.log(error);
         console.log('Błąd podczas ładowania całej floty dla użytkownika');
-        setTimeout(() => {
-          this.ngOnInit();
-        }, 300);
       }
     );
   }

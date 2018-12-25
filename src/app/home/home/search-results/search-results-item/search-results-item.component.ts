@@ -38,7 +38,7 @@ export class SearchResultsItemComponent implements OnInit {
       .calculatePrice(
         this.reservedFrom,
         this.reservedTo,
-        this.searchResult['id']
+        this.searchResult['carId']
       )
       .subscribe(
         (res: any) => {
@@ -58,7 +58,7 @@ export class SearchResultsItemComponent implements OnInit {
       .createOrder(
         this.reservedFrom,
         this.reservedTo,
-        this.searchResult['id'],
+        this.searchResult['carId'],
         this.authService.getUserId()
       )
       .subscribe(

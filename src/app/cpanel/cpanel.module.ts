@@ -8,6 +8,8 @@ import { CurrentComponent } from './cpanel/current/current.component';
 import { PersonalComponent } from './cpanel/personal/personal.component';
 import { SettingsComponent } from './cpanel/settings/settings.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CurrentItemComponent } from './cpanel/current/current-item/current-item.component';
+import { OwlModule } from 'ngx-owl-carousel';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     HistoryComponent,
     CurrentComponent,
     PersonalComponent,
-    SettingsComponent
+    SettingsComponent,
+    CurrentItemComponent
   ],
-  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule]
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, OwlModule]
 })
 export class CpanelModule {}

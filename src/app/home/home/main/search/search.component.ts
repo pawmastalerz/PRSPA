@@ -53,9 +53,7 @@ export class SearchComponent implements OnInit {
       },
       error => {
         console.log(error);
-        setTimeout(() => {
-          this.ngOnInit();
-        }, 300);
+        this.alertify.message('błąd podczas pobierania floty z bazy danych');
       }
     );
 

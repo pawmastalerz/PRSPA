@@ -1,5 +1,5 @@
 export class CarForUser {
-  id: number;
+  carId: number;
   license: string;
   brand: string;
   model: string;
