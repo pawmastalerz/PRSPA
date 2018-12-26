@@ -62,7 +62,7 @@ export class SettingsComponent implements OnInit {
               return;
             }
             console.log(error);
-            this.alertify.message('problem podczas aktualizacji hasła');
+            this.alertify.message('błąd podczas aktualizacji hasła');
           }
         );
     } else {
@@ -103,7 +103,7 @@ export class SettingsComponent implements OnInit {
       },
       error => {
         console.log(error);
-        this.alertify.message('problem podczas usuwania konta');
+        this.alertify.message('błąd podczas usuwania konta');
       }
     );
   }

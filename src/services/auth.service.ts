@@ -85,7 +85,12 @@ export class AuthService {
         },
         error => {
           console.log(error);
-          this.alertify.message('nieprawidłowe dane rejestracyjne');
+          if (error.error.message === 'This username is already taken') {
+            return this.alertify.message(
+              'podany login już istnieje'
+            );
+          }
+          this.alertify.message('błąd podczas rejestracji użytkownika');
         }
       );
   }

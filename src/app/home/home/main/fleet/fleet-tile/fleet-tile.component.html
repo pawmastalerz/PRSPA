@@ -9,7 +9,7 @@
     <h1>{{ carDetails.brand + ' ' + carDetails.model }}</h1>
     <h2>{{ carDetails.description }}</h2>
     <div class="d-flex align-items-center">
-      <a class="mx-auto" [routerLink]="['../details/' + carDetails.id]">
+      <a class="mx-auto" [routerLink]="['../details/' + carDetails.carId]">
         <button type="button" class="btn hoverable-white mb-5">
           szczegóły
         </button>

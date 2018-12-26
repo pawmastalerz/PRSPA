@@ -73,7 +73,7 @@ export class PersonalComponent implements OnInit {
           error => {
             console.log(error);
             this.alertify.message(
-              'problem podczas aktualizacji danych osobowych'
+              'błąd podczas aktualizacji danych osobowych'
             );
           }
         );
@@ -123,7 +123,7 @@ export class PersonalComponent implements OnInit {
       },
       error => {
         console.log(error);
-        this.alertify.message('problem podczas pobierania danych osobowych');
+        this.alertify.message('błąd podczas pobierania danych osobowych');
       }
     );
   }

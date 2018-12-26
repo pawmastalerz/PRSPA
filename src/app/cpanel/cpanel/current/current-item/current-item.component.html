@@ -5,6 +5,7 @@
       <p>Marka: {{ carDetails.carOrdered.brand }}</p>
       <p>Model: {{ carDetails.carOrdered.model }}</p>
       <p>Rocznik: {{ carDetails.carOrdered.year }}</p>
+      <p>Kwota zamówienia: {{ carDetails.totalPrice | number: '.2' }} PLN</p>
       <hr>
       <p>Zwrócony: {{ carDetails.isReturned }}</p>
     </div>

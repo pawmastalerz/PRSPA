@@ -22,8 +22,8 @@ export class CarService {
     });
   }
 
-  getCarDetailsForUser(id: string) {
-    return this.http.get(this.baseUrl + 'cars/user/' + id, {
+  getCarDetailsForUser(carId: string) {
+    return this.http.get(this.baseUrl + 'cars/user/' + carId, {
       observe: 'response'
     });
   }
