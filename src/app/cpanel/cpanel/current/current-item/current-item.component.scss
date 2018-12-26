@@ -1,0 +1,24 @@
+@import 'src/styles.scss';
+
+.container {
+  min-height: 600px;
+  background-color: map-get($map: $custom, $key: basic-opacity);
+  border-bottom-left-radius: 70px;
+  margin-bottom: 100px;
+
+  .description {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    p {
+      color: map-get($map: $custom, $key: dark);
+      font-size: 24px;
+    }
+  }
+
+  .photo {
+    min-height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}

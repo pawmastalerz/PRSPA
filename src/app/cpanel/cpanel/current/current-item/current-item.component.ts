@@ -12,5 +12,7 @@ export class CurrentItemComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.carDetails);
+  }
 }

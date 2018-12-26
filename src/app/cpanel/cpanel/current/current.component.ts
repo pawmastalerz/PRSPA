@@ -40,7 +40,6 @@ export class CurrentComponent implements OnInit {
       (res: any) => {
         if (+res.status === 200) {
           this.currentlyOrdered = res.body;
-          console.log(this.currentlyOrdered);
         }
       },
       error => {

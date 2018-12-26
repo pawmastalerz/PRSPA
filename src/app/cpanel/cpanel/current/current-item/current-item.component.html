@@ -1,3 +1,18 @@
-<p>
-  current-item works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 description d-flex flex-column align-items-center justify-content-center">
+      <p>Numer zamówienia: {{ carDetails.orderId }}</p>
+      <p>Marka: {{ carDetails.carOrdered.brand }}</p>
+      <p>Model: {{ carDetails.carOrdered.model }}</p>
+      <p>Rocznik: {{ carDetails.carOrdered.year }}</p>
+      <hr>
+      <p>Zwrócony: {{ carDetails.isReturned }}</p>
+    </div>
+    <div
+      class="col-sm-7 photo px-0"
+      [ngStyle]="{
+        'background-image': 'url(' + carDetails.carOrdered.photoUrl + ')'
+      }"
+    ></div>
+  </div>
+</div>
