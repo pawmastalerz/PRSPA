@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  onScroll(event) {
+    window.scroll(0, 0);
   }
-
 }

@@ -25,4 +25,8 @@ export class NavbarComponent implements OnInit {
     this.authService.logout();
     this.alertify.message('wylogowano');
   }
+
+  onScroll(event) {
+    window.scroll(0, 0);
+  }
 }
