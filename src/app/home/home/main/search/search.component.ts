@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CarForUser } from 'src/models/carForUser';
 import { AlertifyService } from 'src/services/alertify.service';
-import { NewOrderService } from 'src/services/new-order.service';
+import { OrderService } from 'src/services/order.service';
 
 @Component({
   selector: 'app-search',
@@ -29,7 +29,7 @@ export class SearchComponent implements OnInit {
   constructor(
     private carService: CarService,
     private alertify: AlertifyService,
-    private newOrder: NewOrderService,
+    private newOrder: OrderService,
     private router: Router
   ) {}
 

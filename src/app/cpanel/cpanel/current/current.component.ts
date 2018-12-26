@@ -1,7 +1,6 @@
-import { NewOrderService } from 'src/services/new-order.service';
+import { OrderService } from 'src/services/order.service';
 import { AlertifyService } from 'src/services/alertify.service';
 import { Component, OnInit } from '@angular/core';
-import { CarForUser } from 'src/models/carForUser';
 import { OrderDetails } from 'src/models/OrderDetails';
 
 @Component({
@@ -27,7 +26,7 @@ export class CurrentComponent implements OnInit {
   currentlyOrdered: Array<OrderDetails> = [];
 
   constructor(
-    private newOrderService: NewOrderService,
+    private orderService: OrderService,
     private alertify: AlertifyService
   ) {}
 
@@ -36,7 +35,7 @@ export class CurrentComponent implements OnInit {
   }
 
   getCurrentlyOrdered() {
-    this.newOrderService.getCurrentlyOrderedCars().subscribe(
+    this.orderService.getCurrentlyOrderedCars().subscribe(
       (res: any) => {
         if (+res.status === 200) {
           this.currentlyOrdered = res.body;
@@ -45,7 +44,7 @@ export class CurrentComponent implements OnInit {
       error => {
         console.log(error);
         this.alertify.message(
-          'wystąpił błąd podczas pobierania aktualnie wypożyczonych samochodów'
+          'wystąpił błąd podczaszwracania samochodu'
         );
       }
     );

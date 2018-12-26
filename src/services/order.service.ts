@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class NewOrderService {
+export class OrderService {
   baseUrl = environment.apiUrl;
 
   private reservedFrom = new BehaviorSubject<string>('');
@@ -49,7 +49,12 @@ export class NewOrderService {
     );
   }
 
-  createOrder(reservedFrom: string, reservedTo: string, carId: number, userId: number) {
+  createOrder(
+    reservedFrom: string,
+    reservedTo: string,
+    carId: number,
+    userId: number
+  ) {
     return this.http.put(
       this.baseUrl + 'orders/create',
       { reservedFrom, reservedTo, carId, userId },
@@ -63,5 +68,14 @@ export class NewOrderService {
     return this.http.get(this.baseUrl + 'orders/current', {
       observe: 'response'
     });
+  }
+
+  returnCar(orderId: number) {
+    return this.http.post(
+      this.baseUrl + 'orders/return/' + orderId,
+      {
+        observe: 'response'
+      }
+    );
   }
 }

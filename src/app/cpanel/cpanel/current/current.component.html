@@ -14,8 +14,8 @@
           [items]="currentlyOrdered"
           [carouselClasses]="['owl-theme', 'sliding']"
         >
-          <div class="item" *ngFor="let carDetails of currentlyOrdered">
-            <app-current-item [carDetails]="carDetails"></app-current-item>
+          <div class="item" *ngFor="let orderDetails of currentlyOrdered">
+            <app-current-item [orderDetails]="orderDetails"></app-current-item>
           </div>
         </owl-carousel>
       </div>

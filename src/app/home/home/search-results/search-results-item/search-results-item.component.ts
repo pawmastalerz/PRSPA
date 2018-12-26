@@ -3,7 +3,7 @@ import { CarForUser } from 'src/models/carForUser';
 import { AlertifyService } from 'src/services/alertify.service';
 import { AuthService } from 'src/services/auth.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { NewOrderService } from 'src/services/new-order.service';
+import { OrderService } from 'src/services/order.service';
 
 @Component({
   selector: 'app-search-results-item',
@@ -23,7 +23,7 @@ export class SearchResultsItemComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private newOrder: NewOrderService,
+    private newOrder: OrderService,
     private alertify: AlertifyService,
     private router: Router
   ) {}

@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { NewOrderService } from 'src/services/new-order.service';
+import { OrderService } from 'src/services/order.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CarService } from 'src/services/car.service';
 import { AlertifyService } from 'src/services/alertify.service';
@@ -43,7 +43,7 @@ export class SearchResultsComponent implements OnInit {
   constructor(
     private carService: CarService,
     private alertify: AlertifyService,
-    private newOrder: NewOrderService,
+    private newOrder: OrderService,
     private router: Router
   ) {}
 
