@@ -68,7 +68,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.authService.isAuth$.subscribe(isAuth => (this.isAuth = isAuth));
     alert(
-      'Wszelkie dane osobowe podane w poniższym formularzu będą przechowywane w bazie danych do końca dnia. O północy zostaną automatycznie usunięte z bazy przez serwer.\n\n' +
+      'Wszelkie dane osobowe podane w poniższym formularzu będą przechowywane w bazie danych do najbliższej godziny 23:00 czasu lokalnego. O tej porze zostaną automatycznie usunięte z bazy przez serwer.\n\n' +
         'Będą wykorzystane wyłącznie do prezentacji zastosowania technologii Angular 7, .NET Core 2.1 i Entity Framework Core 2.1.\n\n' +
         'Serwis celowo nie pyta o imię i nazwisko. Proszę NIE PODAWAĆ prawdziwych danych osobowych, w tym adresu e-mail!\n\n'
     );
