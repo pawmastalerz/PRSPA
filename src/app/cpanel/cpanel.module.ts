@@ -10,6 +10,7 @@ import { SettingsComponent } from './cpanel/settings/settings.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CurrentItemComponent } from './cpanel/current/current-item/current-item.component';
 import { OwlModule } from 'ngx-owl-carousel';
+import { HistoryItemComponent } from './cpanel/history/history-item/history-item.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { OwlModule } from 'ngx-owl-carousel';
     CurrentComponent,
     PersonalComponent,
     SettingsComponent,
-    CurrentItemComponent
+    CurrentItemComponent,
+    HistoryItemComponent
   ],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, OwlModule]
 })

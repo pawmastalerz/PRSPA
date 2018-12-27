@@ -8,8 +8,10 @@
       <p>Model: {{ orderDetails.carOrdered.model }}</p>
       <p>Rocznik: {{ orderDetails.carOrdered.year }}</p>
       <p>Kwota zamówienia: {{ orderDetails.totalPrice | number: '.2' }} PLN</p>
-      <p>Data wypożyczenia: {{ orderDetails.reservedFrom | date: 'dd/MM/yyyy'}}</p>
-      <p>Data zwrotu: {{ orderDetails.reservedTo | date: 'dd/MM/yyyy'}}</p>
+      <p>
+        Data wypożyczenia: {{ orderDetails.reservedFrom | date: 'dd/MM/yyyy' }}
+      </p>
+      <p>Data zwrotu: {{ orderDetails.reservedTo | date: 'dd/MM/yyyy' }}</p>
       <hr />
       <p>Zwrócony: {{ orderDetails.isReturned }}</p>
     </div>
@@ -19,18 +21,5 @@
         'background-image': 'url(' + orderDetails.carOrdered.photoUrl + ')'
       }"
     ></div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <button
-        type="button"
-        class="btn mx-auto hoverable-white"
-        (click)="onReturn()"
-      >
-        zwróć pojazd
-      </button>
-    </div>
   </div>
 </div>

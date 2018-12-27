@@ -1,3 +1,24 @@
-<p>
-  history works!
-</p>
+<div class="row mx-0 main">
+  <div class="col">
+    <div class="dimmed-container">
+      <h1 class="p-3">Twoje dotychczasowe zamówienia: {{orderedHistory.length}}</h1>
+      <div class="mt-3 p-3 not-found" *ngIf="orderedHistory.length === 0">
+        <p class="text-center">
+          Nie dokonano żadnych zamówień.
+        </p>
+        <br />
+      </div>
+      <div *ngIf="orderedHistory.length > 0">
+        <owl-carousel
+          [options]="mySlideOptions"
+          [items]="orderedHistory"
+          [carouselClasses]="['owl-theme', 'sliding']"
+        >
+          <div class="item" *ngFor="let orderDetails of orderedHistory">
+            <app-history-item [orderDetails]="orderDetails"></app-history-item>
+          </div>
+        </owl-carousel>
+      </div>
+    </div>
+  </div>
+</div>

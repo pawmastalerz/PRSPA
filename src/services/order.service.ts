@@ -70,6 +70,12 @@ export class OrderService {
     });
   }
 
+  getOrderedHistory() {
+    return this.http.get(this.baseUrl + 'orders/history', {
+      observe: 'response'
+    });
+  }
+
   returnCar(orderId: number) {
     return this.http.post(
       this.baseUrl + 'orders/return/' + orderId,
