@@ -5,6 +5,7 @@ export class CarForUser {
   model: string;
   body: string;
   description: string;
+  transmission: string;
   doors: number;
   price: number;
   year: number;

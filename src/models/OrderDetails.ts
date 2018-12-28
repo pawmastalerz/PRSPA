@@ -4,6 +4,7 @@ export class OrderDetails {
   carId: number;
   userId: number;
   isReturned: string;
+  totalPrice: number;
   reservedFrom: Date;
   reservedTo: Date;
   carOrdered: CarForUser;

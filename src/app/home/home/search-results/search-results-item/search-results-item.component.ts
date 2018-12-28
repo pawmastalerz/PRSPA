@@ -16,7 +16,7 @@ export class SearchResultsItemComponent implements OnInit {
   @Input()
   reservedTo: string;
   @Input()
-  searchResult: Array<CarForUser>;
+  searchResult: CarForUser;
 
   isAuth: boolean;
   calculatedPrice: number;
