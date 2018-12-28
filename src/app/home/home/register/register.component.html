@@ -1,4 +1,25 @@
 <div class="container-register">
+  <div class="disclaimer p-3 p-lg-5 text-center">
+    <p>
+      Wszelkie dane osobowe podane w poniższym formularzu będą przechowywane w
+      bazie danych do najbliższej godziny 23:00 czasu lokalnego.
+    </p>
+    <p>
+      O tej porze dane osobowe, jak również historia zamówień dokonanych z
+      zarejestrowanego konta zostanie automatycznie usunięta z bazy przez
+      serwer.
+    </p>
+    <p>
+      Dane osobowe będą wykorzystane wyłącznie do prezentacji zastosowania
+      technologii Angular 7, .NET Core 2.1 i Entity Framework Core 2.1. Nie
+      zostaną wykorzystane w jakiejkolwiek działalności komercyjnej.
+    </p>
+    <p>
+      Serwis celowo nie pyta o imię i nazwisko. Proszę NIE PODAWAĆ prawdziwych
+      danych osobowych, w tym adresu e-mail! Nie jest potrzebny do procesu
+      rejestracji.
+    </p>
+  </div>
   <div class="register-container d-flex flex-column align-items-center">
     <p class="p-0 m-0 text-center mb-5">ZAREJESTRUJ SIĘ</p>
     <form [formGroup]="registerForm" (keydown)="keyDownFunction($event)">
@@ -22,7 +43,7 @@
                 type="email"
                 formControlName="email"
                 class="form-control"
-                placeholder="(prawidłowy e-mail)"
+                placeholder="(prawidłowy, przykładowy e-mail)"
                 maxlength="30"
               />
             </div>
