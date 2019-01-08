@@ -23,7 +23,7 @@
       height: 1px;
     }
     .delete {
-    background-color: map-get($map: $custom, $key: danger);
+      background-color: map-get($map: $custom, $key: danger);
     }
   }
 }

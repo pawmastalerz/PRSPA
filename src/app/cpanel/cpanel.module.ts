@@ -11,6 +11,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CurrentItemComponent } from './cpanel/current/current-item/current-item.component';
 import { OwlModule } from 'ngx-owl-carousel';
 import { HistoryItemComponent } from './cpanel/history/history-item/history-item.component';
+import { NeworderComponent } from './cpanel/neworder/neworder.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HistoryItemComponent } from './cpanel/history/history-item/history-item
     PersonalComponent,
     SettingsComponent,
     CurrentItemComponent,
-    HistoryItemComponent
+    HistoryItemComponent,
+    NeworderComponent
   ],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, OwlModule]
 })

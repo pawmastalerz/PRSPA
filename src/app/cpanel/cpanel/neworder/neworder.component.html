@@ -1,0 +1,50 @@
+<div class="row mx-0 main">
+  <div class="col">
+    <div class="dimmed-container">
+      <h1 class="p-3">Nowe zamówienie:</h1>
+      <form [formGroup]="searchForm" (keydown)="keyDownFunction($event)">
+        <div class="row p-3">
+          <div class="col">
+            <div class="form-group">
+              <label for="reservedFrom">data wypożyczenia:</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="reservedFrom"
+                placeholder="name@example.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="reservedTo">data zwrotu:</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="reservedTo"
+                placeholder="name@example.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="model">model:</label>
+              <select class="form-control" formControlName="model">
+                <option></option>
+                <option *ngFor="let car of fleetWithDistinctModels"
+                  >{{ car.brand }} {{ car.model }}</option
+                >
+              </select>
+            </div>
+            <div>
+              <button
+                type="button"
+                class="btn hoverable-white mx-auto mb-5 mb-sm-0"
+                (click)="onSearch()"
+                [disabled]="!searchForm.valid"
+              >
+                wyszukaj
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
