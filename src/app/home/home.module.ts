@@ -17,6 +17,8 @@ import { CarDetailsComponent } from './home/car-details/car-details.component';
 import { RegisterComponent } from './home/register/register.component';
 import { SearchResultsComponent } from './home/search-results/search-results.component';
 import { SearchResultsItemComponent } from './home/search-results/search-results-item/search-results-item.component';
+import { PricesTableComponent } from './home/prices/prices-table/prices-table.component';
+import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -33,14 +35,18 @@ import { SearchResultsItemComponent } from './home/search-results/search-results
     CarDetailsComponent,
     RegisterComponent,
     SearchResultsComponent,
-    SearchResultsItemComponent
+    SearchResultsItemComponent,
+    PricesTableComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     OwlModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ]
 })
 export class HomeModule {}
