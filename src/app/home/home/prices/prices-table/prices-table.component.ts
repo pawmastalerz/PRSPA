@@ -17,7 +17,7 @@ export class PricesTableComponent implements OnInit {
   dataToTable: any;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['brand', 'model', 'year', 'price'];
+  displayedColumns = ['brand', 'model', 'year', 'price', 'detailsButton'];
 
   constructor(
     private carService: CarService,
