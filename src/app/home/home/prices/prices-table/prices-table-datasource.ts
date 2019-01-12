@@ -12,7 +12,11 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 export class PricesTableDataSource extends DataSource<CarForUser> {
   data: CarForUser[] = this.dataToTable;
 
-  constructor(private paginator: MatPaginator, private sort: MatSort, private dataToTable: CarForUser[]) {
+  constructor(
+    private paginator: MatPaginator,
+    private sort: MatSort,
+    private dataToTable: CarForUser[]
+  ) {
     super();
   }
 
@@ -32,10 +36,13 @@ export class PricesTableDataSource extends DataSource<CarForUser> {
 
     // Set the paginator's length
     this.paginator.length = this.data.length;
+    this.paginator._intl.itemsPerPageLabel = 'Rekordów na stronę:';
 
-    return merge(...dataMutations).pipe(map(() => {
-      return this.getPagedData(this.getSortedData([...this.data]));
-    }));
+    return merge(...dataMutations).pipe(
+      map(() => {
+        return this.getPagedData(this.getSortedData([...this.data]));
+      })
+    );
   }
 
   /**
@@ -65,9 +72,16 @@ export class PricesTableDataSource extends DataSource<CarForUser> {
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
-        case 'brand': return compare(a.brand, b.brand, isAsc);
-        case 'carId': return compare(+a.carId, +b.carId, isAsc);
-        default: return 0;
+        case 'brand':
+          return compare(a.brand, b.brand, isAsc);
+        case 'model':
+          return compare(a.model, b.model, isAsc);
+        case 'year':
+          return compare(+a.year, +b.year, isAsc);
+        case 'price':
+          return compare(+a.price, +b.price, isAsc);
+        default:
+          return 0;
       }
     });
   }

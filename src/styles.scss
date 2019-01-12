@@ -112,3 +112,12 @@ body {
 .mat-paginator-navigation-next {
   box-shadow: none;
 }
+
+.mat-paginator-range-label {
+  display: none;
+}
+
+.mat-paginator-container,
+.mat-header-row {
+  background-color: map-get($map: $custom, $key: basic);
+}
