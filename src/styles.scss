@@ -101,12 +101,12 @@ html,
 body {
   height: 100%;
 }
-body {
-  margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
-}
 
 //Angular material
+.mat-table {
+  font-family: 'Oswald';
+}
+
 .mat-sort-header-button,
 .mat-paginator-navigation-previous,
 .mat-paginator-navigation-next {
@@ -115,6 +115,10 @@ body {
 
 .mat-paginator-range-label {
   display: none;
+}
+
+.mat-paginator-page-size-label {
+  font-family: 'Oswald';
 }
 
 .mat-paginator-container,

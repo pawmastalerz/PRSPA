@@ -9,15 +9,7 @@
         <br />
       </div>
       <div *ngIf="orderedHistory.length > 0">
-        <owl-carousel
-          [options]="mySlideOptions"
-          [items]="orderedHistory"
-          [carouselClasses]="['owl-theme', 'sliding']"
-        >
-          <div class="item" *ngFor="let orderDetails of orderedHistory">
-            <app-history-item [orderDetails]="orderDetails"></app-history-item>
-          </div>
-        </owl-carousel>
+        <app-history-table></app-history-table>
       </div>
     </div>
   </div>
