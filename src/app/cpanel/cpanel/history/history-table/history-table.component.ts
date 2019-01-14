@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { HistoryTableDataSource } from './history-table-datasource';
 
@@ -12,10 +12,17 @@ export class HistoryTableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   dataSource: HistoryTableDataSource;
 
+  @Input()
+  dataToTable: any;
+
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['brand', 'model', 'year'];
 
   ngOnInit() {
-    this.dataSource = new HistoryTableDataSource(this.paginator, this.sort);
+    this.dataSource = new HistoryTableDataSource(
+      this.paginator,
+      this.sort,
+      this.dataToTable
+    );
   }
 }

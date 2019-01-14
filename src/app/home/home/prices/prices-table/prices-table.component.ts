@@ -1,4 +1,3 @@
-import { CarForUser } from 'src/models/carForUser';
 import { AlertifyService } from 'src/services/alertify.service';
 import { CarService } from 'src/services/car.service';
 import { Component, OnInit, ViewChild } from '@angular/core';

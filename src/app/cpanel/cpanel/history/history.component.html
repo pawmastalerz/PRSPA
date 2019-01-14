@@ -9,7 +9,7 @@
         <br />
       </div>
       <div *ngIf="orderedHistory.length > 0">
-        <app-history-table></app-history-table>
+        <app-history-table [dataToTable]="orderedHistory"></app-history-table>
       </div>
     </div>
   </div>
