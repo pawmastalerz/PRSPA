@@ -72,12 +72,22 @@ export class HistoryTableDataSource extends DataSource<OrderDetails> {
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
+        case 'orderId':
+          return compare(+a.orderId, +b.orderId, isAsc);
         case 'brand':
           return compare(a.carOrdered.brand, b.carOrdered.brand, isAsc);
         case 'model':
           return compare(a.carOrdered.model, b.carOrdered.model, isAsc);
         case 'year':
           return compare(+a.carOrdered.year, +b.carOrdered.year, isAsc);
+        case 'totalPrice':
+          return compare(+a.totalPrice, +b.totalPrice, isAsc);
+        case 'reservedFrom':
+          return compare(a.reservedFrom, b.reservedFrom, isAsc);
+        case 'reservedTo':
+          return compare(a.reservedTo, b.reservedTo, isAsc);
+        case 'isReturned':
+          return compare(a.isReturned, b.isReturned, isAsc);
         default:
           return 0;
       }

@@ -16,7 +16,16 @@ export class HistoryTableComponent implements OnInit {
   dataToTable: any;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['brand', 'model', 'year'];
+  displayedColumns = [
+    'orderId',
+    'brand',
+    'model',
+    'year',
+    'totalPrice',
+    'reservedFrom',
+    'reservedTo',
+    'isReturned'
+  ];
 
   ngOnInit() {
     this.dataSource = new HistoryTableDataSource(

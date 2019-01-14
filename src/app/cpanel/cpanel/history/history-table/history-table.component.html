@@ -6,6 +6,11 @@
     matSort
     aria-label="Elements"
   >
+  <ng-container matColumnDef="orderId">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Numer zamówienia:</th>
+    <td mat-cell *matCellDef="let row">{{ row.orderId }}</td>
+  </ng-container>
+
   <ng-container matColumnDef="brand">
     <th mat-header-cell *matHeaderCellDef mat-sort-header>Marka</th>
     <td mat-cell *matCellDef="let row">{{ row.carOrdered.brand }}</td>
@@ -21,6 +26,26 @@
     <td mat-cell *matCellDef="let row">{{ row.carOrdered.year }}</td>
   </ng-container>
 
+  <ng-container matColumnDef="totalPrice">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Kwota zamówienia</th>
+    <td mat-cell *matCellDef="let row">{{ row.totalPrice | number: '.2' }} PLN</td>
+  </ng-container>
+
+  <ng-container matColumnDef="reservedFrom">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Data wypożyczenia</th>
+    <td mat-cell *matCellDef="let row">{{ row.reservedFrom | date: 'dd/MM/yyyy' }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="reservedTo">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Data zwrotu</th>
+    <td mat-cell *matCellDef="let row">{{ row.reservedTo | date: 'dd/MM/yyyy' }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="isReturned">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Zwrócony</th>
+    <td mat-cell *matCellDef="let row">{{ row.isReturned }}</td>
+  </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
@@ -29,8 +54,8 @@
     #paginator
     [length]="dataSource.data.length"
     [pageIndex]="0"
-    [pageSize]="50"
-    [pageSizeOptions]="[25, 50, 100, 250]"
+    [pageSize]="10"
+    [pageSizeOptions]="[10, 20, 50]"
   >
   </mat-paginator>
 </div>
