@@ -10,7 +10,6 @@ import { SettingsComponent } from './cpanel/settings/settings.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CurrentItemComponent } from './cpanel/current/current-item/current-item.component';
 import { OwlModule } from 'ngx-owl-carousel';
-import { HistoryItemComponent } from './cpanel/history/history-item/history-item.component';
 import { NeworderComponent } from './cpanel/neworder/neworder.component';
 import { HistoryTableComponent } from './cpanel/history/history-table/history-table.component';
 import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
@@ -24,7 +23,6 @@ import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/mate
     PersonalComponent,
     SettingsComponent,
     CurrentItemComponent,
-    HistoryItemComponent,
     NeworderComponent,
     HistoryTableComponent
   ],
