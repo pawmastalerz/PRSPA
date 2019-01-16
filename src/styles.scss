@@ -47,7 +47,7 @@ button {
   justify-content: center;
   box-shadow: 2px 2px 5px map-get($map: $custom, $key: dark);
   font-size: 18px;
-  background-color: map-get($map: $custom, $key: basic);
+  background-color: map-get($map: $custom, $key: basic) !important;
   color: map-get($map: $custom, $key: dark);
   border-radius: 7px;
   outline: none;

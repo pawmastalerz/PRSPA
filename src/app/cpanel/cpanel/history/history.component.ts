@@ -9,20 +9,6 @@ import { AlertifyService } from 'src/services/alertify.service';
   styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent implements OnInit {
-  mySlideOptions = {
-    items: 1,
-    loop: true,
-    rewind: false,
-    autoplay: true,
-    autoplayTimeout: 3000,
-    autoplayHoverPause: true,
-    autoplaySpeed: 2000,
-    dots: false,
-    nav: false,
-    margin: 70,
-    height: 620
-  };
-
   orderedHistory: Array<OrderDetails> = [];
 
   constructor(

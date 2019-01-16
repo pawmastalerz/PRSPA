@@ -1,7 +1,9 @@
 <div class="row mx-0 main">
   <div class="col">
     <div class="dimmed-container">
-      <h1 class="p-3">Twoje aktualne zamówienia: {{currentlyOrdered.length}}</h1>
+      <h1 class="p-3">
+        Twoje aktualne zamówienia: {{ currentlyOrdered.length }}
+      </h1>
       <div class="mt-3 p-3 not-found" *ngIf="currentlyOrdered.length === 0">
         <p class="text-center">
           Nie posiadasz żadnych aktualnie wypożyczonych samochodów.
@@ -9,15 +11,7 @@
         <br />
       </div>
       <div *ngIf="currentlyOrdered.length > 0">
-        <owl-carousel
-          [options]="mySlideOptions"
-          [items]="currentlyOrdered"
-          [carouselClasses]="['owl-theme', 'sliding']"
-        >
-          <div class="item" *ngFor="let orderDetails of currentlyOrdered">
-            <app-current-item [orderDetails]="orderDetails"></app-current-item>
-          </div>
-        </owl-carousel>
+        <app-current-table [dataToTable]="currentlyOrdered"></app-current-table>
       </div>
     </div>
   </div>

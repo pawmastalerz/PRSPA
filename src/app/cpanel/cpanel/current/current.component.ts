@@ -9,20 +9,6 @@ import { OrderDetails } from 'src/models/OrderDetails';
   styleUrls: ['./current.component.scss']
 })
 export class CurrentComponent implements OnInit {
-  mySlideOptions = {
-    items: 1,
-    loop: true,
-    rewind: false,
-    autoplay: true,
-    autoplayTimeout: 3000,
-    autoplayHoverPause: true,
-    autoplaySpeed: 2000,
-    dots: false,
-    nav: false,
-    margin: 70,
-    height: 620
-  };
-
   currentlyOrdered: Array<OrderDetails> = [];
 
   constructor(
