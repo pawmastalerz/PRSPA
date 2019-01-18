@@ -1,3 +1,5 @@
+import { ACustomersComponent } from './admin/admin/a-customers/a-customers.component';
+import { AOrdersComponent } from './admin/admin/a-orders/a-orders.component';
 import { SettingsComponent } from './cpanel/cpanel/settings/settings.component';
 import { HistoryComponent } from './cpanel/cpanel/history/history.component';
 import { RegisterComponent } from './home/home/register/register.component';
@@ -15,6 +17,8 @@ import { CurrentComponent } from './cpanel/cpanel/current/current.component';
 import { PersonalComponent } from './cpanel/cpanel/personal/personal.component';
 import { SearchResultsComponent } from './home/home/search-results/search-results.component';
 import { NeworderComponent } from './cpanel/cpanel/neworder/neworder.component';
+import { AdminComponent } from './admin/admin/admin.component';
+import { ACarsComponent } from './admin/admin/a-cars/a-cars.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -35,7 +39,12 @@ const routes: Routes = [
         { path: 'current', component: CurrentComponent, pathMatch: 'full' },
         { path: 'personal', component: PersonalComponent, pathMatch: 'full' },
         { path: 'settings', component: SettingsComponent, pathMatch: 'full' },
-      ] }
+      ] },
+      { path: 'admin', component: AdminComponent, children: [
+        { path: 'orders', component: AOrdersComponent, pathMatch: 'full' },
+        { path: 'cars', component: ACarsComponent, pathMatch: 'full' },
+        { path: 'customers', component: ACustomersComponent, pathMatch: 'full' }
+      ] },
     ]
   },
   {

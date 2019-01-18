@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptor } from 'src/interceptors/token.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LandingModule,
     HomeModule,
     CpanelModule,
+    AdminModule,
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule

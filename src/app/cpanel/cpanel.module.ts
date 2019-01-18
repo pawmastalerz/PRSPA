@@ -8,7 +8,6 @@ import { CurrentComponent } from './cpanel/current/current.component';
 import { PersonalComponent } from './cpanel/personal/personal.component';
 import { SettingsComponent } from './cpanel/settings/settings.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { OwlModule } from 'ngx-owl-carousel';
 import { NeworderComponent } from './cpanel/neworder/neworder.component';
 import { HistoryTableComponent } from './cpanel/history/history-table/history-table.component';
 import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
@@ -26,6 +25,6 @@ import { CurrentTableComponent } from './cpanel/current/current-table/current-ta
     HistoryTableComponent,
     CurrentTableComponent
   ],
-  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, OwlModule, MatTableModule, MatPaginatorModule, MatSortModule]
+  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, MatTableModule, MatPaginatorModule, MatSortModule]
 })
 export class CpanelModule {}

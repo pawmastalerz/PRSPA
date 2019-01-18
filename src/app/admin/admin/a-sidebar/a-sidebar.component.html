@@ -1,0 +1,36 @@
+<div class="navbar navbar-expand-lg">
+  <button
+    class="navbar-toggler mx-auto"
+    type="button"
+    data-toggle="collapse"
+    data-target="#sidebarContent"
+    aria-controls="sidebarContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    opcje
+  </button>
+  <ul
+    class="mx-auto px-0 mx-0 pb-0 mb-0 collapse navbar-collapse"
+    id="sidebarContent"
+  >
+    <li class="text-center mx-auto py-lg-2">
+      <a class="nav-link hoverable-white" [routerLink]="['/home/admin/orders']">
+        zamówienia
+      </a>
+    </li>
+    <li class="text-center mx-auto py-lg-2">
+      <a class="nav-link hoverable-white" [routerLink]="['/home/admin/cars']">
+        flota
+      </a>
+    </li>
+    <li class="text-center mx-auto py-lg-2">
+      <a
+        class="nav-link hoverable-white"
+        [routerLink]="['/home/admin/customers']"
+      >
+        klienci
+      </a>
+    </li>
+  </ul>
+</div>
