@@ -1,16 +1,33 @@
 <div class="row mx-0 main">
   <div class="col">
     <div class="dimmed-container">
-      <h1 class="p-3">Wszystkie zamówienia: {{ allOrders.length }}</h1>
-      <div class="mt-3 p-3 not-found" *ngIf="allOrders.length === 0">
-        <p class="text-center">
-          Nie dokonano żadnych zamówień.
-        </p>
-        <br />
-      </div>
-      <div *ngIf="allOrders.length > 0">
-        <app-a-orders-table [dataToTable]="allOrders"></app-a-orders-table>
-      </div>
+      <h1 class="p-3">Zamówienia:</h1>
+      <mat-tab-group>
+        <mat-tab label="Aktualne zamówienia">
+          <div class="mt-3 p-3 not-found" *ngIf="allCurrentOrders.length === 0">
+            <p class="text-center">
+              Żaden z samochodów w bazie nie jest aktualnie wypożyczony.
+            </p>
+            <br />
+          </div>
+          <div *ngIf="allCurrentOrders.length > 0">
+            <app-a-current-orders-table
+              [dataToTable]="allCurrentOrders"
+            ></app-a-current-orders-table>
+          </div>
+        </mat-tab>
+        <mat-tab label="Wszystkie zamówienia">
+          <div class="mt-3 p-3 not-found" *ngIf="allOrders.length === 0">
+            <p class="text-center">
+              Klienci nie dokonali jeszcze żadnych zamówień.
+            </p>
+            <br />
+          </div>
+          <div *ngIf="allOrders.length > 0">
+            <app-a-orders-table [dataToTable]="allOrders"></app-a-orders-table>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
     </div>
   </div>
 </div>

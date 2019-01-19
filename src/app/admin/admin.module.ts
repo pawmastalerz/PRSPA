@@ -1,4 +1,4 @@
-import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatSortModule, MatTabsModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,9 +9,10 @@ import { ACarsComponent } from './admin/a-cars/a-cars.component';
 import { ACustomersComponent } from './admin/a-customers/a-customers.component';
 import { AOrdersComponent } from './admin/a-orders/a-orders.component';
 import { AOrdersTableComponent } from './admin/a-orders/a-orders-table/a-orders-table.component';
+import { ACurrentOrdersTableComponent } from './admin/a-orders/a-current-orders-table/a-current-orders-table.component';
 
 @NgModule({
-  declarations: [AdminComponent, ASidebarComponent, ACarsComponent, ACustomersComponent, AOrdersComponent, AOrdersTableComponent],
+  declarations: [AdminComponent, ASidebarComponent, ACarsComponent, ACustomersComponent, AOrdersComponent, AOrdersTableComponent, ACurrentOrdersTableComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -19,7 +20,8 @@ import { AOrdersTableComponent } from './admin/a-orders/a-orders-table/a-orders-
     ReactiveFormsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatTabsModule
   ]
 })
 export class AdminModule {}

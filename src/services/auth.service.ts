@@ -34,7 +34,6 @@ export class AuthService {
       )
       .subscribe(
         (res: any) => {
-          console.log(+res.status);
           if (+res.status === 200) {
             localStorage.setItem('accessToken', res.body.token);
             this.decodedToken = this.jwtHelper.decodeToken(res.body.token);

@@ -47,7 +47,7 @@ button {
   justify-content: center;
   box-shadow: 2px 2px 5px map-get($map: $custom, $key: dark);
   font-size: 18px;
-  background-color: map-get($map: $custom, $key: basic) !important;
+  background-color: map-get($map: $custom, $key: basic);
   color: map-get($map: $custom, $key: dark);
   border-radius: 7px;
   outline: none;
@@ -124,4 +124,12 @@ body {
 .mat-paginator-container,
 .mat-header-row {
   background-color: map-get($map: $custom, $key: basic);
+}
+
+.mat-tab-labels {
+  background-color: map-get($map: $custom, $key: light);
+}
+
+.mat-tab-label-content {
+  font-family: 'Oswald';
 }

@@ -10,6 +10,7 @@ import { OrderDetails } from 'src/models/OrderDetails';
 })
 export class AOrdersComponent implements OnInit {
   allOrders: Array<OrderDetails> = [];
+  allCurrentOrders: Array<OrderDetails> = [];
 
   constructor(
     private orderService: OrderService,
@@ -18,6 +19,7 @@ export class AOrdersComponent implements OnInit {
 
   ngOnInit() {
     this.getAllOrders();
+    this.getAllCurrentOrders();
   }
 
   getAllOrders() {
@@ -25,13 +27,28 @@ export class AOrdersComponent implements OnInit {
       (res: any) => {
         if (+res.status === 200) {
           this.allOrders = res.body;
-          console.log(this.allOrders);
         }
       },
       error => {
         console.log(error);
         this.alertify.message(
           'wystąpił błąd podczas pobierania wszystkich zamówień'
+        );
+      }
+    );
+  }
+
+  getAllCurrentOrders() {
+    this.orderService.adminGetAllCurrentOrders().subscribe(
+      (res: any) => {
+        if (+res.status === 200) {
+          this.allCurrentOrders = res.body;
+        }
+      },
+      error => {
+        console.log(error);
+        this.alertify.message(
+          'wystąpił błąd podczas pobierania wszystkich aktualnych zamówień'
         );
       }
     );

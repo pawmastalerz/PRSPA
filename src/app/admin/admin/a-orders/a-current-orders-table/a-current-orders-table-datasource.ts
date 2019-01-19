@@ -5,11 +5,11 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 import { OrderDetails } from 'src/models/OrderDetails';
 
 /**
- * Data source for the AOrdersTable view. This class should
+ * Data source for the ACurrentOrdersTable view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class AOrdersTableDataSource extends DataSource<OrderDetails> {
+export class ACurrentOrdersTableDataSource extends DataSource<OrderDetails> {
   data: OrderDetails[] = this.dataToTable;
 
   constructor(

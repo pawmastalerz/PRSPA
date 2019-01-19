@@ -1,16 +1,16 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
-import { AOrdersTableDataSource } from './a-orders-table-datasource';
+import { ACurrentOrdersTableDataSource } from './a-current-orders-table-datasource';
 
 @Component({
-  selector: 'app-a-orders-table',
-  templateUrl: './a-orders-table.component.html',
-  styleUrls: ['./a-orders-table.component.scss']
+  selector: 'app-a-current-orders-table',
+  templateUrl: './a-current-orders-table.component.html',
+  styleUrls: ['./a-current-orders-table.component.scss']
 })
-export class AOrdersTableComponent implements OnInit {
+export class ACurrentOrdersTableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  dataSource: AOrdersTableDataSource;
+  dataSource: ACurrentOrdersTableDataSource;
 
   @Input()
   dataToTable: any;
@@ -29,7 +29,7 @@ export class AOrdersTableComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.dataSource = new AOrdersTableDataSource(
+    this.dataSource = new ACurrentOrdersTableDataSource(
       this.paginator,
       this.sort,
       this.dataToTable

@@ -87,4 +87,10 @@ export class OrderService {
       observe: 'response'
     });
   }
+
+  adminGetAllCurrentOrders() {
+    return this.http.get(this.baseUrl + 'orders/admin/current', {
+      observe: 'response'
+    });
+  }
 }
