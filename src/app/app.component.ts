@@ -9,13 +9,18 @@ import { AuthService } from 'src/services/auth.service';
 export class AppComponent implements OnInit {
   title = 'PRSPA';
   isAuth: boolean;
+  isAdmin: boolean;
 
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
     this.authService.isAuth$.subscribe(isAuth => (this.isAuth = isAuth));
+    this.authService.isAdmin$.subscribe(isAdmin => (this.isAdmin = isAdmin));
     if (this.authService.isAuthenticated()) {
       this.authService.setIsAuth(true);
+    }
+    if (this.authService.isAuthenticatedAsAdmin()) {
+      this.authService.setIsAdmin(true);
     }
   }
 

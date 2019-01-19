@@ -12,6 +12,8 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
   private isAuth = new BehaviorSubject<boolean>(false);
   isAuth$ = this.isAuth.asObservable();
+  private isAdmin = new BehaviorSubject<boolean>(false);
+  isAdmin$ = this.isAdmin.asObservable();
 
   baseUrl = environment.apiUrl;
   jwtHelper = new JwtHelperService();
@@ -37,8 +39,11 @@ export class AuthService {
           if (+res.status === 200) {
             localStorage.setItem('accessToken', res.body.token);
             this.decodedToken = this.jwtHelper.decodeToken(res.body.token);
-            if (this.isAuthenticated) {
+            if (this.isAuthenticated()) {
               this.isAuth.next(true);
+              if (this.isAuthenticatedAsAdmin()) {
+                this.isAdmin.next(true);
+              }
               this.router.navigateByUrl('/home/main');
               this.alertify.message('zalogowano jako ' + username);
             }
@@ -56,6 +61,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem('accessToken');
     this.isAuth.next(false);
+    this.isAdmin.next(false);
   }
 
   register(
@@ -85,9 +91,7 @@ export class AuthService {
         error => {
           console.log(error);
           if (error.error.message === 'This username is already taken') {
-            return this.alertify.message(
-              'podany login już istnieje'
-            );
+            return this.alertify.message('podany login już istnieje');
           }
           this.alertify.message('błąd podczas rejestracji użytkownika');
         }
@@ -162,9 +166,20 @@ export class AuthService {
     // console.log('Obecna wartosc isAuth: ' + this.isAuth.value);
   }
 
+  setIsAdmin(isAdmin: boolean) {
+    this.isAdmin.next(isAdmin);
+  }
+
   public isAuthenticated(): boolean {
     if (!this.jwtHelper.isTokenExpired(localStorage.getItem('accessToken'))) {
-      this.isAuth.next(true);
+      return true;
+    }
+    return false;
+  }
+
+  public isAuthenticatedAsAdmin(): boolean {
+    this.decodedToken = this.jwtHelper.decodeToken(this.getToken());
+    if (this.decodedToken.unique_name === '1') {
       return true;
     }
     return false;
