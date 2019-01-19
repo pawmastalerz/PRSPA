@@ -19,6 +19,8 @@ import { SearchResultsComponent } from './home/home/search-results/search-result
 import { NeworderComponent } from './cpanel/cpanel/neworder/neworder.component';
 import { AdminComponent } from './admin/admin/admin.component';
 import { ACarsComponent } from './admin/admin/a-cars/a-cars.component';
+import { AdminGuard } from 'src/helpers/admin.guard';
+import { CpanelGuard } from 'src/helpers/cpanel.guard';
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -27,24 +29,50 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'main', component: MainComponent, pathMatch: 'full' },
-      { path: 'details/:id', component: CarDetailsComponent, pathMatch: 'full' },
+      {
+        path: 'details/:id',
+        component: CarDetailsComponent,
+        pathMatch: 'full'
+      },
       { path: 'pricing', component: PricesComponent, pathMatch: 'full' },
       { path: 'contact', component: ContactComponent, pathMatch: 'full' },
       { path: 'login', component: LoginComponent, pathMatch: 'full' },
       { path: 'register', component: RegisterComponent, pathMatch: 'full' },
-      { path: 'search_results', component: SearchResultsComponent, pathMatch: 'full' },
-      { path: 'cpanel', component: CpanelComponent, children: [
-        { path: 'new_order', component: NeworderComponent, pathMatch: 'full' },
-        { path: 'history', component: HistoryComponent, pathMatch: 'full' },
-        { path: 'current', component: CurrentComponent, pathMatch: 'full' },
-        { path: 'personal', component: PersonalComponent, pathMatch: 'full' },
-        { path: 'settings', component: SettingsComponent, pathMatch: 'full' },
-      ] },
-      { path: 'admin', component: AdminComponent, children: [
-        { path: 'orders', component: AOrdersComponent, pathMatch: 'full' },
-        { path: 'cars', component: ACarsComponent, pathMatch: 'full' },
-        { path: 'customers', component: ACustomersComponent, pathMatch: 'full' }
-      ] },
+      {
+        path: 'search_results',
+        component: SearchResultsComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'cpanel',
+        component: CpanelComponent,
+        canActivate: [CpanelGuard],
+        children: [
+          {
+            path: 'new_order',
+            component: NeworderComponent,
+            pathMatch: 'full'
+          },
+          { path: 'history', component: HistoryComponent, pathMatch: 'full' },
+          { path: 'current', component: CurrentComponent, pathMatch: 'full' },
+          { path: 'personal', component: PersonalComponent, pathMatch: 'full' },
+          { path: 'settings', component: SettingsComponent, pathMatch: 'full' }
+        ]
+      },
+      {
+        path: 'admin',
+        component: AdminComponent,
+        canActivate: [AdminGuard],
+        children: [
+          { path: 'orders', component: AOrdersComponent, pathMatch: 'full' },
+          { path: 'cars', component: ACarsComponent, pathMatch: 'full' },
+          {
+            path: 'customers',
+            component: ACustomersComponent,
+            pathMatch: 'full'
+          }
+        ]
+      }
     ]
   },
   {
