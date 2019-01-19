@@ -8,9 +8,10 @@ import { RouterModule } from '@angular/router';
 import { ACarsComponent } from './admin/a-cars/a-cars.component';
 import { ACustomersComponent } from './admin/a-customers/a-customers.component';
 import { AOrdersComponent } from './admin/a-orders/a-orders.component';
+import { AOrdersTableComponent } from './admin/a-orders/a-orders-table/a-orders-table.component';
 
 @NgModule({
-  declarations: [AdminComponent, ASidebarComponent, ACarsComponent, ACustomersComponent, AOrdersComponent],
+  declarations: [AdminComponent, ASidebarComponent, ACarsComponent, ACustomersComponent, AOrdersComponent, AOrdersTableComponent],
   imports: [
     CommonModule,
     RouterModule,

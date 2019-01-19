@@ -77,11 +77,14 @@ export class OrderService {
   }
 
   returnCar(orderId: number) {
-    return this.http.post(
-      this.baseUrl + 'orders/return/' + orderId,
-      {
-        observe: 'response'
-      }
-    );
+    return this.http.post(this.baseUrl + 'orders/return/' + orderId, {
+      observe: 'response'
+    });
+  }
+
+  adminGetAllOrders() {
+    return this.http.get(this.baseUrl + 'orders/admin/all', {
+      observe: 'response'
+    });
   }
 }
