@@ -188,4 +188,10 @@ export class AuthService {
   getToken() {
     return localStorage.getItem('accessToken');
   }
+
+  adminGetAllUsers() {
+    return this.http.get(this.baseUrl + 'users/admin/all', {
+      observe: 'response'
+    });
+  }
 }
