@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { ACustomersTableDataSource } from './a-customers-table-datasource';
+import { AuthService } from 'src/services/auth.service';
+import { AlertifyService } from 'src/services/alertify.service';
 
 @Component({
   selector: 'app-a-customers-table',
@@ -23,14 +25,36 @@ export class ACustomersTableComponent implements OnInit {
     'city',
     'street',
     'streetNumber',
-    'postalCode'
+    'postalCode',
+    'deleteButton'
   ];
+
+  constructor(
+    private authService: AuthService,
+    private alertify: AlertifyService
+  ) {}
 
   ngOnInit() {
     this.dataSource = new ACustomersTableDataSource(
       this.paginator,
       this.sort,
       this.dataToTable
+    );
+  }
+
+  onDelete(userId: number) {
+    this.authService.deleteSpecificAccount(userId).subscribe(
+      (res: any) => {
+        if (+res.status === 200) {
+          this.alertify.message(
+            'usunięto dane użytkownika o id ' + userId + ', zachowując jego zamówienia'
+          );
+        }
+      },
+      error => {
+        console.log(error);
+        this.alertify.message('błąd podczas usuwania konta');
+      }
     );
   }
 }

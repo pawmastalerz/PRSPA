@@ -161,6 +161,12 @@ export class AuthService {
     });
   }
 
+  deleteSpecificAccount(userId: number) {
+    return this.http.delete(this.baseUrl + 'users/' + userId, {
+      observe: 'response'
+    });
+  }
+
   setIsAuth(isAuth: boolean) {
     this.isAuth.next(isAuth);
     // console.log('Obecna wartosc isAuth: ' + this.isAuth.value);
