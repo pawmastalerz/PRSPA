@@ -23,7 +23,7 @@ export class FleetComponent implements OnInit {
     margin: 70,
     height: 620,
     responsive: {
-      768: {
+      992: {
         items: 3
       }
     }
