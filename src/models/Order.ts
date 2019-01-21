@@ -1,5 +1,5 @@
-import { CarForUser } from 'src/models/carForUser';
-export class OrderDetails {
+import { Car } from 'src/models/car';
+export class Order {
   orderId: number;
   carId: number;
   userId: number;
@@ -7,5 +7,5 @@ export class OrderDetails {
   totalPrice: number;
   reservedFrom: Date;
   reservedTo: Date;
-  carOrdered: CarForUser;
+  carOrdered: Car;
 }

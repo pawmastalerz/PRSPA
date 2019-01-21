@@ -3,7 +3,7 @@ import { AlertifyService } from 'src/services/alertify.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/services/auth.service';
-import { UserData } from 'src/models/UserData';
+import { User } from 'src/models/User';
 import { PasswordMatch } from 'src/helpers/PasswordMatch';
 
 @Component({
@@ -12,7 +12,7 @@ import { PasswordMatch } from 'src/helpers/PasswordMatch';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-  userData: UserData = null;
+  userData: User = null;
 
   passwordForm = new FormGroup(
     {

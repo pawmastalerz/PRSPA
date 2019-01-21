@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CarService } from 'src/services/car.service';
 import { AlertifyService } from 'src/services/alertify.service';
 import { OrderService } from 'src/services/order.service';
-import { CarForUser } from 'src/models/carForUser';
+import { Car } from 'src/models/car';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -12,8 +12,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./neworder.component.scss']
 })
 export class NeworderComponent implements OnInit {
-  wholeFleet: Array<CarForUser> = [];
-  fleetWithDistinctModels: Array<CarForUser> = [];
+  wholeFleet: Array<Car> = [];
+  fleetWithDistinctModels: Array<Car> = [];
 
   reservedFrom: string;
   reservedTo: string;
@@ -45,7 +45,7 @@ export class NeworderComponent implements OnInit {
       searchResult => (this.searchResult = searchResult)
     );
 
-    this.carService.getWholeFleetForUser().subscribe(
+    this.carService.getWholeFleet().subscribe(
       (res: any) => {
         if (+res.status === 200) {
           this.wholeFleet = res.body;

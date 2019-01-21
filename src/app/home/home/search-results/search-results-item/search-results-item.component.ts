@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { CarForUser } from 'src/models/carForUser';
+import { Car } from 'src/models/car';
 import { AlertifyService } from 'src/services/alertify.service';
 import { AuthService } from 'src/services/auth.service';
 import { Component, OnInit, Input } from '@angular/core';
@@ -16,7 +16,7 @@ export class SearchResultsItemComponent implements OnInit {
   @Input()
   reservedTo: string;
   @Input()
-  searchResult: CarForUser;
+  searchResult: Car;
 
   isAuth: boolean;
   calculatedPrice: number;

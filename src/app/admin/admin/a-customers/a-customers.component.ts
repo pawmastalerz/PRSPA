@@ -1,5 +1,5 @@
 import { AuthService } from 'src/services/auth.service';
-import { UserData } from './../../../../models/UserData';
+import { User } from './../../../../models/User';
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from 'src/services/order.service';
 import { AlertifyService } from 'src/services/alertify.service';
@@ -10,7 +10,7 @@ import { AlertifyService } from 'src/services/alertify.service';
   styleUrls: ['./a-customers.component.scss']
 })
 export class ACustomersComponent implements OnInit {
-  allUsers: Array<UserData> = [];
+  allUsers: Array<User> = [];
 
   constructor(
     private authService: AuthService,

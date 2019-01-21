@@ -13,7 +13,7 @@
           <p>Paliwo: {{ carDetails.fuel }}</p>
           <p>Spalanie: {{ carDetails.lP100Km }} l/100km</p>
           <p>Klimatyzacja: {{ carDetails.airConditioned }}</p>
-          <p>Cena za 1 dzień: {{ carDetails.price }},- PLN</p>
+          <p>Cena za 1 dzień: {{ carDetails.price | number: '.2' }} PLN</p>
         </div>
         <div
           class="col-sm-7 photo px-0"

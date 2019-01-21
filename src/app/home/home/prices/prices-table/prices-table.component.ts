@@ -24,7 +24,7 @@ export class PricesTableComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.carService.getWholeFleetForUser().subscribe(
+    this.carService.getWholeFleet().subscribe(
       (res: any) => {
         if (+res.status === 200) {
           this.dataToTable = res.body;

@@ -10,7 +10,7 @@ export class CarService {
 
   constructor(private http: HttpClient) {}
 
-  getWholeFleetForUser() {
+  getWholeFleet() {
     return this.http.get(this.baseUrl + 'cars/all', {
       observe: 'response'
     });
@@ -22,7 +22,7 @@ export class CarService {
     });
   }
 
-  getCarDetailsForUser(carId: string) {
+  getCarDetails(carId: string) {
     return this.http.get(this.baseUrl + 'cars/' + carId, {
       observe: 'response'
     });

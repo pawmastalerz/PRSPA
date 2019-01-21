@@ -2,20 +2,20 @@ import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator, MatSort } from '@angular/material';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import { Order } from 'src/models/Order';
+import { Car } from 'src/models/car';
 
 /**
- * Data source for the HistoryTable view. This class should
+ * Data source for the ACarsTable view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class HistoryTableDataSource extends DataSource<Order> {
-  data: Order[] = this.dataToTable;
+export class ACarsTableDataSource extends DataSource<Car> {
+  data: Car[] = this.dataToTable;
 
   constructor(
     private paginator: MatPaginator,
     private sort: MatSort,
-    private dataToTable: Order[]
+    private dataToTable: Car[]
   ) {
     super();
   }
@@ -25,7 +25,7 @@ export class HistoryTableDataSource extends DataSource<Order> {
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
-  connect(): Observable<Order[]> {
+  connect(): Observable<Car[]> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
@@ -55,7 +55,7 @@ export class HistoryTableDataSource extends DataSource<Order> {
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getPagedData(data: Order[]) {
+  private getPagedData(data: Car[]) {
     const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
     return data.splice(startIndex, this.paginator.pageSize);
   }
@@ -64,7 +64,7 @@ export class HistoryTableDataSource extends DataSource<Order> {
    * Sort the data (client-side). If you're using server-side sorting,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getSortedData(data: Order[]) {
+  private getSortedData(data: Car[]) {
     if (!this.sort.active || this.sort.direction === '') {
       return data;
     }
@@ -72,22 +72,28 @@ export class HistoryTableDataSource extends DataSource<Order> {
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
-        case 'orderId':
-          return compare(+a.orderId, +b.orderId, isAsc);
+        case 'carId':
+          return compare(+a.carId, +b.carId, isAsc);
         case 'brand':
-          return compare(a.carOrdered.brand, b.carOrdered.brand, isAsc);
+          return compare(a.brand, b.brand, isAsc);
         case 'model':
-          return compare(a.carOrdered.model, b.carOrdered.model, isAsc);
+          return compare(a.model, b.model, isAsc);
+        case 'body':
+          return compare(a.body, b.body, isAsc);
+        case 'doors':
+          return compare(+a.doors, +b.doors, isAsc);
+        case 'fuel':
+          return compare(a.fuel, b.fuel, isAsc);
+        case 'transmission':
+          return compare(a.transmission, b.transmission, isAsc);
+        case 'price':
+          return compare(+a.price, +b.price, isAsc);
         case 'year':
-          return compare(+a.carOrdered.year, +b.carOrdered.year, isAsc);
-        case 'totalPrice':
-          return compare(+a.totalPrice, +b.totalPrice, isAsc);
-        case 'reservedFrom':
-          return compare(a.reservedFrom, b.reservedFrom, isAsc);
-        case 'reservedTo':
-          return compare(a.reservedTo, b.reservedTo, isAsc);
-        case 'isReturned':
-          return compare(a.isReturned, b.isReturned, isAsc);
+          return compare(+a.year, +b.year, isAsc);
+        case 'lP100Km':
+          return compare(+a.lP100Km, +b.lP100Km, isAsc);
+        case 'airConditioned':
+          return compare(a.airConditioned, b.airConditioned, isAsc);
         default:
           return 0;
       }

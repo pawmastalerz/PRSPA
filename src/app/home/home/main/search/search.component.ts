@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { CarService } from 'src/services/car.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { CarForUser } from 'src/models/carForUser';
+import { Car } from 'src/models/car';
 import { AlertifyService } from 'src/services/alertify.service';
 import { OrderService } from 'src/services/order.service';
 
@@ -12,8 +12,8 @@ import { OrderService } from 'src/services/order.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  wholeFleet: Array<CarForUser> = [];
-  fleetWithDistinctModels: Array<CarForUser> = [];
+  wholeFleet: Array<Car> = [];
+  fleetWithDistinctModels: Array<Car> = [];
 
   reservedFrom: string;
   reservedTo: string;
@@ -45,7 +45,7 @@ export class SearchComponent implements OnInit {
       searchResult => (this.searchResult = searchResult)
     );
 
-    this.carService.getWholeFleetForUser().subscribe(
+    this.carService.getWholeFleet().subscribe(
       (res: any) => {
         if (+res.status === 200) {
           this.wholeFleet = res.body;

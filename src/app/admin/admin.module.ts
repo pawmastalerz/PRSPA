@@ -11,9 +11,10 @@ import { AOrdersComponent } from './admin/a-orders/a-orders.component';
 import { AOrdersTableComponent } from './admin/a-orders/a-orders-table/a-orders-table.component';
 import { ACurrentOrdersTableComponent } from './admin/a-orders/a-current-orders-table/a-current-orders-table.component';
 import { ACustomersTableComponent } from './admin/a-customers/a-customers-table/a-customers-table.component';
+import { ACarsTableComponent } from './admin/a-cars/a-cars-table/a-cars-table.component';
 
 @NgModule({
-  declarations: [AdminComponent, ASidebarComponent, ACarsComponent, ACustomersComponent, AOrdersComponent, AOrdersTableComponent, ACurrentOrdersTableComponent, ACustomersTableComponent],
+  declarations: [AdminComponent, ASidebarComponent, ACarsComponent, ACustomersComponent, AOrdersComponent, AOrdersTableComponent, ACurrentOrdersTableComponent, ACustomersTableComponent, ACarsTableComponent],
   imports: [
     CommonModule,
     RouterModule,

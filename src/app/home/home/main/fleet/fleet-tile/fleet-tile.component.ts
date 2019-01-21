@@ -1,4 +1,4 @@
-import { CarForUser } from 'src/models/carForUser';
+import { Car } from 'src/models/car';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FleetTileComponent implements OnInit {
   @Input()
-  carDetails: CarForUser;
+  carDetails: Car;
 
   constructor() {}
 

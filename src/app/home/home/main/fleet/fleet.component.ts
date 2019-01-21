@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CarForUser } from 'src/models/carForUser';
+import { Car } from 'src/models/car';
 import { CarService } from 'src/services/car.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { CarService } from 'src/services/car.service';
   styleUrls: ['./fleet.component.scss']
 })
 export class FleetComponent implements OnInit {
-  wholeFleet: Array<CarForUser> = [];
+  wholeFleet: Array<Car> = [];
 
   mySlideOptions = {
     items: 1,
@@ -32,7 +32,7 @@ export class FleetComponent implements OnInit {
   constructor(private carService: CarService) {}
 
   ngOnInit() {
-    this.carService.getWholeFleetForUser().subscribe(
+    this.carService.getWholeFleet().subscribe(
       (res: any) => {
         if (+res.status === 200) {
           this.wholeFleet = res.body;

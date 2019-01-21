@@ -1,7 +1,7 @@
 import { OrderService } from 'src/services/order.service';
 import { AlertifyService } from 'src/services/alertify.service';
 import { Component, OnInit } from '@angular/core';
-import { OrderDetails } from 'src/models/OrderDetails';
+import { Order } from 'src/models/Order';
 
 @Component({
   selector: 'app-current',
@@ -9,7 +9,7 @@ import { OrderDetails } from 'src/models/OrderDetails';
   styleUrls: ['./current.component.scss']
 })
 export class CurrentComponent implements OnInit {
-  currentlyOrdered: Array<OrderDetails> = [];
+  currentlyOrdered: Array<Order> = [];
 
   constructor(
     private orderService: OrderService,

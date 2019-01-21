@@ -1,5 +1,5 @@
 import { AlertifyService } from 'src/services/alertify.service';
-import { CarForUser } from 'src/models/carForUser';
+import { Car } from 'src/models/car';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarService } from 'src/services/car.service';
@@ -10,7 +10,7 @@ import { CarService } from 'src/services/car.service';
   styleUrls: ['./car-details.component.scss']
 })
 export class CarDetailsComponent implements OnInit {
-  carDetails: CarForUser;
+  carDetails: Car;
 
   constructor(
     private carService: CarService,
@@ -20,7 +20,7 @@ export class CarDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.carService
-      .getCarDetailsForUser(this.route.snapshot.params['id'])
+      .getCarDetails(this.route.snapshot.params['id'])
       .subscribe(
         (res: any) => {
           if (+res.status === 200) {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderDetails } from 'src/models/OrderDetails';
+import { Order } from 'src/models/Order';
 import { OrderService } from 'src/services/order.service';
 import { AlertifyService } from 'src/services/alertify.service';
 
@@ -9,7 +9,7 @@ import { AlertifyService } from 'src/services/alertify.service';
   styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent implements OnInit {
-  orderedHistory: Array<OrderDetails> = [];
+  orderedHistory: Array<Order> = [];
 
   constructor(
     private orderService: OrderService,

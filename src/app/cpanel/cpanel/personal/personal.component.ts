@@ -2,7 +2,7 @@ import { AlertifyService } from 'src/services/alertify.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/services/auth.service';
-import { UserData } from 'src/models/UserData';
+import { User } from 'src/models/User';
 
 @Component({
   selector: 'app-personal',
@@ -10,7 +10,7 @@ import { UserData } from 'src/models/UserData';
   styleUrls: ['./personal.component.scss']
 })
 export class PersonalComponent implements OnInit {
-  userData: UserData = null;
+  userData: User = null;
 
   personalForm = new FormGroup({
     username: new FormControl('', [

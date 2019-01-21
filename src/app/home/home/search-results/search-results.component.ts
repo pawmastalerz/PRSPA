@@ -4,7 +4,7 @@ import { OrderService } from 'src/services/order.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CarService } from 'src/services/car.service';
 import { AlertifyService } from 'src/services/alertify.service';
-import { CarForUser } from 'src/models/carForUser';
+import { Car } from 'src/models/car';
 
 @Component({
   selector: 'app-search-results',
@@ -12,7 +12,7 @@ import { CarForUser } from 'src/models/carForUser';
   styleUrls: ['./search-results.component.scss']
 })
 export class SearchResultsComponent implements OnInit {
-  fleetWithDistinctModels: Array<CarForUser> = [];
+  fleetWithDistinctModels: Array<Car> = [];
 
   // Observables
   reservedFrom: string;

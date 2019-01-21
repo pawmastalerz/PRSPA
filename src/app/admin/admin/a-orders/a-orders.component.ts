@@ -1,7 +1,7 @@
 import { OrderService } from 'src/services/order.service';
 import { Component, OnInit } from '@angular/core';
 import { AlertifyService } from 'src/services/alertify.service';
-import { OrderDetails } from 'src/models/OrderDetails';
+import { Order } from 'src/models/Order';
 
 @Component({
   selector: 'app-a-orders',
@@ -9,8 +9,8 @@ import { OrderDetails } from 'src/models/OrderDetails';
   styleUrls: ['./a-orders.component.scss']
 })
 export class AOrdersComponent implements OnInit {
-  allOrders: Array<OrderDetails> = [];
-  allCurrentOrders: Array<OrderDetails> = [];
+  allOrders: Array<Order> = [];
+  allCurrentOrders: Array<Order> = [];
 
   constructor(
     private orderService: OrderService,

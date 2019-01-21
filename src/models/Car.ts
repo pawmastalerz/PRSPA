@@ -1,4 +1,4 @@
-export class CarForUser {
+export class Car {
   carId: number;
   brand: string;
   model: string;
