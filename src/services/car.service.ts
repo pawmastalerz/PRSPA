@@ -11,19 +11,19 @@ export class CarService {
   constructor(private http: HttpClient) {}
 
   getWholeFleetForUser() {
-    return this.http.get(this.baseUrl + 'cars/user/all', {
+    return this.http.get(this.baseUrl + 'cars/all', {
       observe: 'response'
     });
   }
 
   getUniqueModels() {
-    return this.http.get(this.baseUrl + 'cars/user/all', {
+    return this.http.get(this.baseUrl + 'cars/all', {
       observe: 'response'
     });
   }
 
   getCarDetailsForUser(carId: string) {
-    return this.http.get(this.baseUrl + 'cars/user/' + carId, {
+    return this.http.get(this.baseUrl + 'cars/' + carId, {
       observe: 'response'
     });
   }
@@ -36,7 +36,7 @@ export class CarService {
 
   searchForAvaliableCars(model: string, reservedFrom: Date, reservedTo: Date) {
     return this.http.post(
-      this.baseUrl + 'cars/user/search',
+      this.baseUrl + 'cars/search',
       { model, reservedFrom, reservedTo },
       {
         observe: 'response'
