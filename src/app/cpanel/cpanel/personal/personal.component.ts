@@ -57,12 +57,7 @@ export class PersonalComponent implements OnInit {
     if (this.personalForm.valid) {
       this.authService
         .updatePersonal(
-          this.personalForm.value.username,
-          this.personalForm.value.email,
-          this.personalForm.value.city,
-          this.personalForm.value.street,
-          this.personalForm.value.streetNumber,
-          this.personalForm.value.postalCode
+          this.personalForm.value
         )
         .subscribe(
           (res: any) => {

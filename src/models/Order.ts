@@ -5,7 +5,7 @@ export class Order {
   userId: number;
   isReturned: string;
   totalPrice: number;
-  reservedFrom: Date;
-  reservedTo: Date;
+  reservedFrom: string;
+  reservedTo: string;
   carOrdered: Car;
 }

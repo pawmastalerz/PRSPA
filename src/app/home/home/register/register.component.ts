@@ -71,15 +71,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     if (this.registerForm.valid) {
-      this.authService.register(
-        this.registerForm.value.username,
-        this.registerForm.value.email,
-        this.registerForm.value.password,
-        this.registerForm.value.city,
-        this.registerForm.value.street,
-        this.registerForm.value.streetNumber,
-        this.registerForm.value.postalCode
-      );
+      this.authService.register(this.registerForm.value);
     } else {
       if (this.registerForm.controls.username.status === 'INVALID') {
         this.alertify.message('login musi zawierać od 3 do 30 znaków');

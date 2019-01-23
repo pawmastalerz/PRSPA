@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { CalculatePriceParams } from 'src/models/CalculatePriceParams';
+import { Order } from 'src/models/Order';
 
 @Injectable({
   providedIn: 'root'
@@ -39,29 +41,20 @@ export class OrderService {
     this.searchResult.next(searchResult);
   }
 
-  calculatePrice(reservedFrom: string, reservedTo: string, carId: number) {
+  calculatePrice(calculatePriceParams: CalculatePriceParams) {
     return this.http.post(
       this.baseUrl + 'orders/cprice',
-      { reservedFrom, reservedTo, carId },
+      calculatePriceParams,
       {
         observe: 'response'
       }
     );
   }
 
-  createOrder(
-    reservedFrom: string,
-    reservedTo: string,
-    carId: number,
-    userId: number
-  ) {
-    return this.http.put(
-      this.baseUrl + 'orders/create',
-      { reservedFrom, reservedTo, carId, userId },
-      {
-        observe: 'response'
-      }
-    );
+  createOrder(order: Order) {
+    return this.http.put(this.baseUrl + 'orders/create', order, {
+      observe: 'response'
+    });
   }
 
   getCurrentlyOrderedCars() {

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { Car } from 'src/models/car';
+import { SearchParams } from 'src/models/searchParams';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +11,12 @@ export class CarService {
   baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
+
+  createCar(carToCreate: Car) {
+    return this.http.post(this.baseUrl + 'cars/create', carToCreate, {
+      observe: 'response'
+    });
+  }
 
   getWholeFleet() {
     return this.http.get(this.baseUrl + 'cars/all', {
@@ -34,10 +42,10 @@ export class CarService {
     });
   }
 
-  searchForAvaliableCars(model: string, reservedFrom: Date, reservedTo: Date) {
+  searchForAvaliableCars(searchParams: SearchParams) {
     return this.http.post(
       this.baseUrl + 'cars/search',
-      { model, reservedFrom, reservedTo },
+      searchParams,
       {
         observe: 'response'
       }

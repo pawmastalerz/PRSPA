@@ -76,50 +76,40 @@ export class SearchComponent implements OnInit {
         'data wypożyczenia nie może być większa, niż data zwrotu'
       );
     } else {
-      this.carService
-        .searchForAvaliableCars(
-          this.searchForm.value.model,
-          this.searchForm.value.reservedFrom,
-          this.searchForm.value.reservedTo
-        )
-        .subscribe(
-          (res: any) => {
-            if (+res.status === 200) {
-              if (res.body.length === 0) {
-                this.alertify.message(
-                  'model ' +
-                    this.searchForm.value.model +
-                    ' nie jest dostępny w tym terminie'
-                );
-              } else if (res.body.length > 0) {
-                this.newOrder.setReservedFrom(
-                  this.searchForm.value.reservedFrom
-                );
-                this.newOrder.setReservedTo(this.searchForm.value.reservedTo);
-                this.newOrder.setModel(this.searchForm.value.model);
-                this.newOrder.setSearchResult(res.body);
-                this.router.navigate(['home/search_results']);
-              }
-            }
-          },
-          error => {
-            console.log(error);
-            if (
-              error.error === 'Reservation\'s date is lower than current time'
-            ) {
-              return this.alertify.message(
-                'nie można złożyć zamówienia z datą wsteczną'
+      this.carService.searchForAvaliableCars(this.searchForm.value).subscribe(
+        (res: any) => {
+          if (+res.status === 200) {
+            if (res.body.length === 0) {
+              this.alertify.message(
+                'model ' +
+                  this.searchForm.value.model +
+                  ' nie jest dostępny w tym terminie'
               );
-            } else if (
-              error.error === 'Reservation\'s date is bigger than 6 months'
-            ) {
-              return this.alertify.message(
-                'maksymalne wyprzedzenie zamówienia to pół roku'
-              );
+            } else if (res.body.length > 0) {
+              this.newOrder.setReservedFrom(this.searchForm.value.reservedFrom);
+              this.newOrder.setReservedTo(this.searchForm.value.reservedTo);
+              this.newOrder.setModel(this.searchForm.value.model);
+              this.newOrder.setSearchResult(res.body);
+              this.router.navigate(['home/search_results']);
             }
-            this.alertify.message('nieprawidłowe dane wyszukiwania');
           }
-        );
+        },
+        error => {
+          console.log(error);
+          if (error.error === "Reservation's date is lower than current time") {
+            return this.alertify.message(
+              'nie można złożyć zamówienia z datą wsteczną'
+            );
+          } else if (
+            error.error === "Reservation's date is bigger than 6 months"
+          ) {
+            return this.alertify.message(
+              'maksymalne wyprzedzenie zamówienia to pół roku'
+            );
+          }
+          this.alertify.message('nieprawidłowe dane wyszukiwania');
+        }
+      );
     }
   }
 

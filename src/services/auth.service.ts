@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject } from 'rxjs';
+import { User } from 'src/models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -45,7 +46,7 @@ export class AuthService {
                 this.isAdmin.next(true);
               }
               this.router.navigateByUrl('/home/main');
-              this.alertify.message('zalogowano jako ' + username);
+              this.alertify.message('witaj, ' + username + '!');
             }
           }
         },
@@ -65,18 +66,12 @@ export class AuthService {
   }
 
   register(
-    username: string,
-    email: string,
-    password: string,
-    city: string,
-    street: string,
-    streetNumber: string,
-    postalCode: string
+    user: User
   ) {
     return this.http
       .post(
         this.baseUrl + 'users/register',
-        { username, email, password, city, street, streetNumber, postalCode },
+        user,
         {
           observe: 'response'
         }
@@ -85,7 +80,7 @@ export class AuthService {
         (res: any) => {
           if (+res.status === 200) {
             this.router.navigateByUrl('/home/login');
-            this.alertify.message('zarejestrowano użytkownika ' + username);
+            this.alertify.message('zarejestrowano użytkownika ' + user.username);
           }
         },
         error => {
@@ -116,25 +111,14 @@ export class AuthService {
     return decodedTokenId;
   }
 
-  updatePersonal(
-    username: string,
-    email: string,
-    city: string,
-    street: string,
-    streetNumber: string,
-    postalCode: string
-  ) {
+  updatePersonal(user: User) {
     this.decodedToken = this.jwtHelper.decodeToken(
       localStorage.getItem('accessToken')
     );
     const decodedTokenId = this.decodedToken['unique_name'];
-    return this.http.put(
-      this.baseUrl + 'users/' + decodedTokenId,
-      { username, email, city, street, streetNumber, postalCode },
-      {
-        observe: 'response'
-      }
-    );
+    return this.http.put(this.baseUrl + 'users/' + decodedTokenId, user, {
+      observe: 'response'
+    });
   }
 
   updatePassword(currentPassword: string, password: string) {
@@ -169,7 +153,6 @@ export class AuthService {
 
   setIsAuth(isAuth: boolean) {
     this.isAuth.next(isAuth);
-    // console.log('Obecna wartosc isAuth: ' + this.isAuth.value);
   }
 
   setIsAdmin(isAdmin: boolean) {
