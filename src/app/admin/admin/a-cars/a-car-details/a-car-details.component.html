@@ -36,10 +36,7 @@
               </div>
               <div class="form-group">
                 <label for="body">typ nadwozia:</label>
-                <select
-                  class="form-control"
-                  formControlName="body"
-                >
+                <select class="form-control" formControlName="body">
                   <option>{{ carDetails.body }}</option>
                   <option disabled></option>
                   <option>coupé</option>
@@ -154,8 +151,15 @@
                   <option>nie</option>
                 </select>
               </div>
+              <label>aktualne zdjęcie:</label>
+              <div
+                class="currentPhoto mb-3"
+                [ngStyle]="{
+                  'background-image': 'url(' + carDetails.photoUrl + ')'
+                }"
+              ></div>
               <div class="form-group">
-                <label for="photoFile">zdjęcie:</label>
+                <label for="photoFile">zmień zdjęcie:</label>
                 <input
                   type="file"
                   class="form-control-file"

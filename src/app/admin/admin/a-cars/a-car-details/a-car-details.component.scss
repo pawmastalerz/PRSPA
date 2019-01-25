@@ -26,6 +26,13 @@
         color: map-get($map: $custom, $key: light);
       }
     }
+    .currentPhoto {
+      width: 100%;
+      height: 500px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
   }
 }
 
