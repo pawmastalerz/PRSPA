@@ -1,0 +1,179 @@
+<div class="row mx-0 main">
+  <div class="col">
+    <div class="dimmed-container">
+      <h1 class="p-3">Szczegóły samochodu o id {{ idByRoute }}:</h1>
+      <div class="mt-3 p-3 not-found" *ngIf="carDetails.body === undefined">
+        <p class="text-center">
+          W bazie danych nie ma samochodu o id {{ idByRoute }}.
+        </p>
+        <br />
+      </div>
+      <div class="form" *ngIf="carDetails.body !== undefined">
+        <form [formGroup]="editCarForm" (keydown)="keyDownFunction($event)">
+          <div class="row p-3">
+            <div class="col">
+              <div class="form-group">
+                <label for="brand">marka:</label>
+                <input
+                  type="text"
+                  formControlName="brand"
+                  class="form-control"
+                  placeholder="(3-30 znaków)"
+                  maxlength="30"
+                  value="{{ carDetails.brand }}"
+                />
+              </div>
+              <div class="form-group">
+                <label for="model">model:</label>
+                <input
+                  type="text"
+                  formControlName="model"
+                  class="form-control"
+                  placeholder="(3-30 znaków)"
+                  maxlength="30"
+                  value="{{ carDetails.model }}"
+                />
+              </div>
+              <div class="form-group">
+                <label for="body">typ nadwozia:</label>
+                <select
+                  class="form-control"
+                  formControlName="body"
+                >
+                  <option>{{ carDetails.body }}</option>
+                  <option disabled></option>
+                  <option>coupé</option>
+                  <option>dual cowl</option>
+                  <option>fastback</option>
+                  <option>hatchback</option>
+                  <option>kabriolet</option>
+                  <option>kombi</option>
+                  <option>liftback</option>
+                  <option>limuzyna</option>
+                  <option>mikrovan</option>
+                  <option>minivan</option>
+                  <option>pick-up</option>
+                  <option>roadster</option>
+                  <option>sedan</option>
+                  <option>SUV</option>
+                  <option>targa</option>
+                  <option>van</option>
+                  <option>inny</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="description">opis:</label>
+                <textarea
+                  formControlName="description"
+                  class="form-control"
+                  placeholder="(3-200 znaków)"
+                  maxlength="200"
+                  rows="4"
+                  value="{{ carDetails.description }}"
+                ></textarea>
+              </div>
+              <div class="form-group">
+                <label for="doors">liczba drzwi:</label>
+                <input
+                  type="number"
+                  formControlName="doors"
+                  class="form-control"
+                  placeholder="(2-7)"
+                  min="2"
+                  max="7"
+                  step="1"
+                  value="{{ carDetails.doors }}"
+                />
+              </div>
+              <div class="form-group">
+                <label for="fuel">rodzaj paliwa:</label>
+                <select class="form-control" formControlName="fuel">
+                  <option>{{ carDetails.fuel }}</option>
+                  <option disabled></option>
+                  <option>benzyna</option>
+                  <option>diesel</option>
+                  <option>elektryczny</option>
+                  <option>hybryda</option>
+                  <option>LPG</option>
+                  <option>wodór</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="transmission">skrzynia biegów:</label>
+                <select class="form-control" formControlName="transmission">
+                  <option>{{ carDetails.transmission }}</option>
+                  <option disabled></option>
+                  <option>automatyczna</option>
+                  <option>manualna</option>
+                  <option>półautomatyczna</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="price">cena za dzień (PLN):</label>
+                <input
+                  type="number"
+                  formControlName="price"
+                  class="form-control"
+                  placeholder="(max 3000)"
+                  min="0"
+                  max="3000"
+                  step="50"
+                  value="{{ carDetails.price }}"
+                />
+              </div>
+              <div class="form-group">
+                <label for="year">rocznik:</label>
+                <input
+                  type="number"
+                  formControlName="year"
+                  class="form-control"
+                  min="1960"
+                  max="2100"
+                  step="1"
+                  value="{{ carDetails.year }}"
+                />
+              </div>
+              <div class="form-group">
+                <label for="lP100Km">spalanie (l/100km):</label>
+                <input
+                  type="number"
+                  formControlName="lP100Km"
+                  class="form-control"
+                  min="4"
+                  max="100"
+                  step="0.1"
+                  value="{{ carDetails.lP100Km }}"
+                />
+              </div>
+              <div class="form-group">
+                <label for="airConditioned">klimatyzacja:</label>
+                <select class="form-control" formControlName="airConditioned">
+                  <option>{{ carDetails.airConditioned }}</option>
+                  <option disabled></option>
+                  <option>tak</option>
+                  <option>nie</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="photoFile">zdjęcie:</label>
+                <input
+                  type="file"
+                  class="form-control-file"
+                  formControlName="photoFile"
+                  (change)="onSelectCarPhotoFile($event)"
+                />
+              </div>
+              <button
+                type="button"
+                class="btn mx-auto hoverable-white my-3"
+                (click)="onUpdate()"
+              >
+                aktualizuj
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

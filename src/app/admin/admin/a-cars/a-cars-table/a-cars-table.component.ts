@@ -29,10 +29,15 @@ export class ACarsTableComponent implements OnInit {
     'price',
     'year',
     'lP100Km',
-    'airConditioned'
+    'airConditioned',
+    'carDetails'
   ];
 
   ngOnInit() {
-    this.dataSource = new ACarsTableDataSource(this.paginator, this.sort, this.dataToTable);
+    this.dataSource = new ACarsTableDataSource(
+      this.paginator,
+      this.sort,
+      this.dataToTable
+    );
   }
 }

@@ -42,6 +42,12 @@ export class CarService {
     });
   }
 
+  updateCar(carToUpdate: FormData) {
+    return this.http.put(this.baseUrl + 'cars/update', carToUpdate, {
+      observe: 'response'
+    });
+  }
+
   searchForAvaliableCars(searchParams: SearchParams) {
     return this.http.post(
       this.baseUrl + 'cars/search',

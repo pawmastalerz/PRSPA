@@ -13,9 +13,10 @@ import { ACurrentOrdersTableComponent } from './admin/a-orders/a-current-orders-
 import { ACustomersTableComponent } from './admin/a-customers/a-customers-table/a-customers-table.component';
 import { ACarsTableComponent } from './admin/a-cars/a-cars-table/a-cars-table.component';
 import { ACarsNewComponent } from './admin/a-cars/a-cars-new/a-cars-new.component';
+import { ACarDetailsComponent } from './admin/a-cars/a-car-details/a-car-details.component';
 
 @NgModule({
-  declarations: [AdminComponent, ASidebarComponent, ACarsComponent, ACustomersComponent, AOrdersComponent, AOrdersTableComponent, ACurrentOrdersTableComponent, ACustomersTableComponent, ACarsTableComponent, ACarsNewComponent],
+  declarations: [AdminComponent, ASidebarComponent, ACarsComponent, ACustomersComponent, AOrdersComponent, AOrdersTableComponent, ACurrentOrdersTableComponent, ACustomersTableComponent, ACarsTableComponent, ACarsNewComponent, ACarDetailsComponent],
   imports: [
     CommonModule,
     RouterModule,

@@ -1,7 +1,7 @@
 import { AlertifyService } from 'src/services/alertify.service';
 import { Car } from 'src/models/car';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CarService } from 'src/services/car.service';
 
 @Component({
@@ -15,7 +15,8 @@ export class CarDetailsComponent implements OnInit {
   constructor(
     private carService: CarService,
     private route: ActivatedRoute,
-    private alertify: AlertifyService
+    private alertify: AlertifyService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -30,6 +31,7 @@ export class CarDetailsComponent implements OnInit {
         error => {
           console.log(error);
           this.alertify.message('błąd podczas ładowania szczegółów samochodu');
+          this.router.navigate(['home/main']);
         }
       );
   }
