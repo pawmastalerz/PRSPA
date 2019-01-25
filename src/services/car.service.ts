@@ -42,19 +42,21 @@ export class CarService {
     });
   }
 
+  searchForAvaliableCars(searchParams: SearchParams) {
+    return this.http.post(this.baseUrl + 'cars/search', searchParams, {
+      observe: 'response'
+    });
+  }
+
   updateCar(carToUpdate: FormData) {
     return this.http.put(this.baseUrl + 'cars/update', carToUpdate, {
       observe: 'response'
     });
   }
 
-  searchForAvaliableCars(searchParams: SearchParams) {
-    return this.http.post(
-      this.baseUrl + 'cars/search',
-      searchParams,
-      {
-        observe: 'response'
-      }
-    );
+  deleteCar(carId: string) {
+    return this.http.delete(this.baseUrl + 'cars/' + carId, {
+      observe: 'response'
+    });
   }
 }

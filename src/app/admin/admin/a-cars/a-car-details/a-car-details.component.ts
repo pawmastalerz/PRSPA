@@ -191,4 +191,19 @@ export class ACarDetailsComponent implements OnInit {
       }
     }
   }
+
+  onDelete() {
+    this.carService.deleteCar(this.idByRoute).subscribe(
+      (res: any) => {
+        if (+res.status === 200) {
+          this.alertify.message('usunięto samochód o id ' + this.idByRoute);
+          this.router.navigate(['home/admin/cars']);
+        }
+      },
+      error => {
+        console.log(error);
+        this.alertify.message('błąd podczas usuwania samochodu');
+      }
+    );
+  }
 }
