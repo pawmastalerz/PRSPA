@@ -1,3 +1,151 @@
-<p>
-  a-cars-new works!
-</p>
+<div class="form">
+  <form [formGroup]="newCarForm" (keydown)="keyDownFunction($event)">
+    <div class="row p-3">
+      <div class="col">
+        <div class="form-group">
+          <label for="brand">marka:</label>
+          <input
+            type="text"
+            formControlName="brand"
+            class="form-control"
+            placeholder="(3-30 znaków)"
+            maxlength="30"
+          />
+        </div>
+        <div class="form-group">
+          <label for="model">model:</label>
+          <input
+            type="text"
+            formControlName="model"
+            class="form-control"
+            placeholder="(3-30 znaków)"
+            maxlength="30"
+          />
+        </div>
+        <div class="form-group">
+          <label for="body">typ nadwozia:</label>
+          <select class="form-control" formControlName="body">
+            <option disabled></option>
+            <option>coupé</option>
+            <option>dual cowl</option>
+            <option>fastback</option>
+            <option>hatchback</option>
+            <option>kabriolet</option>
+            <option>kombi</option>
+            <option>liftback</option>
+            <option>limuzyna</option>
+            <option>mikrovan</option>
+            <option>minivan</option>
+            <option>pick-up</option>
+            <option>roadster</option>
+            <option>sedan</option>
+            <option>SUV</option>
+            <option>targa</option>
+            <option>van</option>
+            <option>inny</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="description">opis:</label>
+          <textarea
+            formControlName="description"
+            class="form-control"
+            placeholder="(3-200 znaków)"
+            maxlength="200"
+            rows="4"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="doors">liczba drzwi:</label>
+          <input
+            type="number"
+            formControlName="doors"
+            class="form-control"
+            placeholder="(2-7)"
+            min="2"
+            max="7"
+            step="1"
+          />
+        </div>
+        <div class="form-group">
+          <label for="fuel">rodzaj paliwa:</label>
+          <select class="form-control" formControlName="fuel">
+            <option disabled></option>
+            <option>benzyna</option>
+            <option>diesel</option>
+            <option>elektryczny</option>
+            <option>hybryda</option>
+            <option>LPG</option>
+            <option>wodór</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="transmission">skrzynia biegów:</label>
+          <select class="form-control" formControlName="transmission">
+            <option disabled></option>
+            <option>automatyczna</option>
+            <option>manualna</option>
+            <option>półautomatyczna</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="price">cena za dzień (PLN):</label>
+          <input
+            type="number"
+            formControlName="price"
+            class="form-control"
+            placeholder="(max 3000)"
+            min="0"
+            max="3000"
+            step="50"
+          />
+        </div>
+        <div class="form-group">
+          <label for="year">rocznik:</label>
+          <input
+            type="number"
+            formControlName="year"
+            class="form-control"
+            min="1960"
+            max="2100"
+            step="1"
+          />
+        </div>
+        <div class="form-group">
+          <label for="lP100Km">spalanie (l/100km):</label>
+          <input
+            type="number"
+            formControlName="lP100Km"
+            class="form-control"
+            min="4"
+            max="100"
+            step="0.1"
+          />
+        </div>
+        <div class="form-group">
+          <label for="airConditioned">klimatyzacja:</label>
+          <select class="form-control" formControlName="airConditioned">
+            <option disabled></option>
+            <option>tak</option>
+            <option>nie</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="photoFile">zdjęcie:</label>
+          <input
+            type="file"
+            class="form-control-file"
+            formControlName="photoFile"
+          />
+        </div>
+        <button
+          type="button"
+          class="btn mx-auto hoverable-white my-3"
+          (click)="onSubmit()"
+        >
+          dodaj samochód
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

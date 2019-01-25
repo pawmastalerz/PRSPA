@@ -3,6 +3,9 @@
     <div class="dimmed-container">
       <h1 class="p-3">Flota:</h1>
       <mat-tab-group>
+        <mat-tab label="Dodaj nowy samochód">
+          <app-a-cars-new></app-a-cars-new>
+        </mat-tab>
         <mat-tab label="Wszystkie samochody">
           <div class="mt-3 p-3 not-found" *ngIf="wholeFleet.length === 0">
             <p class="text-center">W bazie danych nie ma żadnych klientów.</p>
@@ -11,9 +14,6 @@
           <div *ngIf="wholeFleet.length > 0">
             <app-a-cars-table [dataToTable]="wholeFleet"></app-a-cars-table>
           </div>
-        </mat-tab>
-        <mat-tab label="Dodaj nowy samochód">
-          <app-a-cars-new></app-a-cars-new>
         </mat-tab>
       </mat-tab-group>
     </div>

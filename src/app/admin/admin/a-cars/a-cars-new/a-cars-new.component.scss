@@ -1,0 +1,18 @@
+@import 'src/styles.scss';
+
+.form {
+  overflow: auto;
+  label {
+    color: map-get($map: $custom, $key: light);
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .form {
+    max-height: 650px;
+    form {
+      padding-left: 25%;
+      padding-right: 25%;
+    }
+  }
+}
