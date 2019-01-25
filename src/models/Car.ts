@@ -9,7 +9,7 @@ export class Car {
   transmission: string;
   price: number;
   year: number;
-  lP100Km: number;
+  lP100Km: string;
   photoUrl: string;
   airConditioned: string;
 }

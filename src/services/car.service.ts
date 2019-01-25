@@ -12,7 +12,7 @@ export class CarService {
 
   constructor(private http: HttpClient) {}
 
-  createCar(carToCreate: Car) {
+  createCar(carToCreate: FormData) {
     return this.http.post(this.baseUrl + 'cars/create', carToCreate, {
       observe: 'response'
     });
