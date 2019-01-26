@@ -93,6 +93,12 @@ export class AuthService {
       );
   }
 
+  getSpecificPersonalData(userId: string) {
+    return this.http.get(this.baseUrl + 'users/' + userId, {
+      observe: 'response'
+    });
+  }
+
   getPersonalData() {
     this.decodedToken = this.jwtHelper.decodeToken(
       localStorage.getItem('accessToken')

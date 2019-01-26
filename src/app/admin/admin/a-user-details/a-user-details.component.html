@@ -1,0 +1,16 @@
+<div class="row mx-0 main">
+  <div class="col">
+    <div class="dimmed-container">
+      <h1 class="p-3">Szczegóły użytkownika o id {{ idByRoute }}:</h1>
+      <div class="mt-3 p-3 not-found" *ngIf="userDetails.username === undefined">
+        <p class="text-center">
+          W bazie danych nie ma użytkownika o id {{ idByRoute }}.
+        </p>
+        <br />
+      </div>
+      <div class="form" *ngIf="userDetails.username !== undefined">
+        no siema
+      </div>
+    </div>
+  </div>
+</div>
