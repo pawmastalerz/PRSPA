@@ -135,8 +135,6 @@ export class ACarDetailsComponent implements OnInit {
 
       this.carService.updateCar(this.editCarFormData).subscribe(
         (res: any) => {
-          console.log(res);
-          console.log(res.status);
           if (+res.status === 200) {
             this.alertify.message('zaktualizowano dane samochodu');
             this.editCarForm.reset();

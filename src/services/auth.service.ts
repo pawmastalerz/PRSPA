@@ -51,7 +51,7 @@ export class AuthService {
           }
         },
         error => {
-          console.log(+error.status);
+          console.log(error);
           if (+error.status === 401) {
             this.alertify.message('nieprawidłowe dane logowania');
           }

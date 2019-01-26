@@ -29,7 +29,6 @@ export class AUserDetailsComponent implements OnInit {
       (res: any) => {
         if (+res.status === 200) {
           this.userDetails = res.body;
-          console.log(this.userDetails);
         }
       },
       error => {

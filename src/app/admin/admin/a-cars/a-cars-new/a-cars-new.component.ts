@@ -95,8 +95,6 @@ export class ACarsNewComponent implements OnInit {
 
       this.carService.createCar(this.newCarFormData).subscribe(
         (res: any) => {
-          console.log(res);
-          console.log(res.status);
           if (+res.status === 200) {
             this.alertify.message('dodano nowy samochód do bazy danych');
             this.newCarForm.reset();
