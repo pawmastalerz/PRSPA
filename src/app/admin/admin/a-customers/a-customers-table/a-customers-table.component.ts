@@ -26,7 +26,7 @@ export class ACustomersTableComponent implements OnInit {
     'street',
     'streetNumber',
     'postalCode',
-    'deleteButton'
+    'detailsButton'
   ];
 
   constructor(

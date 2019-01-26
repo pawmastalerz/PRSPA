@@ -6,9 +6,10 @@
   h1 {
     font-size: 28px;
     font-weight: 400;
+    color: map-get($map: $custom, $key: light);
   }
-  h1,
-  label {
+  p {
+    font-size: 22px;
     color: map-get($map: $custom, $key: light);
   }
   .dimmed-container {
@@ -19,19 +20,6 @@
     .not-found {
       color: map-get($map: $custom, $key: light);
       font-size: 20px;
-    }
-    .form {
-      overflow: auto;
-      label {
-        color: map-get($map: $custom, $key: light);
-      }
-    }
-    .currentPhoto {
-      width: 100%;
-      height: 500px;
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
     }
     hr {
       background-color: map-get($map: $custom, $key: basic);
@@ -52,12 +40,10 @@
   .dimmed-container {
     height: 800px;
     margin-bottom: 0;
-    .form {
+    .details {
       max-height: 650px;
-      form {
-        padding-left: 25%;
-        padding-right: 25%;
-      }
+      padding-left: 25%;
+      padding-right: 25%;
     }
   }
 }

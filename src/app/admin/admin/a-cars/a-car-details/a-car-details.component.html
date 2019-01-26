@@ -10,7 +10,7 @@
       </div>
       <div class="form" *ngIf="carDetails.body !== undefined">
         <form [formGroup]="editCarForm" (keydown)="keyDownFunction($event)">
-          <div class="row p-3">
+          <div class="row">
             <div class="col">
               <div class="form-group">
                 <label for="brand">marka:</label>
@@ -171,15 +171,16 @@
                 type="button"
                 class="btn mx-auto hoverable-white mt-3"
                 (click)="onUpdate()"
+                [disabled]="editCarForm.pristine"
               >
-                aktualizuj
+                aktualizuj dane samochodu
               </button>
             </div>
           </div>
-          <hr class="mb-2" />
+          <hr />
           <button
             type="button"
-            class="btn mx-auto mx-lg-0 ml-lg-auto hoverable-white my-5 delete"
+            class="btn mx-auto mx-lg-0 ml-lg-auto hoverable-white mt-3 delete"
             (click)="onDelete()"
           >
             usuń samochód

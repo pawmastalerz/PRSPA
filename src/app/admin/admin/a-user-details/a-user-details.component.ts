@@ -2,7 +2,7 @@ import { AlertifyService } from 'src/services/alertify.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/models/User';
 import { AuthService } from 'src/services/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-a-user-details',
@@ -16,7 +16,8 @@ export class AUserDetailsComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,
-    private alertify: AlertifyService
+    private alertify: AlertifyService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -34,6 +35,23 @@ export class AUserDetailsComponent implements OnInit {
       error => {
         console.log(error);
         this.alertify.message('błąd podczas ładowania szczegółów użytkownika');
+      }
+    );
+  }
+
+  onDelete() {
+    this.authService.deleteSpecificAccount(this.idByRoute).subscribe(
+      (res: any) => {
+        if (+res.status === 200) {
+          this.alertify.message(
+            'usunięto dane użytkownika o id ' + this.idByRoute + ', zachowując jego zamówienia'
+          );
+          this.router.navigate(['home/admin/customers']);
+        }
+      },
+      error => {
+        console.log(error);
+        this.alertify.message('błąd podczas usuwania konta');
       }
     );
   }

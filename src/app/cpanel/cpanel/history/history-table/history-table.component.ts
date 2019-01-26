@@ -21,6 +21,7 @@ export class HistoryTableComponent implements OnInit {
     'brand',
     'model',
     'year',
+    'carDetails',
     'totalPrice',
     'reservedFrom',
     'reservedTo',

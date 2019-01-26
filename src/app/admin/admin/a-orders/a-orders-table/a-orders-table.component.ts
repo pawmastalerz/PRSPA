@@ -22,6 +22,7 @@ export class AOrdersTableComponent implements OnInit {
     'model',
     'year',
     'userId',
+    'detailsButton',
     'totalPrice',
     'reservedFrom',
     'reservedTo',

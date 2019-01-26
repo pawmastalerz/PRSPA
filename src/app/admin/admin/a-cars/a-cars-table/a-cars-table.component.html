@@ -62,7 +62,7 @@
     </ng-container>
 
     <ng-container matColumnDef="carDetails">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Szczegóły samochodu</th>
       <td mat-cell *matCellDef="let row">
         <button
           type="button"
@@ -70,7 +70,7 @@
           [routerLink]="['/home/admin/car_details/' + row.carId]"
           [ngStyle]="{ 'font-size': '14px' }"
         >
-          szczegóły...
+          więcej...
         </button>
       </td>
     </ng-container>

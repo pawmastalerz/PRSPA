@@ -21,10 +21,10 @@ export class SearchResultsItemComponent implements OnInit {
   searchResult: Car;
 
   isAuth: boolean;
-  calculatePriceParams: CalculatePriceParams;
+  calculatePriceParams: CalculatePriceParams = new CalculatePriceParams();
   calculatedPrice: number;
 
-  newOrder: Order;
+  newOrder: Order = new Order();
 
   constructor(
     private authService: AuthService,

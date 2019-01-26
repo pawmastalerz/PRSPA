@@ -23,6 +23,7 @@ export class CurrentTableComponent implements OnInit {
     'brand',
     'model',
     'year',
+    'carDetails',
     'totalPrice',
     'reservedFrom',
     'reservedTo',

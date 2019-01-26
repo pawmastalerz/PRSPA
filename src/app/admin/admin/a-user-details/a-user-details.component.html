@@ -2,14 +2,32 @@
   <div class="col">
     <div class="dimmed-container">
       <h1 class="p-3">Szczegóły użytkownika o id {{ idByRoute }}:</h1>
-      <div class="mt-3 p-3 not-found" *ngIf="userDetails.username === undefined">
+      <div
+        class="mt-3 p-3 not-found"
+        *ngIf="userDetails.username === undefined"
+      >
         <p class="text-center">
           W bazie danych nie ma użytkownika o id {{ idByRoute }}.
         </p>
         <br />
       </div>
-      <div class="form" *ngIf="userDetails.username !== undefined">
-        no siema
+      <div class="details" *ngIf="userDetails.username !== undefined">
+        <p>Id użytkownika: {{ userDetails.userId }}</p>
+        <p>Login: {{ userDetails.username }}</p>
+        <p>E-mail: {{ userDetails.email }}</p>
+        <p>Miasto: {{ userDetails.city }}</p>
+        <p>Ulica: {{ userDetails.street }}</p>
+        <p>Numer posesji / mieszkania: {{ userDetails.streetNumber }}</p>
+        <p>Kod pocztowy: {{ userDetails.postalCode }}</p>
+        <hr class="my-2" />
+        <button
+          *ngIf="userDetails.userId !== 1"
+          type="button"
+          class="btn mx-auto mx-lg-0 ml-lg-auto hoverable-white mt-3 delete"
+          (click)="onDelete()"
+        >
+          usuń użytkownika
+        </button>
       </div>
     </div>
   </div>
