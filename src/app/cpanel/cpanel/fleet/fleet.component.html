@@ -1,0 +1,16 @@
+<div class="row mx-0 main">
+  <div class="col">
+    <div class="dimmed-container">
+      <h1 class="p-3">Nasza flota:</h1>
+      <div class="mt-3 p-3 not-found" *ngIf="allCars.length === 0">
+        <p class="text-center">
+          W bazie danych nie ma żadnych samochodów.
+        </p>
+        <br />
+      </div>
+      <div *ngIf="allCars.length > 0">
+        <app-fleet-table [dataToTable]="allCars"></app-fleet-table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -23,6 +23,7 @@ import { AdminGuard } from 'src/helpers/admin.guard';
 import { CpanelGuard } from 'src/helpers/cpanel.guard';
 import { ACarDetailsComponent } from './admin/admin/a-cars/a-car-details/a-car-details.component';
 import { AUserDetailsComponent } from './admin/admin/a-user-details/a-user-details.component';
+import { FleetComponent } from './cpanel/cpanel/fleet/fleet.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
@@ -55,6 +56,7 @@ const routes: Routes = [
             component: NeworderComponent,
             pathMatch: 'full'
           },
+          { path: 'fleet', component: FleetComponent, pathMatch: 'full' },
           { path: 'history', component: HistoryComponent, pathMatch: 'full' },
           { path: 'current', component: CurrentComponent, pathMatch: 'full' },
           { path: 'personal', component: PersonalComponent, pathMatch: 'full' },

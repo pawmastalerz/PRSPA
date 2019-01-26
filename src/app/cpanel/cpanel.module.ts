@@ -12,6 +12,8 @@ import { NeworderComponent } from './cpanel/neworder/neworder.component';
 import { HistoryTableComponent } from './cpanel/history/history-table/history-table.component';
 import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { CurrentTableComponent } from './cpanel/current/current-table/current-table.component';
+import { FleetComponent } from './cpanel/fleet/fleet.component';
+import { FleetTableComponent } from './cpanel/fleet/fleet-table/fleet-table.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { CurrentTableComponent } from './cpanel/current/current-table/current-ta
     SettingsComponent,
     NeworderComponent,
     HistoryTableComponent,
-    CurrentTableComponent
+    CurrentTableComponent,
+    FleetComponent,
+    FleetTableComponent
   ],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, MatTableModule, MatPaginatorModule, MatSortModule]
 })

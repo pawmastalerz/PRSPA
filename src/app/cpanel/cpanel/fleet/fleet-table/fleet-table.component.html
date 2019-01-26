@@ -1,0 +1,92 @@
+<div class="mat-elevation-z8">
+  <table
+    mat-table
+    class="full-width-table"
+    [dataSource]="dataSource"
+    matSort
+    aria-label="Elements"
+  >
+    <ng-container matColumnDef="carId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td mat-cell *matCellDef="let row">{{ row.carId }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="brand">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Marka</th>
+      <td mat-cell *matCellDef="let row">{{ row.brand }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="model">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Model</th>
+      <td mat-cell *matCellDef="let row">{{ row.model }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="body">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nadwozie</th>
+      <td mat-cell *matCellDef="let row">{{ row.body }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="doors">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Drzwi</th>
+      <td mat-cell *matCellDef="let row">{{ row.doors }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="fuel">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Paliwo</th>
+      <td mat-cell *matCellDef="let row">{{ row.fuel }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="transmission">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Skrzynia biegów</th>
+      <td mat-cell *matCellDef="let row">{{ row.transmission }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Cena</th>
+      <td mat-cell *matCellDef="let row">{{ row.price | number: '.2' }} PLN</td>
+    </ng-container>
+
+    <ng-container matColumnDef="year">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Rocznik</th>
+      <td mat-cell *matCellDef="let row">{{ row.year }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="lP100Km">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Spalanie</th>
+      <td mat-cell *matCellDef="let row">{{ row.lP100Km }} l/100km</td>
+    </ng-container>
+
+    <ng-container matColumnDef="airConditioned">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Klimatyzacja</th>
+      <td mat-cell *matCellDef="let row">{{ row.airConditioned }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="carDetails">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Szczegóły samochodu
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <button
+          type="button"
+          class="btn my-1 hoverable-white"
+          [routerLink]="['/home/details/' + row.carId]"
+          [ngStyle]="{ 'font-size': '14px' }"
+        >
+          więcej...
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    #paginator
+    [length]="dataSource.data.length"
+    [pageIndex]="0"
+    [pageSize]="50"
+    [pageSizeOptions]="[25, 50, 100, 250]"
+  >
+  </mat-paginator>
+</div>
