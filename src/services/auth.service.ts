@@ -65,22 +65,18 @@ export class AuthService {
     this.isAdmin.next(false);
   }
 
-  register(
-    user: User
-  ) {
+  register(user: User) {
     return this.http
-      .post(
-        this.baseUrl + 'users/register',
-        user,
-        {
-          observe: 'response'
-        }
-      )
+      .post(this.baseUrl + 'users/register', user, {
+        observe: 'response'
+      })
       .subscribe(
         (res: any) => {
           if (+res.status === 200) {
             this.router.navigateByUrl('/home/login');
-            this.alertify.message('zarejestrowano użytkownika ' + user.username);
+            this.alertify.message(
+              'zarejestrowano użytkownika ' + user.username
+            );
           }
         },
         error => {
@@ -100,9 +96,6 @@ export class AuthService {
   }
 
   getPersonalData() {
-    this.decodedToken = this.jwtHelper.decodeToken(
-      localStorage.getItem('accessToken')
-    );
     const decodedTokenId = this.decodedToken['unique_name'];
     return this.http.get(this.baseUrl + 'users/' + decodedTokenId, {
       observe: 'response'
@@ -110,17 +103,11 @@ export class AuthService {
   }
 
   getUserId() {
-    this.decodedToken = this.jwtHelper.decodeToken(
-      localStorage.getItem('accessToken')
-    );
     const decodedTokenId = this.decodedToken['unique_name'];
     return decodedTokenId;
   }
 
   updatePersonal(user: User) {
-    this.decodedToken = this.jwtHelper.decodeToken(
-      localStorage.getItem('accessToken')
-    );
     const decodedTokenId = this.decodedToken['unique_name'];
     return this.http.put(this.baseUrl + 'users/' + decodedTokenId, user, {
       observe: 'response'
@@ -128,9 +115,6 @@ export class AuthService {
   }
 
   updatePassword(currentPassword: string, password: string) {
-    this.decodedToken = this.jwtHelper.decodeToken(
-      localStorage.getItem('accessToken')
-    );
     const decodedTokenId = this.decodedToken['unique_name'];
     return this.http.put(
       this.baseUrl + 'users/' + decodedTokenId,
@@ -142,9 +126,6 @@ export class AuthService {
   }
 
   deleteAccount() {
-    this.decodedToken = this.jwtHelper.decodeToken(
-      localStorage.getItem('accessToken')
-    );
     const decodedTokenId = this.decodedToken['unique_name'];
     return this.http.delete(this.baseUrl + 'users/' + decodedTokenId, {
       observe: 'response'
@@ -166,18 +147,25 @@ export class AuthService {
   }
 
   public isAuthenticated(): boolean {
-    if (!this.jwtHelper.isTokenExpired(localStorage.getItem('accessToken'))) {
-      return true;
+    if (
+      localStorage.getItem('accessToken') === null ||
+      this.jwtHelper.isTokenExpired(this.getToken())
+    ) {
+      return false;
     }
-    return false;
+    this.decodedToken = this.jwtHelper.decodeToken(this.getToken());
+    return true;
   }
 
   public isAuthenticatedAsAdmin(): boolean {
-    this.decodedToken = this.jwtHelper.decodeToken(this.getToken());
-    if (this.decodedToken.unique_name === '1') {
-      return true;
+    if (
+      localStorage.getItem('accessToken') === null ||
+      this.jwtHelper.isTokenExpired(this.getToken()) ||
+      this.decodedToken.unique_name !== '1'
+    ) {
+      return false;
     }
-    return false;
+    return true;
   }
 
   getToken() {
