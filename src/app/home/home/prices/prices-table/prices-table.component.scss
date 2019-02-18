@@ -1,5 +1,12 @@
 @import 'src/styles.scss';
 
 .full-width-table {
-  width: 500px;
+  min-width: 95vw;
+}
+
+@media only screen and (min-width: 576px) {
+  .full-width-table {
+    min-width: 0;
+    width: 500px;
+  }
 }
