@@ -82,6 +82,11 @@ hr {
   height: 1px;
 }
 
+//owl
+.owl-stage-outer {
+  cursor: e-resize;
+}
+
 // alertify
 .alertify-notifier .ajs-message {
   background-color: map-get($map: $custom, $key: basic) !important;

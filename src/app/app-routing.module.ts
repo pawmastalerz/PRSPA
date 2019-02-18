@@ -27,6 +27,7 @@ import { FleetComponent } from './cpanel/cpanel/fleet/fleet.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent, pathMatch: 'full' },
+  { path: 'home', pathMatch: 'full', redirectTo: 'home/main' },
   {
     path: 'home',
     component: HomeComponent,
@@ -46,6 +47,7 @@ const routes: Routes = [
         component: SearchResultsComponent,
         pathMatch: 'full'
       },
+      { path: 'cpanel', pathMatch: 'full', redirectTo: 'cpanel/current'},
       {
         path: 'cpanel',
         component: CpanelComponent,
@@ -63,6 +65,7 @@ const routes: Routes = [
           { path: 'settings', component: SettingsComponent, pathMatch: 'full' }
         ]
       },
+      { path: 'admin', pathMatch: 'full', redirectTo: 'admin/orders'},
       {
         path: 'admin',
         component: AdminComponent,
